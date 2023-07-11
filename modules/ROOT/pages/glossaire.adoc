@@ -1,0 +1,67 @@
+= Glossaire
+
+[glossary]
+
+variable::
+ symbole dans le code, dont le *nom témoigne de son rôle*, qui désigne selon son utilisation soit un *contenant* (une adresse mémoire) soit une *valeur de contenu* (interprétée selon son *type*)
+
+type::
+ Pour l'interpréteur, désigne comment utiliser et stocker la valeur d'une variable.
+Pour l'utilisateur, limite l'exploitation de la variable aux opérations définies sur ce type.
+
+valeur d'une variable:: interprétation du contenu de (l'espace occupé par) la variable, selon son type.
++
+Exemple : `x = "42"` ou `y = 42`;
++
+La valeur de `_x_` est `"42"` est son type est *string*
++
+La valeur de `_y_` est `42` est sont type est *int*
++
+Ces deux variables pointent vers des espaces mémoire peu comparables en terme de structure binaire et de taille.
+
+Constante littérale::
+ Valeur inscrite dans le code source
++
+Ces valeurs sont typées. Exemple : `'ANNEE' "ANNEE" """ANNEE"""` sont des constantes littérales de type *string*
+
+Convention de nommage::
+ Les conventions usuelles
+
+.Les conventions courantes
+[frame=all]
+|===
+|_nom_| _usage_
+
+|*UpperCamelCase*| nom de classe
+|*lowerCamelCase*| propriété, méthode, variable, paramètre... en Java, JS, PHP...
+|*lower_snake_case*| nom de variable et fonction en python
+|*SCREAMING_SNAKE_CASE*| constante
+|*kebab-case*| ressource web, identifiant, attribut html
+|===
+
+return::
+ Directive signifiant la fin de l'exécution du corps de la fonction où elle est présente. Peut être suivie d'une valeur qui sera retournée à l'appelant.
+
+Appelant::
+  Instruction (un bout de code) qui appelle une fonction en se fiant à son entête.
+  Exemple : `x = len(y)` est une instruction *appelant* l'exécution de la fonction `len`.
+
+Appelé::
+  Un sous-programme identifié par un nom (nom d'une fonction par exemple)
+Exemple : `x = len(y)`, `len` est la fonction *appelée*. Dans cet exemple, la valeur de retour de la fonction appelée est stockée, par l'appelant, dans une variable nommée `x`.
+
+Entête d'une fonction::
+  Nommée également *interface*, définit le nom de la fonction, ses paramètres éventuels et son type de retour (ou `None`).
+   Exemple (première ligne) :
++
+[source, python, n]
+----
+def bidon() -> None :
+  pass
+----
+
+Corps d'une fonction::
+ Nommée également *implementation*, définit le travail de la fonction, et sa valeur de retour, si attendue. La séquence d'instructions est placée dans le bloc indenté qui suit l'entête de la fonction.
+
+Algorithme déterministe::
+(sensibilisation) Une fonction, pour une même donnée d'entrée, doit invariablement produire la même sortie.

@@ -1,0 +1,28 @@
+= Support de cours Python
+Lycée Léonard de Vinci - Melun
+v1.1, 2023-07-14: Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matieres
+:toc: left
+:toclevels: 3
+:source-highlighter: coderay
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Présentation
+
+Ce support vise à introduire des concepts de base en programmation, avec une forte invitation à la pratique.
+
+// <<<
+include::_python-1-intro.adoc[leveloffset=+1]
+include::_python-2-intro-types-de-base.adoc[leveloffset=+1]
+include::glossaire.adoc[leveloffset=+1]
+

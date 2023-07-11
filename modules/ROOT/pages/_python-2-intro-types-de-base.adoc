@@ -1,0 +1,571 @@
+= Python-2
+:imagesdir: images
+
+== Méta-modèle IPO
+
+Nous avons vu que les exercices de programmation ont en commun le fait qu'ils traitent des informations et produisent un résultat en retour.
+
+C'est en fait le schéma général qui est en action dans l'ensemble des systèmes.
+
+ENTREE -> TRAITEMENT -> RESULTAT
+
+Le résultat pouvant être une entrée vers un autre processus analogue.
+
+En anglais, ce modèle est connu sous l'acronyme *IPO* :
+
+INPUT -> PROCESS -> OUTPUT
+
+== Déterminisme
+
+Lorsqu'il s'agit de programmation, le _process_ du modèle IPO, c'est à dire la partie traitement, se doit d'être *déterministe*.
+
+Par déterminisme, il faut comprendre qu'une fonction doit, pour un même ensemble de données d'entrée, toujours produire la même sortie.
+
+Par exemple, définissons une fonction qui retourne le signe d'un nombre passé en argument :
+
+[source, python]
+----
+def signe(x: int) -> str: <1>
+  """ <2>
+   Retourne le signe de son argument.
+   soit '+', '-' ou '' (chaine vide) si x==0
+  """
+  result = '' # pas de signe
+  if (x < 0):
+    result = '-'
+  elif (x > 0): <3>
+    result = '+'
+  return result
+----
+
+<1> On précise ici le type du premier argument (premier paramètre) ainsi que le type de retour de la fonction (string). Cette possibilité a été introduite à partir de la version 3.5 de python. Cette information n'est pour l'heure pas exploitée par l'interpréteur. (voir https://docs.python.org/3/library/typing.html)
+
+<2> C'est une chaîne de documentation ("docstring"). Son but est de présenter le rôle de la fonction. C'est à destination des développeurs (pas de l'interpréteur). N'hésitez pas à mettre des exemples dans cette partie.
+<3> *elif*, une contraction de `else if`, c'est un des mots clés de python.
+
+On pourra appeler autant de fois notre fonction `signe` avec la même valeur de donnée d'entrée, elle nous retournera toujours le même résultat.
+
+Exemple :
+
+[source, python]
+----
+print(signe(42)) # +
+print(signe(42)) # +
+print(signe(40+2)) # +
+print(signe(2+2*20)) # +
+...
+print(signe(-42)) # -
+...
+print(signe(0)) #
+
+----
+
+== Type et opérations
+
+Nous avons constaté (Exercice 7) que les opérations sont dépendantes du type de la donnée sur laquelle elles travaillent.
+
+Il existe des types prédéfinis, dits natifs à l'interpréteur (_Built-in_). Ce sont les *numériques*, les *séquences*, les *dictionnaires*, les *classes*, les *instances* et les *exceptions*.
+
+Python manipule des objets et certaines opérations sont prises en charge par plusieurs types d'objets ; en particulier, pratiquement tous les objets peuvent être comparés en égalité, testés en valeur de vérité (valeur booléenne) et convertis en une chaîne de caractères (avec la fonction `repr()` ou la fonction légèrement différente `str()`). Cette dernière est implicitement utilisée quand un objet est affiché par la fonction print().
+
+== Types numériques
+
+Il existe trois types numériques distincts : les *entiers* (_integers_), les nombres *flottants* (_floating point numbers_) et les nombres *complexes* (_complex numbers_). En outre, les *booléens* sont un sous-type des entiers. Les entiers ont une précision illimitée.
+
+Exemples d'opérations courantes (source : https://docsindex.python.org/fr/3/library/stdtypes.html#numeric-types-int-float-complex[documentation opérations])
+image:op-type-numerique.png[op et types numériques]
+
+== Chaine de caractères
+
+Les données textuelles en Python sont manipulées avec des objets `str` ou _strings_. Les chaînes sont des *séquences immuables* de points de code Unicode (une suite ordonnée d'indice dans la table UNICODE).
+
+TIP: Une donnée *immuable* est une donnée qui *ne peut pas être modifiée* une fois créée.
+
+
+Les chaînes littérales peuvent être écrites de différentes manières :
+
+. entre quotes : `'cela autorise les "guillemets"'` ;
+
+. entre guillemets : `"cela autorise les 'simples quotes'"` ;
+
+. entre guillemets triples : `'''Trois simples quotes''', """Trois guillemets"""`.
+
+Les chaînes entre guillemets triples peuvent couvrir plusieurs lignes, *tous les caractères de type 'espace' sont alors inclus dans la chaîne littérale*.
+
+== Travaux pratiques
+
+En python
+
+• La fonction *`ord()`* permet de connaître le code indice d'un caractère (une valeur d'entrée dans la table UNICODE)
+
+• Inversement, la fonction *`chr()`* permet de connaître le caractère UNICODE associé à une valeur d'indice.
+
+Exemple d'utilisation (d'appels) de ces fonctions :
+
+  ord('A') ->   65
+
+  chr(65)  ->   'A'
+
+[TIP]
+====
+La représentation du glyphe d'un caractère UNICODE est de la responsabilité du système d'affichage (dépend de la police et du contexte d'affichage)
+
+Voir plus en détail ici : https://docs.python.org/fr/3/howto/unicode.html[python et l'unicode]
+====
+
+[IMPORTANT]
+====
+Le type caractère n'existe pas en Python. *Un caractère est une chaîne de un seul caractère*.
+
+*Challenge* : Proposez une POC (preuve de concept) de cette remarque !
+====
+
+
+=== EXERCICE 20
+
+
+.*Dans un script nommé `tp2.py`, réaliser, dans une fonction nommée `exo20`, le scénario suivant et l'appeler dans le _main_ :*
+. L'utilisateur est invité à saisir un caractère.
+. Le programme lui affiche successivement les informations suivantes
+** Le code du caractère
+** Le caractère précédent
+** Le caractère suivant
+
+.Exemple d'exécution
+[listing]
+----
+Entrez un caractère, svp : A
+ # l'utilisateur choisit le caractère  'A'
+ # le programme répond
+Le code du caractère est : 65
+Le caractère précédent  : @
+Le caractère suivant : B
+----
+
+=== EXERCICE 21
+
+Voici une spécification de la fonction pred()
+[source]
+----
+fonction pred() : Caractère -> Caractère
+ # reçoit un caractère en argument
+ # rend, s'il existe, le caractère précédent dans la table UNICODE
+ # Sinon une exception est déclenchée
+ # (la gestion des exception sera étudiée ultérieurement)
+
+----
+
+.*À faire dans `tp2.py`*
+. Traduire la fonction `pred` en python.
+. Concevoir la fonction `succ` en python.
+. Tester ces 2 fonctions dans une fonction nommée `exo21` appelées dans le main
+. Réécrire la fonction `exo20` en `exo20bis` en conséquence.
+
+[TIP]
+====
+*Comment déclencher une exception en python ?*
+
+Dans le corps de la fonction, utiliser le mot clé *`raise`* suivi d'une classe d'exception et d'un message. Exemple :
+
+.Vous pouvez consulter la discussion ici : https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python[stackoverflow : manually-raising-throwing-an-exception-in-python]
+[source, python]
+----
+raise ValueError('A very specific bad thing happened.')
+----
+
+Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé.
+====
+
+=== EXERCICE 22
+
+Concevoir une fonction nommée `exo22` qui respecte le scénario suivant :
+
+. L'utilisateur est invité à saisir un *code* de caractère
+. Le programme affiche, dans un tableau, le caractère suivi des 5 caractères suivants et précédés des 5 caractères précédents.
+
+=== EXERCICE 23
+
+Concevoir une fonction nommée `exo23` qui respecte le scénario suivant :
+
+. L'utilisateur est invité à choisir une langue parmi 3 (voir https://en.wikipedia.org/wiki/Unicode_block)
+. Le programme affiche, dans un tableau, les 16 (ou plus ?) premiers caractères UNICODE correspondants.
+
+Exemple : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syllables] Coréen. L'indice du block est `U+AC00`. Testons le premier caractère en mode python interactif:
+
+[source, python]
+----
+>>> ord('\uAC00')
+44032
+>>> chr(44032)
+'가'
+----
+
+== Type booléen
+
+Le type `bool` est sous-type de `int`, et définit 2 valeurs particulières : `True` et `False`, pour 1 et zéro respectivement.
+
+.POC type bool
+[source, python]
+----
+>>> isinstance(True, bool)
+True
+>>> isinstance(False, bool)
+True
+
+>>> isinstance(True, int)
+True
+>>> isinstance(False, int)
+True
+
+>>> isinstance(True, float)
+False
+
+>>> int(True)
+1
+>>> int(False)
+0
+----
+
+=== Valeur de vérité
+
+Bien que le type `bool` soit défini, toute valeur python peut être interprétée en valeur booléenne via la fonction `bool()`
+
+.POC type bool
+[source, python]
+----
+>>> bool(1)
+True
+>>> bool(True)
+True
+>>> bool('Hello World')
+True
+>>> bool(42)
+True
+----
+
+En pratique, toute valeure est considérée *différente de zéro ou 'vide'* sera considérée comme `True`.
+
+==== Valeurs considérées comme `False`
+
+Seules quelques constantes littérales sont considérées comme fausse : `None` et `False`
+
+* `None` et `False`
+
+TIP: Affecter *`None`* à une variable est une façon de dire que cette variable n'a pas de valeur significative.
+
+.Exemple de POC
+[source, python]
+----
+>>> bool(False)
+False
+
+>>> bool(None)
+False
+>>> bool('None')
+True
+----
+
+* zéro de tout type numérique : `0, 0.0, 0j, Decimal(0), Fraction(0, 1)`
+
+* les chaînes et collections vides : `'', (), [], {}, set(), range(0)`.
+
+Les opérations et fonctions natives dont le résultat est booléen renvoient toujours `0` ou `False` pour faux et `1` ou `True` pour vrai, sauf indication contraire (exception importante : les opérations booléennes or et and renvoient toujours l'une de leurs opérandes).
+
+=== Opérations booléennes  — and, or, not
+
+https://docs.python.org/fr/3/library/stdtypes.html#boolean-operations-and-or-not
+
+.opérateurs par priorité descendante
+[cols="1,1,2", options="header"]
+|===
+|Opération
+|Résultat
+|Note
+
+
+|`not x`
+| si x est faux, alors `True`, sinon `False`
+| `not` a une priorité inférieure à celle des opérateurs non-booléens, donc `not a == b` est interprété comme `not (a == b)` et `a == not b` est une erreur de syntaxe.
+
+
+|`x and y`
+| si x est faux, alors x, sinon y
+| C'est un opérateur court-circuit, il n'évalue le deuxième argument que si le premier est vrai.
+
+|`x or y`
+| si x est vrai, alors x, sinon y
+| C'est un opérateur court-circuit : il n'évalue le deuxième argument que si le premier est faux.
+|===
+
+=== Opérateurs de comparaison
+
+Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#comparisons
+
+== Travaux pratiques
+
+=== EXERCICE 24
+
+.à renseigner
+[cols="2,1,2", options="header"]
+|===
+|Opération
+|Résultat
+|Justification
+
+|`bool('')` # une chaine vide
+|
+|
+
+|`bool("")`
+|
+|
+
+|`bool(' ')` # un espace
+|
+|
+
+|`bool(2 * 4 - 8)`
+|
+|
+
+|`bool(42)`
+|
+|
+
+
+|`bool(0)`
+|
+|
+
+
+|`bool('zéro')`
+|
+|
+
+
+|`bool(False)`
+|
+|
+
+
+|`bool(False != True)`
+|
+|
+
+
+|`bool(True != True)`
+|
+|
+
+
+|`bool(True - 1)`
+|
+|
+
+|===
+
+
+
+== Type chaîne de caractères (string)
+
+En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs de point de code UNICODE.
+
+[source, python]
+----
+>>> "\U00000394"
+'Δ'
+>>> ord("\U00000394")
+916
+----
+Le terminal peut ne pas être en mesure de représenter le *glyph* du caractère UTF-8. Dans ce cas, le système affiche le point de code.
+
+[source, python]
+----
+>>> "\U00000394"
+'\u0394'
+----
+
+Fort heureusement, le développeur utilise rarement les point de code, préférant les glyphs dès que permis.
+
+[source, python]
+----
+>>> print('\u0394\u0395\u0394')
+ΔΕΔ
+>>>
+>>> print('ΔΕΔ')
+ΔΕΔ
+>>> print("Hello World")
+Hello World
+----
+
+<<<
+
+=== EXERCICE 25 Opérations courantes sur les strings
+Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`.
+
+.à renseigner à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations]
+[cols="1,1,2", options="header"]
+|===
+|Opération
+|Python
+|Exemple
+
+| Extraction d'un caractère connaissant sa position dans la chaîne
+|
+|
+| Extraction d'une sous-chaîne
+|
+|
+| Changement de casse
+
+(majuscule \<\-> minuscule)
+|
+|
+| Suppression de "blancs" en queue et/ou en tête
+|
+|
+|Recherche d'une occurrence d'une sous-chaîne dans la chaîne
+|
+|
+| Compteur d'occurrence d'une sous-chaîne dans la chaîne
+|
+|
+| Concaténation
+
+# _création d'une nouvelle `str` à partir de plusieurs autres_.
+|
+|
+| Comparaison
+|
+|
+| Test de chaîne vide
+|
+|
+| Longueur d'une chaîne
+(nombre de points de code de la chaîne)
+|
+|
+| Tentative de conversion
+
+(chaîne \<\-> numérique)
+|
+|
+|===
+
+== Quel éditeur de code utiliser ?
+
+Vous trouverez https://docs.python.org/3/using/editors.html[liste des editeurs] de nombreux éditeurs.
+
+Voici ceux que vous devriez connaître :
+
+. `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
+. Visual Studio Code et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion et dispose d'un débogueur), également utilisé pour le dev frontend.
+. https://www.jetbrains.com/pycharm/[pyCharm], l'IDE des professionnels
+
+== Travaux pratique
+
+=== EXERCICE 26 FINAL
+
+On vous demande de programmer le scénario suivant (fonction nommée `exo26_final`).
+
+L'utilisateur est invité à entrer *deux lignes* de texte respectant chacune le format suivant :
+[listing]
+----
+<public>;<code produit>;<quantité vendue>;<mois>;<année>;<commentaire>
+----
+
+Le programme, après avoir vérifié le nombre de champs (6) de chacune de ces lignes, *affiche le détail* des informations  (Mois,  Année, Public, Code Produit, Qté vendue et Commentaire)
+
+Il y a deux cas de figure :
+
+- Le code produit est le même, alors les informations ne seront affichées qu'une seule fois,
+- Le code produit est différent, les informations seront affichées en deux fois.
+
+Exemples de scénarios à reproduire
+
+.Scénario A (même code produit pour les deux lignes)
+[listing]
+----
+Entrez une première ligne d'informations de ventes :
+F;a12;21;mars;2023; Attention, léger défaut...
+
+Entrez une deuxième ligne d'informations de ventes :
+F;a12;14;avril;2023; Attention, léger défaut...
+
+Voici la fiche produit :
+
+	Date : MARS-2001, AVRIL-2023
+	Public : FEMME
+	Code Produit : A12
+	Qté vendue  : 35
+	Commentaire : Attention, léger défaut...
+----
+
+.Scénario B (codes différents, une ligne sans commentaire)
+[listing]
+----
+Entrez une première ligne d'informations de ventes :
+F;a12;21;mars;2023; Attention, léger défaut...
+Entrez une deuxième ligne d'informations de ventes :
+H;d45;11;mars;2023;
+
+Voici les fiches produit :
+
+Date : MARS-2023
+Public : FEMME
+Code Produit : A12
+Qté vendue  : 21
+Commentaire : Attention, léger défaut...
+
+Date : MARS-2023
+Public : HOMME
+Code Produit : D45
+Qté vendue  : 11
+Commentaire : AUCUN
+----
+
+
+.Scénario C (mauvais format de ligne)
+[listing]
+----
+Entrez une première ligne d'informations de ventes :
+F;a12;21;mars-2001; Attention, léger défaut...
+ERREUR de format !
+----
+
+[TIP]
+====
+Pour éviter de faire saisir les 2 lignes à l'utilisateur, vous pouvez lui demander de passer ces informations en argument du programme. Exemple :
+
+`$ python  tp2Final.py < produits.txt`
+
+où `produits.txt` est un fichier texte contenant 2 lignes de produits au format attendu (transmis sur le canal standard)
+
+Le module `fileinput` est très pratique pour ce type d'exploitation. L'exemple ci-dessous affiche le contenu du fichier reçu en argument - *en fait il lit l'entrée standard jusqu'à attendre le symbole de fin de transmission (U+0004 - CTRL+D)*. Testez-le !
+
+[source, python]
+----
+# https://docs.python.org/3/library/fileinput.html
+def process_data() :
+    import fileinput
+    for line in fileinput.input(encoding="utf-8"):
+        print(line)
+----
+
+====
+
+==== Pour les plus avancés
+
+On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
+Seuls les champs renseignés seront mis à jour.
+
+.*Travail à faire*
+. Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
+. Implémenter et, bien entendu, tester le scénario A'
+
+
+== Contrôler vos connaissances et contribuer aux QCMs
+
+TODO
+
+

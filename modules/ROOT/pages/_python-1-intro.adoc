@@ -1,0 +1,411 @@
+= Python-1
+:imagesdir: images
+
+== Python
+
+Python est un langage inventé par le programmeur Guido van Rossum dans les années 90. C'est un projet open source et multi-plateformes.
+
+Python est un langage interprété, contrairement à d'autres, comme le C qui nécessite une phase de compilation qui produit une version exécutable pour une plateforme cible, le code source d'un programme Python est directement portable (l'analyse et sa traduction en langage machine se fait au cours de son lancement par un interpréteur Python).
+
+== Vérification de votre système
+
+Ouvrir une *console système* (un terminal), et lancer la commande : `python3 --version` (ou `python --version`)
+
+Exemple de résultat attendu (vérifier que vous êtes en 3.x.x) :
+
+.Exemple ($ est le prompt, à ne pas recopier)
+[source, 'bash']
+----
+$ python3 --version
+Python 3.10.6
+----
+
+Python peut être lancé en mode interactif ou en mode script.
+
+== Python en mode interactif
+
+Il suffit de lancer la commande `python3`, dans ce cas l'interpréteur attend la saisie de code, qu'il interprétera à partir du moment où il reçoit une donnée de fin de saisie (touche `Enter`)
+
+Pour sortir de ce mode, lancer la commande `CTRL + D`.
+
+.Tester ce code
+[listing]
+----
+$ python3
+>>> print('Hello World')
+Hello World
+>>>
+----
+
+== Python en mode script
+
+Dans ce mode (usage courant) le code source est placé dans un fichier text, avec `.py` comme extension.
+
+.Tester cette procédure
+[start=1]
+****
+. créer un fichier texte nommé tp1.py
+. inscrire l'instruction *print('Hello World')̀*,  comme seule ligne de ce fichier
+. sauvegarder le fichier tp1.py
+. dans un terminal, lancer la commande : `python3 tp1.py`.
++
+Vous devriez voir afficher `Hello World`
+****
+
+[TIP]
+====
+Cette procédure peut être automatisée (la première instruction est équivalente aux étapes 1 à 3 de la procédure présentée). L'opérateur système `'>'` dirige temporairement le flux standard vers un fichier.
+
+=====
+`echo "print('Hello World')" > tp1.py | python3 tp1.py`
+=====
+
+L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (ajout).
+
+=> La redirection du flux standard vers un fichier est une technique bien connue des hackers malveillants.
+====
+
+== Documentation
+
+* Préférer le site officiel https://docs.python.org/fr/3/[docs.python.org] et https://stackoverflow.com/questions/tagged/python[stackoverflow dédié à python].
+
+* L'usage des commandes de l'interpréteur Python `help()` et `dir()`.
+** la fonction help() extrait des chaînes de documentation (modules, fonctions et méthodes). Exemples :
+*** `help(print)`
+*** `help(sys.exit)` (le mode `sys` doit être importé avant cette commande)
+
+<<<
+== Exercices en mode interactif
+
+. Lancez l'interpréteur dans un terminal
+. Tester une à une les expressions suivantes et essayez d'expliquer ce qui se passe dans chacun des cas. N'hésitez pas à échanger entre vous et à chercher des explications en ligne. Le langage python est utilisé par une grande communauté internationale. Voir le tableau de correspondances opérateur-fonction : https://docs.python.org/fr/3/library/operator.html#mapping-operators-to-functions
+
+[cols="1,1,2", options="header"]
+|===
+|Code
+|Résultat
+|Explications
+
+|`2 * 11 + 3 + 4 * 5 - 4 + 1`
+
+| `42`
+
+| La priorité des opérateurs arithmétiques suit les conventions usuelles. (voir https://docs.python.org/fr/3/reference/expressions.html#operator-summary[priiorité des opérateurs])
+
+|`2 ** 16`
+|
+|
+
+|`power(2, 16)`
+|
+|
+
+|`2/5, 2/5.0`
+|
+|
+
+|`int(2/5)`
+|
+|
+
+|`4%2`
+|
+|
+
+|`12%7`
+|
+|
+
+|`2e3`
+|
+|
+
+|`int(2e3)`
+|
+|
+
+|`2e10`
+|
+|
+
+|`2e-3`
+|
+|
+
+|`int(2e-3)`
+|
+|
+
+|`float(40+2)`
+|
+|
+
+|`"année" + "2023"`
+|
+| Concaténation de 2 chaînes de caractères
+
+|`s=samedi`
+|
+|
+
+|`s="samedi"`
+|
+|
+
+|`s * 4`
+|
+|
+
+|`s[0], s[1]`
+|
+|
+
+|`s[6]`
+|
+|
+
+|`'spam'[0]`
+|
+|
+
+|`"spam"[1]`
+|
+|
+
+|`('pizza' + s[0]) * 3`
+|
+|
+
+|===
+
+<<<
+
+== Exercices en mode script
+
+Un script python, appelé aussi "module", peut être utilisé directement, comme dans l'exemple `python3 tp1.py` ou intégré dans un autre module (via l'instruction `import`).
+
+Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.
+
+=== EXERCICE 2
+
+Voici un code source d'un programme python respectant les conventions d'usage :
+
+.fichier tp1.py
+[source, python, number]
+----
+#!/usr/bin/env python3 <1>
+def exo2() : <2>
+  nom = input("Entrez votre nom : ")
+  print("Bienvenue " + nom + " !")
+  return 0 <3>
+
+if __name__ == "__main__": <4>
+  import sys <5>
+  code_retour = exo2() <6>
+  sys.exit(code_retour) <7>
+----
+
+<1> (optionnel) Shebang. Permet de rendre le script "directement" exécutable. voir https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
+<2> Définition d'une fonction nommée `exo2`.
+<3> Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale une anomalie à l'exécution.
+<4> Si le script est utilisé directement (en argument de l'interpréteur python), alors la valeur de la variable `_\__main___` est "_\__main___" sinon c'est le nom du module (sans son extension). Remarque : les noms de variables encadrés de 2 underscores (`__`) sont des variables système définies par l'interpréteur.
+<5> Importation du module `sys` (qui contient des fonctions système, dont `exit` utilisée plus loin)
+<6> Appel de la fonction `exo2` et enregistrement du code de retour.
+<7> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`
+
+.*Travail à faire*
+. Lancez un éditeur de texte (par exemple vi)
+. Recopiez le code ci-dessus
+. Sauvegardez le script sous le nom de `tp1.py`
+. (optionnel) Rendez-le exécutable (par exemple avec la commande "_chmod +x tp1.py_")
+. Exécutez-le, éventuellement corrigez les erreurs de frappe.
+. Modifiez la fonction `exo2`, afin qu'elle affiche le prénom et le nom. Elle devra pour cela inviter l'utilisateur à entrer son prénom.
+
+=== EXERCICE 3
+
+On vous présente un programme exprimé en pseudo-langage
+et une traduction en Python. Après avoir pris connaissance
+de la version en pseudo-langage, recopier la traduction
+proposée en Python (code source ci-dessous) comme nouvelle fonction dans le script `tp1.py`.
+
+.Version pseudo-langage
+[listing]
+----
+Afficher("Entrez un nombre entier svp :")
+
+lire un nombre au clavier et placer sa valeur
+dans une variable nomméee x <1>
+
+Si x est pair Alors
+  Afficher("Ce nombre est pair")
+Sinon
+  Afficher("Ce nombre est impair")
+FinSi
+----
+<1> ou plus simlement : `x <-- lire un nombre au clavier`
+
+.Version python
+[source, python]
+----
+def exo3() :
+  x=int(input("Entrez un nombre entier svp : "))
+  if x % 2 == 0 :  # le reste de divisition par 2 est-il zéro ?
+    print("Ce nombre est pair")
+  else :
+    print("Ce nombre est impair")
+  return 0
+----
+
+.*Travail à faire*
+. Intégrer la nouvelle fonction `exo3` dans le module `tp1.py`
+. Appeler cette fonction dans le `main` de `tp1.py`.
+. Tester différentes valeurs afin de vérifier la justesse du code.
+
+=== EXERCICE 4
+
+On souhaite proposer une variante de la fonction `exo2` de sorte que, si l'utilisateur ne fournit pas d'identité, le programme lui attribut d'office le nom "anonymous".
+
+.*Travail à faire*
+. Étudier la version en pseudo-langage ci-dessous puis proposer une traduction fidèle en Python.
+. Travaillez à partir d'une copie de la fonction `exo2` que vous nommerez `*exo4*`, puis appelez cette fonction dans le main.
+. Tester votre code
+
+.Version pseudo-langage
+[listing]
+----
+
+Afficher("Entrez votre nom svp :")
+nom <-- lire une chaîne de caractère au clavier
+Afficher("Entrez votre prenom svp :")
+prenom <-- lire une chaîne de caractère au clavier
+Si nom est vide Alors
+  Afficher("Bonjour anonymus !")
+Sinon
+  Afficher("Bonjour " + prenom + " " + nom + " !")
+FinSi
+
+----
+
+=== EXERCICE 5
+
+Proposez une variante de la fonction `exo4`, que vous nommerez `exo5`, de sorte que si l'utilisateur ne décline pas son identité à  la demande de son nom, le programme ne lui demande pas son prénom.
+
+*Ce que vous devez faire :*
+
+. Fournir d'abord une version en pseudo-langage
+. Faire valider votre version par un professeur
+. Traduire votre version en Python (une nouvelle fonction nommée `exo5`)
+. Tester et mettre au point votre fonction
+
+=== EXERCICE 6
+
+Transcrire le programme suivant en une fonction Python (nommée `exo6`).
+
+.Version pseudo-langage
+[listing]
+----
+n <- 60
+m <- 7
+afficher("Les entiers valent ", m , "et ", n)
+afficher("leur somme est ", m+n)
+afficher("leur différence est ", m-n)
+afficher("leur produit est ", m*n)
+afficher("leur quotient est ", m/n)
+afficher("le reste de la division entière m/n est ", m modulo n)
+----
+
+Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse fournir des valeurs pour les zones mémoire référencées par les identificateurs `m` et `n`. Vérifier la justesse des sorties.
+
+=== EXERCICE 7
+
+Ce dernier exercice introduit la notion de type. En effet, toute variable est associée, à un instant _t_, à un et un seul type. Le type de la variable est déterminé par l'interpréteur au moment de l'affectation et peut être consulté à l'exécution par un appel à la fonction `*type*`.
+
+Commençons par définir une fonction qui réalise une somme de 2 valeurs reçues en argument. Nous appellerons cette fonction `somme`.
+
+[source, python]
+----
+def somme(arg1, arg2) :
+  """
+    Retoure la somme des arguments
+  """
+  # affecte à la var resultat le résultat de l'opération +
+  resultat = arg1 + arg2
+  return resultat <1>
+----
+
+<1> On remarquera que la fonction "n'affiche" rien. C'est très important. *Le fait d'afficher ou non la valeur retournée est de la responsabilité de l'appelant, pas de l'appelé* (voir xref:glossaire.adoc#Appelant[Glossaire Appelant/Appelé])
+
+
+Voici un exemple de programme (une fonction) qui appelle la fonction `somme` (ligne 25)
+
+[source, python, number]
+----
+def exo7() :
+  print("Bonjour, je suis un programme écrit en Python.")
+
+  # invite l'utilisateur à entrer un nombre entier
+  # l'information est stockée dans une zone mémoire
+  # référencée par 'str_n1'
+  str_n1 = input("Entrez un nombre entier : ")
+
+  # affiche une information sur le type de l'objet crée
+  print("Le type de l'objet crée est ", type(str_n1))
+
+  # n1 est l'image de str_n1 par la fonction int(). Le rôle de int()
+  # est de tenter de traduire son argument en une valeur
+  # numérique (un entier).
+  n1=int(str_n1)
+
+  # affiche une information sur le type de l'objet crée
+  print("Le type du nouvel objet crée est ", type(n1))
+
+  # idem
+  n2 = input("Entrez un second nombre entier : ")
+
+  # appel à la fonction somme, définie plus haut,
+  # en vue de réaliser une addition
+  res = somme(arg1 = n1, arg2 = n2) <1>
+
+  # affichage du résultat
+  print("La somme des deux nombres est : ", res)
+
+  # dernière instruction pour une fin annoncée
+  print("bye, je meurs...")
+
+  return 0
+
+
+if __name__ == "__main__":
+  import sys
+  code_retour = exo7()
+  sys.exit(code_retour)
+
+----
+
+<1> On remarquera l'usage des valeurs `n1` et `n2` comme valeurs d'arguments de la fonction `somme`. Une autre façon d'appeler la fonction est de passer les valeurs par position, par exemple :  `res = somme(n1, n2)`, qui aura même effet.
+
+.*Travail à faire*
+. Adapter le script `tp1.py` (ajout de la fonction `somme` et `exo7`)
+. Tester et comprendre pourquoi la fonction `exo7` bugue
+. Corriger la fonction `exo7`
+. Modifiez la fonction `exo7.py` afin qu'elle réalise la somme de 3 nombres.
+. Faire évoluer la fonction `exo7.py` afin qu'lle réalise, en plus
+de la somme de 3 nombres, le produit de ces 3 nombres. Pour cela vous
+devrez créer, juste après la déclaration de `somme()`, une nouvelle fonction nommée `produit()`, inspirée de `somme()`.
+
+=== EXERCICE 8 (FINAL)
+
+A l'issue de cette première séance de travaux pratiques, vous avez appris à *programmer des fonctions* simples en Python, à *les appeler* dans la partie _main_ du script/module `tp1.py`.
+
+*Votre mission* : Au lancement de `tp1.py`, permettre à l'utilisateur de choisir la fonction qu'il souhaite exécuter parmi les fonctions `exo2()`, `exo3()`, ..., `exo7()` du module.
+
+.*Travail à faire*
+. Ajouter une fonction nommée `main`. Son rôle sera de répondre à cette demande.
+. Faire en sorte que le code du _main_ de `tp1.py` appelle cette nouvelle fonction.
+. Tester le tout
+
+== Contrôler vos connaissances et contribuer aux QCMs
+
+.*Travail à faire*
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`)
+. Proposer, pour le thème `PYTHON-1`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.

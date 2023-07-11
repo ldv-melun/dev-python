@@ -1,0 +1,6 @@
+* Python
+** xref:_python-1-intro.adoc[Semaine-1]
+** xref:_python-2-intro-types-de-base.adoc[Semaine-2]
+** xref:_python-3-gestions-des-entrees.adoc[Semaine-3]
+
+
