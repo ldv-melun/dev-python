@@ -1,6 +1,6 @@
 = Support de cours Python
 Lycée Léonard de Vinci - Melun
-v1.1, 2023-07-14: Version asciidoc
+v0.1, 2023-07-14: Version asciidoc
 :description: support avec exercices
 :icons: font
 :listing-caption: Listing
@@ -19,7 +19,7 @@ endif::[]
 
 == Présentation
 
-Ce support vise à introduire des concepts de base en programmation, avec une forte invitation à la pratique.
+Ce support vise à introduire des concepts de base en programmation, avec une forte invitation à la pratique et aux bonnes pratiques.
 
 // <<<
 include::_python-1-intro.adoc[leveloffset=+1]

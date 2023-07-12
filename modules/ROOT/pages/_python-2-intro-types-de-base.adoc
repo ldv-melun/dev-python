@@ -180,16 +180,16 @@ Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétati
 Concevoir une fonction nommée `exo22` qui respecte le scénario suivant :
 
 . L'utilisateur est invité à saisir un *code* de caractère
-. Le programme affiche, dans un tableau, le caractère suivi des 5 caractères suivants et précédés des 5 caractères précédents.
+. Le programme affiche, dans un tableau, le caractère correspondant encadré à droite des 5 caractères suivants et à gauche des 5 caractères précédents à condition que leur code soit supérieur ou égal à celui du caractère `espace`.
 
 === EXERCICE 23
 
 Concevoir une fonction nommée `exo23` qui respecte le scénario suivant :
 
-. L'utilisateur est invité à choisir une langue parmi 3 (voir https://en.wikipedia.org/wiki/Unicode_block)
+. L'utilisateur est invité à choisir une 'langue' parmi 3 autres - à vous de les sélectionner parmi https://en.wikipedia.org/wiki/Unicode_block[(url) block Unicode]
 . Le programme affiche, dans un tableau, les 16 (ou plus ?) premiers caractères UNICODE correspondants.
 
-Exemple : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syllables] Coréen. L'indice du block est `U+AC00`. Testons le premier caractère en mode python interactif:
+Exemple de 'langue' : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syllables] Coréen. L'indice du block est `U+AC00`. Testons le premier caractère en mode python interactif:
 
 [source, python]
 ----
@@ -227,13 +227,15 @@ False
 
 === Valeur de vérité
 
-Bien que le type `bool` soit défini, toute valeur python peut être interprétée en valeur booléenne via la fonction `bool()`
+Toute valeur python peut être interprétée en valeur booléenne via la fonction `bool()`
 
 .POC type bool
 [source, python]
 ----
 >>> bool(1)
 True
+>>> bool(0)
+False
 >>> bool(True)
 True
 >>> bool('Hello World')
@@ -242,15 +244,15 @@ True
 True
 ----
 
-En pratique, toute valeure est considérée *différente de zéro ou 'vide'* sera considérée comme `True`.
+En pratique, toute valeure *différente de zéro ou 'vide'* sera considérée comme `True`.
 
 ==== Valeurs considérées comme `False`
 
-Seules quelques constantes littérales sont considérées comme fausse : `None` et `False`
+Seules quelques constantes littérales sont considérées comme fausse :
 
 * `None` et `False`
 
-TIP: Affecter *`None`* à une variable est une façon de dire que cette variable n'a pas de valeur significative.
+TIP: Affecter *`None`* à une variable est une façon de dire que cette variable n'a pas de valeur significative ou "n'a pas encore de valeur".
 
 .Exemple de POC
 [source, python]
@@ -384,7 +386,7 @@ Le terminal peut ne pas être en mesure de représenter le *glyph* du caractère
 '\u0394'
 ----
 
-Fort heureusement, le développeur utilise rarement les point de code, préférant les glyphs dès que permis.
+Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphs dès que permis.
 
 [source, python]
 ----
@@ -459,7 +461,7 @@ Voici ceux que vous devriez connaître :
 
 . `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
 . Visual Studio Code et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion et dispose d'un débogueur), également utilisé pour le dev frontend.
-. https://www.jetbrains.com/pycharm/[pyCharm], l'IDE des professionnels
+. https://www.jetbrains.com/pycharm/[pyCharm], l'IDE à destination des professionnels (gain de productivité assuré)
 
 == Travaux pratique
 
@@ -470,7 +472,7 @@ On vous demande de programmer le scénario suivant (fonction nommée `exo26_fina
 L'utilisateur est invité à entrer *deux lignes* de texte respectant chacune le format suivant :
 [listing]
 ----
-<public>;<code produit>;<quantité vendue>;<mois>;<année>;<commentaire>
+<public>;<code produit>;<qté vendue>;<mois>;<année>;<commentaire>
 ----
 
 Le programme, après avoir vérifié le nombre de champs (6) de chacune de ces lignes, *affiche le détail* des informations  (Mois,  Année, Public, Code Produit, Qté vendue et Commentaire)

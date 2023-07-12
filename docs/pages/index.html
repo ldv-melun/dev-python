@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <meta name="description" content="support avec exercices">
 <meta name="author" content="Lycée Léonard de Vinci - Melun">
 <title>Support de cours Python</title>
@@ -210,13 +210,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -395,7 +392,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -444,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Support de cours Python</h1>
 <div class="details">
 <span id="author" class="author">Lycée Léonard de Vinci - Melun</span><br>
-<span id="revnumber">version 1.1,</span>
+<span id="revnumber">version 0.1,</span>
 <span id="revdate">2023-07-14</span>
 <br><span id="revremark">Version asciidoc</span>
 </div>
@@ -524,7 +521,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_présentation">Présentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ce support vise à introduire des concepts de base en programmation, avec une forte invitation à la pratique.</p>
+<p>Ce support vise à introduire des concepts de base en programmation, avec une forte invitation à la pratique et aux bonnes pratiques.</p>
 </div>
 </div>
 </div>
@@ -1542,7 +1539,7 @@ Le caractère suivant : B</pre>
 <p>L&#8217;utilisateur est invité à saisir un <strong>code</strong> de caractère</p>
 </li>
 <li>
-<p>Le programme affiche, dans un tableau, le caractère suivi des 5 caractères suivants et précédés des 5 caractères précédents.</p>
+<p>Le programme affiche, dans un tableau, le caractère correspondant encadré à droite des 5 caractères suivants et à gauche des 5 caractères précédents à condition que leur code soit supérieur ou égal à celui du caractère <code>espace</code>.</p>
 </li>
 </ol>
 </div>
@@ -1555,7 +1552,7 @@ Le caractère suivant : B</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>L&#8217;utilisateur est invité à choisir une langue parmi 3 (voir <a href="https://en.wikipedia.org/wiki/Unicode_block" class="bare">https://en.wikipedia.org/wiki/Unicode_block</a>)</p>
+<p>L&#8217;utilisateur est invité à choisir une 'langue' parmi 3 autres - à vous de les sélectionner parmi <a href="https://en.wikipedia.org/wiki/Unicode_block">(url) block Unicode</a></p>
 </li>
 <li>
 <p>Le programme affiche, dans un tableau, les 16 (ou plus ?) premiers caractères UNICODE correspondants.</p>
@@ -1563,7 +1560,7 @@ Le caractère suivant : B</pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>Exemple : <a href="https://en.wikipedia.org/wiki/Hangul_Syllables">Hangul_Syllables</a> Coréen. L&#8217;indice du block est <code>U+AC00</code>. Testons le premier caractère en mode python interactif:</p>
+<p>Exemple de 'langue' : <a href="https://en.wikipedia.org/wiki/Hangul_Syllables">Hangul_Syllables</a> Coréen. L&#8217;indice du block est <code>U+AC00</code>. Testons le premier caractère en mode python interactif:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1605,13 +1602,15 @@ Le caractère suivant : B</pre>
 <div class="sect3">
 <h4 id="_valeur_de_vérité">Valeur de vérité</h4>
 <div class="paragraph">
-<p>Bien que le type <code>bool</code> soit défini, toute valeur python peut être interprétée en valeur booléenne via la fonction <code>bool()</code></p>
+<p>Toute valeur python peut être interprétée en valeur booléenne via la fonction <code>bool()</code></p>
 </div>
 <div class="listingblock">
 <div class="title">Listing 11. POC type bool</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="python">&gt;&gt;&gt; <span style="color:#369;font-weight:bold">bool</span>(<span style="color:#00D">1</span>)
 <span style="color:#069">True</span>
+&gt;&gt;&gt; <span style="color:#369;font-weight:bold">bool</span>(<span style="color:#00D">0</span>)
+<span style="color:#069">False</span>
 &gt;&gt;&gt; <span style="color:#369;font-weight:bold">bool</span>(<span style="color:#069">True</span>)
 <span style="color:#069">True</span>
 &gt;&gt;&gt; <span style="color:#369;font-weight:bold">bool</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Hello World</span><span style="color:#710">'</span></span>)
@@ -1621,12 +1620,12 @@ Le caractère suivant : B</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>En pratique, toute valeure est considérée <strong>différente de zéro ou 'vide'</strong> sera considérée comme <code>True</code>.</p>
+<p>En pratique, toute valeure <strong>différente de zéro ou 'vide'</strong> sera considérée comme <code>True</code>.</p>
 </div>
 <div class="sect4">
 <h5 id="_valeurs_considérées_comme_false">Valeurs considérées comme <code>False</code></h5>
 <div class="paragraph">
-<p>Seules quelques constantes littérales sont considérées comme fausse : <code>None</code> et <code>False</code></p>
+<p>Seules quelques constantes littérales sont considérées comme fausse :</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1642,7 +1641,7 @@ Le caractère suivant : B</pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Affecter <strong><code>None</code></strong> à une variable est une façon de dire que cette variable n&#8217;a pas de valeur significative.
+Affecter <strong><code>None</code></strong> à une variable est une façon de dire que cette variable n&#8217;a pas de valeur significative ou "n&#8217;a pas encore de valeur".
 </td>
 </tr>
 </table>
@@ -1820,7 +1819,7 @@ Affecter <strong><code>None</code></strong> à une variable est une façon de di
 </div>
 </div>
 <div class="paragraph">
-<p>Fort heureusement, le développeur utilise rarement les point de code, préférant les glyphs dès que permis.</p>
+<p>Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphs dès que permis.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1934,7 +1933,7 @@ Hello World</code></pre>
 <p>Visual Studio Code et son <a href="https://code.visualstudio.com/docs/python/python-tutorial">plugin python</a> : léger mais suffisament complet pour démarrer avec python (complétion et dispose d&#8217;un débogueur), également utilisé pour le dev frontend.</p>
 </li>
 <li>
-<p><a href="https://www.jetbrains.com/pycharm/">pyCharm</a>, l&#8217;IDE des professionnels</p>
+<p><a href="https://www.jetbrains.com/pycharm/">pyCharm</a>, l&#8217;IDE à destination des professionnels (gain de productivité assuré)</p>
 </li>
 </ol>
 </div>
@@ -1951,7 +1950,7 @@ Hello World</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;public&gt;;&lt;code produit&gt;;&lt;quantité vendue&gt;;&lt;mois&gt;;&lt;année&gt;;&lt;commentaire&gt;</pre>
+<pre>&lt;public&gt;;&lt;code produit&gt;;&lt;qté vendue&gt;;&lt;mois&gt;;&lt;année&gt;;&lt;commentaire&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2207,8 +2206,8 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.1<br>
-Last updated 2023-07-11 19:37:20 +0200
+Version 0.1<br>
+Last updated 2023-07-12 19:44:00 +0200
 </div>
 </div>
 </body>
