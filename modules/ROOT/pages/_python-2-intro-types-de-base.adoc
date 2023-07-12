@@ -1,5 +1,4 @@
 = Python-2
-:imagesdir: images
 
 == Méta-modèle IPO
 
