@@ -7,7 +7,6 @@ v0.1, 2023-07-14: Version asciidoc
 :toc-title: Table des matieres
 :toc: left
 :toclevels: 3
-:source-highlighter: coderay
 
 ifdef::env-github[]
 :tip-caption: :bulb:

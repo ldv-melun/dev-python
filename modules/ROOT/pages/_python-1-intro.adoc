@@ -72,7 +72,7 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 * L'usage des commandes de l'interpréteur Python `help()` et `dir()`.
 ** la fonction help() extrait des chaînes de documentation (modules, fonctions et méthodes). Exemples :
 *** `help(print)`
-*** `help(sys.exit)` (le mode `sys` doit être importé avant cette commande)
+*** `help(sys.exit)` (le module `sys` doit être importé avant cette commande)
 
 <<<
 == Exercices en mode interactif
@@ -180,11 +180,22 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 
 <<<
 
+== Quel éditeur de code utiliser ?
+
+Vous trouverez ici https://docs.python.org/3/using/editors.html un inventaire de nombreux éditeurs.
+
+Voici ceux que vous devriez connaître :
+
+. `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
+. `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion et dispose d'un débogueur), également utilisé pour le dev frontend.
+. https://www.jetbrains.com/pycharm/[pyCharm], l'IDE à destination des professionnels (gain de productivité assuré)
+
 == Exercices en mode script
 
 Un script python, appelé aussi "module", peut être utilisé directement, comme dans l'exemple `python3 tp1.py` ou intégré dans un autre module (via l'instruction `import`).
 
 Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.
+
 
 === EXERCICE 2
 
@@ -214,12 +225,12 @@ if __name__ == "__main__": <4>
 <7> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`
 
 .*Travail à faire*
-. Lancez un éditeur de texte (par exemple vi)
+. Lancez un éditeur de texte (par exemple `vi` ou `vscode`)
 . Recopiez le code ci-dessus
 . Sauvegardez le script sous le nom de `tp1.py`
-. (optionnel) Rendez-le exécutable (par exemple avec la commande "_chmod +x tp1.py_")
+. (optionnel) Rendez-le exécutable (par exemple avec la commande `chmod +x tp1.py`)
 . Exécutez-le, éventuellement corrigez les erreurs de frappe.
-. Modifiez la fonction `exo2`, afin qu'elle affiche le prénom et le nom. Elle devra pour cela inviter l'utilisateur à entrer son prénom.
+. Modifiez la fonction `exo2()`, afin qu'elle affiche le prénom et le nom. Elle devra pour cela inviter l'utilisateur à entrer son prénom.
 
 === EXERCICE 3
 
@@ -242,13 +253,13 @@ Sinon
   Afficher("Ce nombre est impair")
 FinSi
 ----
-<1> ou plus simlement : `x <-- lire un nombre au clavier`
+<1> ou plus simlement : `x \<\-- lire un nombre au clavier`
 
 .Version python
 [source, python]
 ----
 def exo3() :
-  x=int(input("Entrez un nombre entier svp : "))
+  x = int(input("Entrez un nombre entier svp : "))
   if x % 2 == 0 :  # le reste de divisition par 2 est-il zéro ?
     print("Ce nombre est pair")
   else :
@@ -265,10 +276,7 @@ def exo3() :
 
 On souhaite proposer une variante de la fonction `exo2` de sorte que, si l'utilisateur ne fournit pas d'identité, le programme lui attribut d'office le nom "anonymous".
 
-.*Travail à faire*
-. Étudier la version en pseudo-langage ci-dessous puis proposer une traduction fidèle en Python.
-. Travaillez à partir d'une copie de la fonction `exo2` que vous nommerez `*exo4*`, puis appelez cette fonction dans le main.
-. Tester votre code
+Voici une version en pseudo-code founit par un de vos collègues.
 
 .Version pseudo-langage
 [listing]
@@ -286,9 +294,20 @@ FinSi
 
 ----
 
+
+.*Travail à faire*
+. Étudier la version en pseudo-langage ci-dessus puis proposer une traduction fidèle en Python. 
+. Travaillez à partir d'une copie de la fonction `exo2` que vous nommerez `*exo4*`, puis appelez cette fonction dans le main.
+. Tester votre code
+
+
 === EXERCICE 5
 
-Proposez une variante de la fonction `exo4`, que vous nommerez `exo5`, de sorte que si l'utilisateur ne décline pas son identité à  la demande de son nom, le programme ne lui demande pas son prénom.
+L'algorithme proposé par votre collègue dans l'exercice précédent manque de logique. Avez-vous repéré ce qui cloche ?
+
+Si l'utilisateur ne décline pas son identité à la demande de son nom, alors le programme ne devrait pas lui demander son prénom.
+
+Proposez une amélioration de la fonction `exo4`, que vous nommerez `exo5`, qui respecte cette nouvelle logique.
 
 *Ce que vous devez faire :*
 
@@ -318,7 +337,15 @@ Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse fournir des
 
 === EXERCICE 7
 
-Ce dernier exercice introduit la notion de type. En effet, toute variable est associée, à un instant _t_, à un et un seul type. Le type de la variable est déterminé par l'interpréteur au moment de l'affectation et peut être consulté à l'exécution par un appel à la fonction `*type*`.
+Cet exercice introduit la notion de type. En effet, toute variable est associée, à un instant _t_, à un et un seul type. Le type de la variable est déterminé par l'interpréteur au moment de l'affectation et peut être consulté à l'exécution par un appel à la fonction `*type*`.
+
+.Comment connaître le type d'une variable
+[source, python]
+----
+>>> x = 42
+>>> type(x)
+<class 'int'>   # <== le type de x est int 
+----
 
 Commençons par définir une fonction qui réalise une somme de 2 valeurs reçues en argument. Nous appellerons cette fonction `somme`.
 

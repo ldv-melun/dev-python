@@ -1,4 +1,5 @@
 = Python-2
+:imagesdir: ../assets/images
 
 == Méta-modèle IPO
 
@@ -453,15 +454,7 @@ Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le typ
 |
 |===
 
-== Quel éditeur de code utiliser ?
 
-Vous trouverez https://docs.python.org/3/using/editors.html[liste des editeurs] de nombreux éditeurs.
-
-Voici ceux que vous devriez connaître :
-
-. `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
-. Visual Studio Code et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion et dispose d'un débogueur), également utilisé pour le dev frontend.
-. https://www.jetbrains.com/pycharm/[pyCharm], l'IDE à destination des professionnels (gain de productivité assuré)
 
 == Travaux pratique
 
