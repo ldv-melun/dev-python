@@ -225,9 +225,10 @@ if __name__ == "__main__": <4>
 <7> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`
 
 .*Travail à faire*
-. Lancez un éditeur de texte (par exemple `vi` ou `vscode`)
+. Créer un dossier dev
+. Créer un sous-dossier dev/tp et l'ouvrir avec l'éditeur visual studio code
+. Créer le fichier `tp1.py`
 . Recopiez le code ci-dessus
-. Sauvegardez le script sous le nom de `tp1.py`
 . (optionnel) Rendez-le exécutable (par exemple avec la commande `chmod +x tp1.py`)
 . Exécutez-le, éventuellement corrigez les erreurs de frappe.
 . Modifiez la fonction `exo2()`, afin qu'elle affiche le prénom et le nom. Elle devra pour cela inviter l'utilisateur à entrer son prénom.
