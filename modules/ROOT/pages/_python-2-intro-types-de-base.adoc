@@ -96,9 +96,8 @@ Les chaînes entre guillemets triples peuvent couvrir plusieurs lignes, *tous le
 
 En python
 
-• La fonction *`ord()`* permet de connaître le code indice d'un caractère (une valeur d'entrée dans la table UNICODE)
-
-• Inversement, la fonction *`chr()`* permet de connaître le caractère UNICODE associé à une valeur d'indice.
+• La fonction *`ord()`* permet de connaître le code (ou indice) d'un caractère UNICODE. Une valeur d'indice dans la table UNICODE allant de 0 à 1114111 (0x10FFFF en base 16) 
+• Inversement, la fonction *`chr()`* permet de connaître le caractère UNICODE associé à une valeur d'indice - voir https://docs.python.org/fr/3/library/functions.html#chr[documentation de la fonction chr]
 
 Exemple d'utilisation (d'appels) de ces fonctions :
 
@@ -151,13 +150,13 @@ fonction pred() : Caractère -> Caractère
  # reçoit un caractère en argument
  # rend, s'il existe, le caractère précédent dans la table UNICODE
  # Sinon une exception est déclenchée
- # (la gestion des exception sera étudiée ultérieurement)
+ # (la gestion des exception sera étudiée plus profondément ultérieurement)
 
 ----
 
 .*À faire dans `tp2.py`*
 . Traduire la fonction `pred` en python.
-. Concevoir la fonction `succ` en python.
+. Concevoir la fonction `succ` (caractère suivant) en python.
 . Tester ces 2 fonctions dans une fonction nommée `exo21` appelées dans le main
 . Réécrire la fonction `exo20` en `exo20bis` en conséquence.
 
@@ -167,11 +166,13 @@ fonction pred() : Caractère -> Caractère
 
 Dans le corps de la fonction, utiliser le mot clé *`raise`* suivi d'une classe d'exception et d'un message. Exemple :
 
-.Vous pouvez consulter la discussion ici : https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python[stackoverflow : manually-raising-throwing-an-exception-in-python]
 [source, python]
 ----
 raise ValueError('A very specific bad thing happened.')
 ----
+
+Vous pouvez consulter la discussion ici : https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
+[stackoverflow : manually-raising-throwing-an-exception-in-python]
 
 Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé.
 ====
@@ -200,11 +201,21 @@ Exemple de 'langue' : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syll
 '가'
 ----
 
+=== EXERCICE 23Bis
+
+Concevoir une fonction qui attend en 2 paramètres : un indice de block UNICODE et un nombre de caractères à retourner, et qui retourne la chaîne de caractères correspondant à la demande.
+
+Appeler cette fonction dans une nouvelle fonction nommée `exo23bis` et tester cette nouvelle version dans le main.
+
 == Type booléen
 
 Le type `bool` est sous-type de `int`, et définit 2 valeurs particulières : `True` et `False`, pour 1 et zéro respectivement.
 
-.POC type bool
+Testons ces caractéristiques annoncées via une fonction native de Python nommée `isinstance` qui prend 2 arguments : le premier est l'objet à tester, le second et un type (une classe). Elle rend vrai si le premier argument est du type du second. 
+
+Exemple : `isinstance("42", int)` rendra `False` car "42" est du type `str` et non `int`.    
+
+.POC : type bool is int
 [source, python]
 ----
 >>> isinstance(True, bool)
@@ -263,11 +274,12 @@ False
 
 >>> bool(None)
 False
+
 >>> bool('None')
 True
 ----
 
-* zéro de tout type numérique : `0, 0.0, 0j, Decimal(0), Fraction(0, 1)`
+* zéro de toute représentation et type numérique : `0, 0_000, 0.0, 0j, Decimal(0), Fraction(0, 1)`
 
 * les chaînes et collections vides : `'', (), [], {}, set(), range(0)`.
 
@@ -359,6 +371,10 @@ Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#compari
 |
 |
 
+|`bool(True * False)`
+|
+|
+
 
 |`bool(True - 1)`
 |
@@ -370,7 +386,7 @@ Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#compari
 
 == Type chaîne de caractères (string)
 
-En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs de point de code UNICODE.
+En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs (hexadécimal) de point de code UNICODE.
 
 [source, python]
 ----
@@ -393,19 +409,28 @@ Fort heureusement, le développeur utilise rarement les point de code directemen
 ----
 >>> print('\u0394\u0395\u0394')
 ΔΕΔ
->>>
+
 >>> print('ΔΕΔ')
 ΔΕΔ
+
+>>> '\u0394\u0395\u0394'[1]
+'Ε'
+
+>>> len('\u0394\u0395\u0394')
+3
+
 >>> print("Hello World")
 Hello World
 ----
 
+
+
 <<<
 
 === EXERCICE 25 Opérations courantes sur les strings
-Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`.
+Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`, à renseigner par vous-même à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations]
 
-.à renseigner à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations]
+.à compléter
 [cols="1,1,2", options="header"]
 |===
 |Opération

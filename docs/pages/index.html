@@ -487,6 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_21">EXERCICE 21</a></li>
 <li><a href="#_exercice_22">EXERCICE 22</a></li>
 <li><a href="#_exercice_23">EXERCICE 23</a></li>
+<li><a href="#_exercice_23bis">EXERCICE 23Bis</a></li>
 </ul>
 </li>
 <li><a href="#_type_booléen">Type booléen</a>
@@ -1365,10 +1366,10 @@ Une donnée <strong>immuable</strong> est une donnée qui <strong>ne peut pas ê
 <div class="ulist">
 <ul>
 <li>
-<p>La fonction <strong><code>ord()</code></strong> permet de connaître le code indice d&#8217;un caractère (une valeur d&#8217;entrée dans la table UNICODE)</p>
+<p>La fonction <strong><code>ord()</code></strong> permet de connaître le code (ou indice) d&#8217;un caractère UNICODE. Une valeur d&#8217;indice dans la table UNICODE allant de 0 à 1114111 (0x10FFFF en base 16)</p>
 </li>
 <li>
-<p>Inversement, la fonction <strong><code>chr()</code></strong> permet de connaître le caractère UNICODE associé à une valeur d&#8217;indice.</p>
+<p>Inversement, la fonction <strong><code>chr()</code></strong> permet de connaître le caractère UNICODE associé à une valeur d&#8217;indice - voir <a href="https://docs.python.org/fr/3/library/functions.html#chr">documentation de la fonction chr</a></p>
 </li>
 </ul>
 </div>
@@ -1468,7 +1469,7 @@ Le caractère suivant : B</pre>
  # reçoit un caractère en argument
  # rend, s'il existe, le caractère précédent dans la table UNICODE
  # Sinon une exception est déclenchée
- # (la gestion des exception sera étudiée ultérieurement)</code></pre>
+ # (la gestion des exception sera étudiée plus profondément ultérieurement)</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -1478,7 +1479,7 @@ Le caractère suivant : B</pre>
 <p>Traduire la fonction <code>pred</code> en python.</p>
 </li>
 <li>
-<p>Concevoir la fonction <code>succ</code> en python.</p>
+<p>Concevoir la fonction <code>succ</code> (caractère suivant) en python.</p>
 </li>
 <li>
 <p>Tester ces 2 fonctions dans une fonction nommée <code>exo21</code> appelées dans le main</p>
@@ -1502,10 +1503,12 @@ Le caractère suivant : B</pre>
 <p>Dans le corps de la fonction, utiliser le mot clé <strong><code>raise</code></strong> suivi d&#8217;une classe d&#8217;exception et d&#8217;un message. Exemple :</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 10. Vous pouvez consulter la discussion ici : <a href="https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python">stackoverflow : manually-raising-throwing-an-exception-in-python</a></div>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">raise ValueError('A very specific bad thing happened.')</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Vous pouvez consulter la discussion ici : <a href="https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python" class="bare">https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python</a></p>
 </div>
 <div class="paragraph">
 <p>Le déclenchement d&#8217;une exception provoque un <strong>arrêt brutal</strong> de l&#8217;interprétation du corps de la fonction dans lequel il est lancé.</p>
@@ -1558,14 +1561,29 @@ Le caractère suivant : B</pre>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_exercice_23bis">EXERCICE 23Bis</h4>
+<div class="paragraph">
+<p>Concevoir une fonction qui attend en 2 paramètres : un indice de block UNICODE et un nombre de caractères à retourner, et qui retourne la chaîne de caractères correspondant à la demande.</p>
+</div>
+<div class="paragraph">
+<p>Appeler cette fonction dans une nouvelle fonction nommée <code>exo23bis</code> et tester cette nouvelle version dans le main.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_type_booléen">Type booléen</h3>
 <div class="paragraph">
 <p>Le type <code>bool</code> est sous-type de <code>int</code>, et définit 2 valeurs particulières : <code>True</code> et <code>False</code>, pour 1 et zéro respectivement.</p>
 </div>
+<div class="paragraph">
+<p>Testons ces caractéristiques annoncées via une fonction native de Python nommée <code>isinstance</code> qui prend 2 arguments : le premier est l&#8217;objet à tester, le second et un type (une classe). Elle rend vrai si le premier argument est du type du second.</p>
+</div>
+<div class="paragraph">
+<p>Exemple : <code>isinstance("42", int)</code> rendra <code>False</code> car "42" est du type <code>str</code> et non <code>int</code>.</p>
+</div>
 <div class="listingblock">
-<div class="title">Listing 11. POC type bool</div>
+<div class="title">Listing 10. POC : type bool is int</div>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; isinstance(True, bool)
 True
@@ -1592,7 +1610,7 @@ False
 <p>Toute valeur python peut être interprétée en valeur booléenne via la fonction <code>bool()</code></p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 12. POC type bool</div>
+<div class="title">Listing 11. POC type bool</div>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; bool(1)
 True
@@ -1634,13 +1652,14 @@ Affecter <strong><code>None</code></strong> à une variable est une façon de di
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Listing 13. Exemple de POC</div>
+<div class="title">Listing 12. Exemple de POC</div>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; bool(False)
 False
 
 &gt;&gt;&gt; bool(None)
 False
+
 &gt;&gt;&gt; bool('None')
 True</code></pre>
 </div>
@@ -1648,7 +1667,7 @@ True</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>zéro de tout type numérique : <code>0, 0.0, 0j, Decimal(0), Fraction(0, 1)</code></p>
+<p>zéro de toute représentation et type numérique : <code>0, 0_000, 0.0, 0j, Decimal(0), Fraction(0, 1)</code></p>
 </li>
 <li>
 <p>les chaînes et collections vides : <code>'', (), [], {}, set(), range(0)</code>.</p>
@@ -1775,6 +1794,11 @@ True</code></pre>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bool(True * False)</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>bool(True - 1)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1786,7 +1810,7 @@ True</code></pre>
 <div class="sect2">
 <h3 id="_type_chaîne_de_caractères_string">Type chaîne de caractères (string)</h3>
 <div class="paragraph">
-<p>En python les chaines de caractères sont instances du type <code>str</code>, et sont des séquences ordonnées de valeurs de point de code UNICODE.</p>
+<p>En python les chaines de caractères sont instances du type <code>str</code>, et sont des séquences ordonnées de valeurs (hexadécimal) de point de code UNICODE.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1812,9 +1836,16 @@ True</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; print('\u0394\u0395\u0394')
 ΔΕΔ
-&gt;&gt;&gt;
+
 &gt;&gt;&gt; print('ΔΕΔ')
 ΔΕΔ
+
+&gt;&gt;&gt; '\u0394\u0395\u0394'[1]
+'Ε'
+
+&gt;&gt;&gt; len('\u0394\u0395\u0394')
+3
+
 &gt;&gt;&gt; print("Hello World")
 Hello World</code></pre>
 </div>
@@ -1823,10 +1854,10 @@ Hello World</code></pre>
 <div class="sect3">
 <h4 id="_exercice_25_opérations_courantes_sur_les_strings">EXERCICE 25 Opérations courantes sur les strings</h4>
 <div class="paragraph">
-<p>Voici une liste à compléter, non exhaustive, d&#8217;opérations usuelles sur le type <code>str</code>.</p>
+<p>Voici une liste à compléter, non exhaustive, d&#8217;opérations usuelles sur le type <code>str</code>, à renseigner par vous-même à partir de ces ressources <a href="https://docs.python.org/fr/3/library/stdtypes.html#string-methods">string-methods documentation</a> et <a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations">common-sequence-operations</a></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. à renseigner à partir de ces ressources <a href="https://docs.python.org/fr/3/library/stdtypes.html#string-methods">string-methods documentation</a> et <a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations">common-sequence-operations</a></caption>
+<caption class="title">Table 3. à compléter</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -1938,7 +1969,7 @@ Hello World</code></pre>
 <p>Exemples de scénarios à reproduire</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 14. Scénario A (même code produit pour les deux lignes)</div>
+<div class="title">Listing 13. Scénario A (même code produit pour les deux lignes)</div>
 <div class="content">
 <pre>Entrez une première ligne d'informations de ventes :
 F;a12;21;mars;2023; Attention, léger défaut...
@@ -1956,7 +1987,7 @@ Voici la fiche produit :
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Listing 15. Scénario B (codes différents, une ligne sans commentaire)</div>
+<div class="title">Listing 14. Scénario B (codes différents, une ligne sans commentaire)</div>
 <div class="content">
 <pre>Entrez une première ligne d'informations de ventes :
 F;a12;21;mars;2023; Attention, léger défaut...
@@ -1979,7 +2010,7 @@ Commentaire : AUCUN</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Listing 16. Scénario C (mauvais format de ligne)</div>
+<div class="title">Listing 15. Scénario C (mauvais format de ligne)</div>
 <div class="content">
 <pre>Entrez une première ligne d'informations de ventes :
 F;a12;21;mars-2001; Attention, léger défaut...
