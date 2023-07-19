@@ -172,11 +172,23 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 |
 |
 
+
+|`"spam"[0:2]`
+|
+|
+
+|`"spam"[1:]`
+|
+|
+
 |`('pizza' + s[0]) * 3`
 |
 |
 
 |===
+
+Pour aller plus loin, voir : https://docs.python.org/fr/3/library/stdtypes.html#typesseq
+
 
 <<<
 
@@ -206,6 +218,9 @@ Voici un code source d'un programme python respectant les conventions d'usage :
 ----
 #!/usr/bin/env python3 <1>
 def exo2() : <2>
+  """
+   exercice 2 du TP1
+  """
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
   return 0 <3>
@@ -217,7 +232,7 @@ if __name__ == "__main__": <4>
 ----
 
 <1> (optionnel) Shebang. Permet de rendre le script "directement" exécutable. voir https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
-<2> Définition d'une fonction nommée `exo2`.
+<2> Définition d'une fonction nommée `exo2` avec sa chaine de documentation
 <3> Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale une anomalie à l'exécution.
 <4> Si le script est utilisé directement (en argument de l'interpréteur python), alors la valeur de la variable `_\__main___` est "_\__main___" sinon c'est le nom du module (sans son extension). Remarque : les noms de variables encadrés de 2 underscores (`__`) sont des variables système définies par l'interpréteur.
 <5> Importation du module `sys` (qui contient des fonctions système, dont `exit` utilisée plus loin)
@@ -271,7 +286,7 @@ def exo3() :
 .*Travail à faire*
 . Intégrer la nouvelle fonction `exo3` dans le module `tp1.py`
 . Appeler cette fonction dans le `main` de `tp1.py`.
-. Tester différentes valeurs afin de vérifier la justesse du code.
+. Tester différentes valeurs afin de vérifier la justesse du code. (Si l'utilisateur ne saisit pas un nombre, le programme s'arrête brutalement - c'est normal, la gestion des cas d'erreurs sera abordée utlérieurement)
 
 === EXERCICE 4
 

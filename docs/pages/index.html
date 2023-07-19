@@ -797,12 +797,25 @@ Hello World
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"spam"[0:2]</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"spam"[1:]</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>('pizza' + s[0]) * 3</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Pour aller plus loin, voir : <a href="https://docs.python.org/fr/3/library/stdtypes.html#typesseq" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#typesseq</a></p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
@@ -845,6 +858,9 @@ Hello World
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">#!/usr/bin/env python3 <i class="conum" data-value="1"></i><b>(1)</b>
 def exo2() : <i class="conum" data-value="2"></i><b>(2)</b>
+  """
+   exercice 2 du TP1
+  """
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
   return 0 <i class="conum" data-value="3"></i><b>(3)</b>
@@ -863,7 +879,7 @@ if __name__ == "__main__": <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Définition d&#8217;une fonction nommée <code>exo2</code>.</td>
+<td>Définition d&#8217;une fonction nommée <code>exo2</code> avec sa chaine de documentation</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -967,7 +983,7 @@ FinSi</pre>
 <p>Appeler cette fonction dans le <code>main</code> de <code>tp1.py</code>.</p>
 </li>
 <li>
-<p>Tester différentes valeurs afin de vérifier la justesse du code.</p>
+<p>Tester différentes valeurs afin de vérifier la justesse du code. (Si l&#8217;utilisateur ne saisit pas un nombre, le programme s&#8217;arrête brutalement - c&#8217;est normal, la gestion des cas d&#8217;erreurs sera abordée utlérieurement)</p>
 </li>
 </ol>
 </div>
@@ -1468,8 +1484,7 @@ Le caractère suivant : B</pre>
 <pre class="highlight"><code>fonction pred() : Caractère -&gt; Caractère
  # reçoit un caractère en argument
  # rend, s'il existe, le caractère précédent dans la table UNICODE
- # Sinon une exception est déclenchée
- # (la gestion des exception sera étudiée plus profondément ultérieurement)</code></pre>
+ # Sinon retourne None (une autre solution consiste à déclencher une exception)</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -1511,7 +1526,7 @@ Le caractère suivant : B</pre>
 <p>Vous pouvez consulter la discussion ici : <a href="https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python" class="bare">https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python</a></p>
 </div>
 <div class="paragraph">
-<p>Le déclenchement d&#8217;une exception provoque un <strong>arrêt brutal</strong> de l&#8217;interprétation du corps de la fonction dans lequel il est lancé.</p>
+<p>Le déclenchement d&#8217;une exception provoque un <strong>arrêt brutal</strong> de l&#8217;interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire <code>try .. catch</code></p>
 </div>
 </td>
 </tr>
@@ -1556,6 +1571,11 @@ Le caractère suivant : B</pre>
 <div class="content">
 <pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; ord('\uAC00')
 44032
+
+# saute les 2 premiers caractères de la chaine 'U+AC00'
+&gt;&gt;&gt; int('U+AC00'[2:], base=16)
+44032
+
 &gt;&gt;&gt; chr(44032)
 '가'</code></pre>
 </div>

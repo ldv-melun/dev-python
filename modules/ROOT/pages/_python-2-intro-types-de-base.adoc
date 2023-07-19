@@ -149,8 +149,7 @@ Voici une spécification de la fonction pred()
 fonction pred() : Caractère -> Caractère
  # reçoit un caractère en argument
  # rend, s'il existe, le caractère précédent dans la table UNICODE
- # Sinon une exception est déclenchée
- # (la gestion des exception sera étudiée plus profondément ultérieurement)
+ # Sinon retourne None (une autre solution consiste à déclencher une exception)
 
 ----
 
@@ -174,7 +173,7 @@ raise ValueError('A very specific bad thing happened.')
 Vous pouvez consulter la discussion ici : https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
 [stackoverflow : manually-raising-throwing-an-exception-in-python]
 
-Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé.
+Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire `try .. catch` 
 ====
 
 === EXERCICE 22
@@ -197,6 +196,11 @@ Exemple de 'langue' : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syll
 ----
 >>> ord('\uAC00')
 44032
+
+# saute les 2 premiers caractères de la chaine 'U+AC00'
+>>> int('U+AC00'[2:], base=16) 
+44032
+
 >>> chr(44032)
 '가'
 ----
