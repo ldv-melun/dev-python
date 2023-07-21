@@ -429,7 +429,7 @@ if __name__ == "__main__":
 
 .*Travail à faire*
 . Adapter le script `tp1.py` (ajout de la fonction `somme` et `exo7`)
-. Tester et comprendre pourquoi la fonction `exo7` bugue
+. Tester et *comprendre pourquoi la fonction `exo7` bugue*
 . Corriger la fonction `exo7`
 . Modifiez la fonction `exo7.py` afin qu'elle réalise la somme de 3 nombres.
 . Faire évoluer la fonction `exo7.py` afin qu'lle réalise, en plus

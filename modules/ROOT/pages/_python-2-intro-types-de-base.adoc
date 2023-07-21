@@ -159,8 +159,12 @@ fonction pred() : Caractère -> Caractère
 . Tester ces 2 fonctions dans une fonction nommée `exo21` appelées dans le main
 . Réécrire la fonction `exo20` en `exo20bis` en conséquence.
 
+
 [TIP]
 ====
+
+(Pour les plus avancés)
+
 *Comment déclencher une exception en python ?*
 
 Dans le corps de la fonction, utiliser le mot clé *`raise`* suivi d'une classe d'exception et d'un message. Exemple :
@@ -399,7 +403,7 @@ En python les chaines de caractères sont instances du type `str`, et sont des s
 >>> ord("\U00000394")
 916
 ----
-Le terminal peut ne pas être en mesure de représenter le *glyph* du caractère UTF-8. Dans ce cas, le système affiche le point de code.
+Le terminal peut ne pas être en mesure de représenter le *glyphe* du caractère UTF-8. Dans ce cas, le système affiche le point de code.
 
 [source, python]
 ----
@@ -407,7 +411,7 @@ Le terminal peut ne pas être en mesure de représenter le *glyph* du caractère
 '\u0394'
 ----
 
-Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphs dès que permis.
+Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphes dès que permis.
 
 [source, python]
 ----
@@ -434,19 +438,22 @@ Hello World
 === EXERCICE 25 Opérations courantes sur les strings
 Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`, à renseigner par vous-même à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations]
 
-.à compléter
+.à compléter à partir de cet exemple : x = " Hello World ! " (15 caractères)
 [cols="1,1,2", options="header"]
 |===
 |Opération
 |Python
 |Exemple
 
-| Extraction d'un caractère connaissant sa position dans la chaîne
+| Extraire le "caractère" 'H' (chaîne de longueur 1) de `x`
+| Utilisation de la notation `[]` en spécifiant la position de l'élément souhaité 
+| `c = x[1]` # _'H' est le 2ième élément de la chaîne référencée par x (le premier est un espace)_
+
+
+| Extraction de la sous-chaîne 'Hello'
 |
 |
-| Extraction d'une sous-chaîne
-|
-|
+
 | Changement de casse
 
 (majuscule \<\-> minuscule)
@@ -458,27 +465,30 @@ Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le typ
 |Recherche d'une occurrence d'une sous-chaîne dans la chaîne
 |
 |
-| Compteur d'occurrence d'une sous-chaîne dans la chaîne
+| Compteur le nombre de 'l' dans x
 |
 |
-| Concaténation
 
-# _création d'une nouvelle `str` à partir de plusieurs autres_.
+| Quel est l'opérateur de concaténation ?
+
+(qui crée une nouvelle `str` à partir de plusieurs autres)
 |
 |
-| Comparaison
+
+| Peut-on comparer des chaines entre elles ?
 |
 |
-| Test de chaîne vide
+
+| Comment tester qu'un chaîne est vide ?
 |
 |
-| Longueur d'une chaîne
+
+| Comment obtenir la longueur d'une chaîne ?
 (nombre de points de code de la chaîne)
 |
 |
-| Tentative de conversion
 
-(chaîne \<\-> numérique)
+| Tentative de conversion : chaîne \<\-> numérique
 |
 |
 |===
@@ -564,7 +574,7 @@ Pour éviter de faire saisir les 2 lignes à l'utilisateur, vous pouvez lui dema
 
 où `produits.txt` est un fichier texte contenant 2 lignes de produits au format attendu (transmis sur le canal standard)
 
-Le module `fileinput` est très pratique pour ce type d'exploitation. L'exemple ci-dessous affiche le contenu du fichier reçu en argument - *en fait il lit l'entrée standard jusqu'à attendre le symbole de fin de transmission (U+0004 - CTRL+D)*. Testez-le !
+Le module `fileinput` est très pratique pour ce type d'exploitation. L'exemple ci-dessous affiche le contenu du fichier reçu en argument - *en fait il lit l'entrée standard jusqu'à attendre le symbole de fin de transmission (U+0004 - CTRL+D)* (ou CTRL+Z sous windows). Testez-le !
 
 [source, python]
 ----
@@ -577,7 +587,7 @@ def process_data() :
 
 ====
 
-==== Pour les plus avancés
+== Pour les plus avancés
 
 On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
 Seuls les champs renseignés seront mis à jour.
@@ -585,6 +595,33 @@ Seuls les champs renseignés seront mis à jour.
 .*Travail à faire*
 . Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
 . Implémenter et, bien entendu, tester le scénario A'
+
+== Défi 
+
+Voici un programme python faisant usage de caractères unicode non conventionnels, n'ayant pas toujours un glyphe associé !! C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants.
+
+On vous assure que ce code est sans risque ! n'hésitez pas à l'exécuter.
+
+.*Travail à faire*
+. Votre mission consiste à déchiffrer ce code (le remettre en clair), en expliquant votre démarche.
+
+[source, python]
+----
+import sys as Ꭓ𝑿
+import random as X
+X.seed('𝒙')
+𝒙 = [print,"Hello World !",2,"Hello",__name__,1,"",len,"__main__","!"]
+X.shuffle(𝒙)
+
+def Ꭓ(𝑿):
+    if 𝑿:
+        𝒙[0](𝒙[1], 𝑿, 𝒙[2])
+    else:
+        𝒙[0](𝒙[3])
+if (𝒙[4] == 𝒙[5]):
+    (Ꭓ(𝒙[8]) if (𝒙[6](Ꭓ𝑿.argv) < 𝒙[7]) else Ꭓ(Ꭓ𝑿.argv[𝒙[9]]))
+
+----
 
 
 == Contrôler vos connaissances et contribuer aux QCMs
