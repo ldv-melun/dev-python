@@ -1,5 +1,5 @@
 = Python-1
-:imagesdir: images
+:imagesdir: ../assets/images
 
 == Python
 
@@ -199,15 +199,20 @@ Vous trouverez ici https://docs.python.org/3/using/editors.html un inventaire de
 Voici ceux que vous devriez connaître :
 
 . `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
-. `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion et dispose d'un débogueur), également utilisé pour le dev frontend.
+. `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion, vérification de cohérence de type, débogueur intégré...), également utilisé pour le dev frontend. 
 . https://www.jetbrains.com/pycharm/[pyCharm], l'IDE à destination des professionnels (gain de productivité assuré)
+
+.Visual Studio Code avec le plugin Python, ouvert sur le dossier TPS
+image::vscode-python.png[vscode]
 
 == Exercices en mode script
 
 Un script python, appelé aussi "module", peut être utilisé directement, comme dans l'exemple `python3 tp1.py` ou intégré dans un autre module (via l'instruction `import`).
 
-Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.
+Python vient avec de nombreux modules préinstallés. Vous pouvez en consulter la liste avec : `pip3 list -V`. Voir ici pour en savoir plus sur la gestion des modules : https://docs.python.org/fr/dev/installing/index.html
 
+
+Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.
 
 === EXERCICE 2
 
@@ -240,12 +245,12 @@ if __name__ == "__main__": <4>
 <7> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`
 
 .*Travail à faire*
-. Créer un dossier dev
-. Créer un sous-dossier dev/tp et l'ouvrir avec l'éditeur visual studio code
+. Si ce n'est pas déjà fait, créer un dossier `dev`
+. Créer un sous-dossier `dev/TPS` et *ouvrir ce dossier* avec l'éditeur visual studio code
 . Créer le fichier `tp1.py`
 . Recopiez le code ci-dessus
 . (optionnel) Rendez-le exécutable (par exemple avec la commande `chmod +x tp1.py`)
-. Exécutez-le, éventuellement corrigez les erreurs de frappe.
+. Exécutez-le (dans un terminal), éventuellement corrigez les erreurs de frappe.
 . Modifiez la fonction `exo2()`, afin qu'elle affiche le prénom et le nom. Elle devra pour cela inviter l'utilisateur à entrer son prénom.
 
 === EXERCICE 3

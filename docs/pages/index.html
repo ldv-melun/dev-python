@@ -512,6 +512,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exercice_26_final">EXERCICE 26 FINAL</a></li>
 </ul>
 </li>
+<li><a href="#_pour_les_plus_avancés">Pour les plus avancés</a></li>
+<li><a href="#_défi">Défi</a></li>
 <li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_2">Contrôler vos connaissances et contribuer aux QCMs</a></li>
 </ul>
 </li>
@@ -832,18 +834,27 @@ Hello World
 <p><code>vi</code> : l&#8217;éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)</p>
 </li>
 <li>
-<p><code>Visual Studio Code</code> et son <a href="https://code.visualstudio.com/docs/python/python-tutorial">plugin python</a> : léger mais suffisament complet pour démarrer avec python (complétion et dispose d&#8217;un débogueur), également utilisé pour le dev frontend.</p>
+<p><code>Visual Studio Code</code> et son <a href="https://code.visualstudio.com/docs/python/python-tutorial">plugin python</a> : léger mais suffisament complet pour démarrer avec python (complétion, vérification de cohérence de type, débogueur intégré&#8230;&#8203;), également utilisé pour le dev frontend.</p>
 </li>
 <li>
 <p><a href="https://www.jetbrains.com/pycharm/">pyCharm</a>, l&#8217;IDE à destination des professionnels (gain de productivité assuré)</p>
 </li>
 </ol>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/images/vscode-python.png" alt="vscode">
+</div>
+<div class="title">Figure 1. Visual Studio Code avec le plugin Python, ouvert sur le dossier TPS</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_exercices_en_mode_script">Exercices en mode script</h3>
 <div class="paragraph">
 <p>Un script python, appelé aussi "module", peut être utilisé directement, comme dans l&#8217;exemple <code>python3 tp1.py</code> ou intégré dans un autre module (via l&#8217;instruction <code>import</code>).</p>
+</div>
+<div class="paragraph">
+<p>Python vient avec de nombreux modules préinstallés. Vous pouvez en consulter la liste avec : <code>pip3 list -V</code>. Voir ici pour en savoir plus sur la gestion des modules : <a href="https://docs.python.org/fr/dev/installing/index.html" class="bare">https://docs.python.org/fr/dev/installing/index.html</a></p>
 </div>
 <div class="paragraph">
 <p>Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.</p>
@@ -907,10 +918,10 @@ if __name__ == "__main__": <i class="conum" data-value="4"></i><b>(4)</b>
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Créer un dossier dev</p>
+<p>Si ce n&#8217;est pas déjà fait, créer un dossier <code>dev</code></p>
 </li>
 <li>
-<p>Créer un sous-dossier dev/tp et l&#8217;ouvrir avec l&#8217;éditeur visual studio code</p>
+<p>Créer un sous-dossier <code>dev/TPS</code> et <strong>ouvrir ce dossier</strong> avec l&#8217;éditeur visual studio code</p>
 </li>
 <li>
 <p>Créer le fichier <code>tp1.py</code></p>
@@ -922,7 +933,7 @@ if __name__ == "__main__": <i class="conum" data-value="4"></i><b>(4)</b>
 <p>(optionnel) Rendez-le exécutable (par exemple avec la commande <code>chmod +x tp1.py</code>)</p>
 </li>
 <li>
-<p>Exécutez-le, éventuellement corrigez les erreurs de frappe.</p>
+<p>Exécutez-le (dans un terminal), éventuellement corrigez les erreurs de frappe.</p>
 </li>
 <li>
 <p>Modifiez la fonction <code>exo2()</code>, afin qu&#8217;elle affiche le prénom et le nom. Elle devra pour cela inviter l&#8217;utilisateur à entrer son prénom.</p>
@@ -1174,7 +1185,7 @@ if __name__ == "__main__":
 <p>Adapter le script <code>tp1.py</code> (ajout de la fonction <code>somme</code> et <code>exo7</code>)</p>
 </li>
 <li>
-<p>Tester et comprendre pourquoi la fonction <code>exo7</code> bugue</p>
+<p>Tester et <strong>comprendre pourquoi la fonction <code>exo7</code> bugue</strong></p>
 </li>
 <li>
 <p>Corriger la fonction <code>exo7</code></p>
@@ -1512,6 +1523,9 @@ Le caractère suivant : B</pre>
 </td>
 <td class="content">
 <div class="paragraph">
+<p>(Pour les plus avancés)</p>
+</div>
+<div class="paragraph">
 <p><strong>Comment déclencher une exception en python ?</strong></p>
 </div>
 <div class="paragraph">
@@ -1841,7 +1855,7 @@ True</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Le terminal peut ne pas être en mesure de représenter le <strong>glyph</strong> du caractère UTF-8. Dans ce cas, le système affiche le point de code.</p>
+<p>Le terminal peut ne pas être en mesure de représenter le <strong>glyphe</strong> du caractère UTF-8. Dans ce cas, le système affiche le point de code.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1850,7 +1864,7 @@ True</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphs dès que permis.</p>
+<p>Fort heureusement, le développeur utilise rarement les point de code directement, préférant les glyphes dès que permis.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1877,7 +1891,7 @@ Hello World</code></pre>
 <p>Voici une liste à compléter, non exhaustive, d&#8217;opérations usuelles sur le type <code>str</code>, à renseigner par vous-même à partir de ces ressources <a href="https://docs.python.org/fr/3/library/stdtypes.html#string-methods">string-methods documentation</a> et <a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations">common-sequence-operations</a></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. à compléter</caption>
+<caption class="title">Table 3. à compléter à partir de cet exemple : x = " Hello World ! " (15 caractères)</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -1892,12 +1906,12 @@ Hello World</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extraction d&#8217;un caractère connaissant sa position dans la chaîne</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extraire le "caractère" 'H' (chaîne de longueur 1) de <code>x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilisation de la notation <code>[]</code> en spécifiant la position de l&#8217;élément souhaité</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c = x[1]</code> # <em>'H' est le 2ième élément de la chaîne référencée par x (le premier est un espace)</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Extraction d&#8217;une sous-chaîne</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extraction de la sous-chaîne 'Hello'</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -1918,35 +1932,34 @@ Hello World</code></pre>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compteur d&#8217;occurrence d&#8217;une sous-chaîne dans la chaîne</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compteur le nombre de 'l' dans x</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Concaténation</p>
-<p class="tableblock"># <em>création d&#8217;une nouvelle <code>str</code> à partir de plusieurs autres</em>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quel est l&#8217;opérateur de concaténation ?</p>
+<p class="tableblock">(qui crée une nouvelle <code>str</code> à partir de plusieurs autres)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comparaison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Peut-on comparer des chaines entre elles ?</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Test de chaîne vide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comment tester qu&#8217;un chaîne est vide ?</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Longueur d&#8217;une chaîne
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comment obtenir la longueur d&#8217;une chaîne ?
 (nombre de points de code de la chaîne)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tentative de conversion</p>
-<p class="tableblock">(chaîne &lt;-&gt; numérique)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tentative de conversion : chaîne &lt;-&gt; numérique</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -2054,7 +2067,7 @@ ERREUR de format !</pre>
 <p>où <code>produits.txt</code> est un fichier texte contenant 2 lignes de produits au format attendu (transmis sur le canal standard)</p>
 </div>
 <div class="paragraph">
-<p>Le module <code>fileinput</code> est très pratique pour ce type d&#8217;exploitation. L&#8217;exemple ci-dessous affiche le contenu du fichier reçu en argument - <strong>en fait il lit l&#8217;entrée standard jusqu&#8217;à attendre le symbole de fin de transmission (U+0004 - CTRL+D)</strong>. Testez-le !</p>
+<p>Le module <code>fileinput</code> est très pratique pour ce type d&#8217;exploitation. L&#8217;exemple ci-dessous affiche le contenu du fichier reçu en argument - <strong>en fait il lit l&#8217;entrée standard jusqu&#8217;à attendre le symbole de fin de transmission (U+0004 - CTRL+D)</strong> (ou CTRL+Z sous windows). Testez-le !</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2069,8 +2082,10 @@ def process_data() :
 </tr>
 </table>
 </div>
-<div class="sect4">
-<h5 id="_pour_les_plus_avancés">Pour les plus avancés</h5>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pour_les_plus_avancés">Pour les plus avancés</h3>
 <div class="paragraph">
 <p>On se place dans le scénario A. Nous appellerons <strong>A'</strong> (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l&#8217;utilisateur souhaite une mise à jour du produit.
 Seuls les champs renseignés seront mis à jour.</p>
@@ -2086,6 +2101,38 @@ Seuls les champs renseignés seront mis à jour.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_défi">Défi</h3>
+<div class="paragraph">
+<p>Voici un programme python faisant usage de caractères unicode non conventionnels, n&#8217;ayant pas toujours un glyphe associé !! C&#8217;est une technique d'<strong>obfuscation de code source</strong>, bien connue des hackers malveillants.</p>
+</div>
+<div class="paragraph">
+<p>On vous assure que ce code est sans risque ! n&#8217;hésitez pas à l&#8217;exécuter.</p>
+</div>
+<div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
+<ol class="arabic">
+<li>
+<p>Votre mission consiste à déchiffrer ce code (le remettre en clair), en expliquant votre démarche.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import sys as Ꭓ𝑿
+import random as X
+X.seed('𝒙')
+𝒙 = [print,"Hello World !",2,"Hello",__name__,1,"",len,"__main__","!"]
+X.shuffle(𝒙)
+
+def Ꭓ(𝑿):
+    if 𝑿:
+        𝒙[0](𝒙[1], 𝑿, 𝒙[2])
+    else:
+        𝒙[0](𝒙[3])
+if (𝒙[4] == 𝒙[5]):
+    (Ꭓ(𝒙[8]) if (𝒙[6](Ꭓ𝑿.argv) &lt; 𝒙[7]) else Ꭓ(Ꭓ𝑿.argv[𝒙[9]]))</code></pre>
 </div>
 </div>
 </div>
