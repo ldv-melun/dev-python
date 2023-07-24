@@ -497,9 +497,9 @@ Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le typ
 
 == Travaux pratique
 
-=== EXERCICE 26 FINAL
+=== EXERCICE 26
 
-On vous demande de programmer le scénario suivant (fonction nommée `exo26_final`).
+On vous demande de programmer le scénario suivant (fonction nommée `exo26`).
 
 L'utilisateur est invité à entrer *deux lignes* de texte respectant chacune le format suivant :
 [listing]
@@ -587,23 +587,23 @@ def process_data() :
 
 ====
 
-== Pour les plus avancés
+=== EXERCICE 27
 
 On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
-Seuls les champs renseignés seront mis à jour.
+Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.
 
 .*Travail à faire*
 . Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
 . Implémenter et, bien entendu, tester le scénario A'
 
-== Défi 
+== EXERCICE HACKING 28
 
-Voici un programme python faisant usage de caractères unicode non conventionnels, n'ayant pas toujours un glyphe associé !! C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants.
+Voici un programme python faisant usage de caractères unicode non conventionnels, n'ayant pas toujours un glyphe spécifique associé !! C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants.
 
 On vous assure que ce code est sans risque ! n'hésitez pas à l'exécuter.
 
 .*Travail à faire*
-. Votre mission consiste à déchiffrer ce code (le remettre en clair), en expliquant votre démarche.
+. Votre mission consiste à déchiffrer ce code (*le remettre en clair*), en expliquant votre démarche.
 
 [source, python]
 ----
