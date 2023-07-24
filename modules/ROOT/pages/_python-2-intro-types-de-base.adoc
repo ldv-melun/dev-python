@@ -394,7 +394,7 @@ Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#compari
 
 == Type chaîne de caractères (string)
 
-En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs (hexadécimal) de point de code UNICODE.
+En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs (notées en hexadécimal) de point de code UNICODE.
 
 [source, python]
 ----
@@ -436,7 +436,7 @@ Hello World
 <<<
 
 === EXERCICE 25 Opérations courantes sur les strings
-Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`, à renseigner par vous-même à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations]
+Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le type `str`, à renseigner par vous-même à partir de ces ressources https://docs.python.org/fr/3/library/stdtypes.html#string-methods[string-methods documentation] et https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations[common-sequence-operations] - il y a bien entendu d'autres ressources non officielles, comme https://fr.wikibooks.org/wiki/Programmation_Python/Chaines_de_caract%C3%A8res[sur wikibooks.org] par exemple.
 
 .à compléter à partir de cet exemple : x = " Hello World ! " (15 caractères)
 [cols="1,1,2", options="header"]
@@ -596,7 +596,7 @@ Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.
 . Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
 . Implémenter et, bien entendu, tester le scénario A'
 
-== EXERCICE HACKING 28
+=== EXERCICE HACKING 28
 
 Voici un programme python faisant usage de caractères unicode non conventionnels, n'ayant pas toujours un glyphe spécifique associé !! C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants.
 
@@ -626,6 +626,8 @@ if (𝒙[4] == 𝒙[5]):
 
 == Contrôler vos connaissances et contribuer aux QCMs
 
-TODO
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `tp2`)
+. Proposer, pour le thème `PYTHON-1`, scope `tp2`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+
 
 

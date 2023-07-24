@@ -1,6 +1,7 @@
 = XXX
 
-:imagesdir: images
+:imagesdir: ../assets/images
+
 
 == Titre
 

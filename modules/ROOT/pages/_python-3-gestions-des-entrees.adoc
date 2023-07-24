@@ -1,6 +1,7 @@
 = Gestion des entrées
 
-:imagesdir: images
+:imagesdir: ../assets/images
+
 
 == Transmissions de données à un script Python
 

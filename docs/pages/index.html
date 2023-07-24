@@ -448,7 +448,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="revdate">2023-07-16 - Version asciidoc</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table des matieres</div>
+<div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
 <li><a href="#_présentation">Présentation</a></li>
 <li><a href="#_python_1">Python-1</a>
@@ -511,9 +511,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_exercice_26">EXERCICE 26</a></li>
 <li><a href="#_exercice_27">EXERCICE 27</a></li>
+<li><a href="#_exercice_hacking_28">EXERCICE HACKING 28</a></li>
 </ul>
 </li>
-<li><a href="#_exercice_hacking_28">EXERCICE HACKING 28</a></li>
 <li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_2">Contrôler vos connaissances et contribuer aux QCMs</a></li>
 </ul>
 </li>
@@ -1231,7 +1231,7 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>)</p>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>tp1</code>)</p>
 </li>
 <li>
 <p>Proposer, pour le thème <code>PYTHON-1</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
@@ -1844,7 +1844,7 @@ True</code></pre>
 <div class="sect2">
 <h3 id="_type_chaîne_de_caractères_string">Type chaîne de caractères (string)</h3>
 <div class="paragraph">
-<p>En python les chaines de caractères sont instances du type <code>str</code>, et sont des séquences ordonnées de valeurs (hexadécimal) de point de code UNICODE.</p>
+<p>En python les chaines de caractères sont instances du type <code>str</code>, et sont des séquences ordonnées de valeurs (notées en hexadécimal) de point de code UNICODE.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1888,7 +1888,7 @@ Hello World</code></pre>
 <div class="sect3">
 <h4 id="_exercice_25_opérations_courantes_sur_les_strings">EXERCICE 25 Opérations courantes sur les strings</h4>
 <div class="paragraph">
-<p>Voici une liste à compléter, non exhaustive, d&#8217;opérations usuelles sur le type <code>str</code>, à renseigner par vous-même à partir de ces ressources <a href="https://docs.python.org/fr/3/library/stdtypes.html#string-methods">string-methods documentation</a> et <a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations">common-sequence-operations</a></p>
+<p>Voici une liste à compléter, non exhaustive, d&#8217;opérations usuelles sur le type <code>str</code>, à renseigner par vous-même à partir de ces ressources <a href="https://docs.python.org/fr/3/library/stdtypes.html#string-methods">string-methods documentation</a> et <a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations">common-sequence-operations</a> - il y a bien entendu d&#8217;autres ressources non officielles, comme <a href="https://fr.wikibooks.org/wiki/Programmation_Python/Chaines_de_caract%C3%A8res">sur wikibooks.org</a> par exemple.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. à compléter à partir de cet exemple : x = " Hello World ! " (15 caractères)</caption>
@@ -2101,9 +2101,8 @@ Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.</p
 </ol>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_exercice_hacking_28">EXERCICE HACKING 28</h3>
+<div class="sect3">
+<h4 id="_exercice_hacking_28">EXERCICE HACKING 28</h4>
 <div class="paragraph">
 <p>Voici un programme python faisant usage de caractères unicode non conventionnels, n&#8217;ayant pas toujours un glyphe spécifique associé !! C&#8217;est une technique d'<strong>obfuscation de code source</strong>, bien connue des hackers malveillants.</p>
 </div>
@@ -2136,10 +2135,18 @@ if (𝒙[4] == 𝒙[5]):
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="_contrôler_vos_connaissances_et_contribuer_aux_qcms_2">Contrôler vos connaissances et contribuer aux QCMs</h3>
-<div class="paragraph">
-<p>TODO</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>tp2</code>)</p>
+</li>
+<li>
+<p>Proposer, pour le thème <code>PYTHON-1</code>, scope <code>tp2</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2265,7 +2272,7 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 <div id="footer">
 <div id="footer-text">
 Version 0.1a<br>
-Last updated 2023-07-16 18:00:39 +0200
+Last updated 2023-07-24 17:10:58 +0200
 </div>
 </div>
 </body>
