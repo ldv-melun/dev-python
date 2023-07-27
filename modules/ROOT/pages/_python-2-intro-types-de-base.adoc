@@ -60,6 +60,14 @@ print(signe(0)) #
 
 ----
 
+
+[TIP]
+====
+Une fonction qui ne dépend que des valeurs de ses arguments pour réaliser son travail, sans impacter le système, est qualifiée de *fonction pure*. 
+
+Une fonction pure a de nombreux avantages, dont celui de permettre la programmation parallèle. 
+====
+
 == Type et opérations
 
 Nous avons constaté (Exercice 7) que les opérations sont dépendantes du type de la donnée sur laquelle elles travaillent.
@@ -394,7 +402,7 @@ Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#compari
 
 == Type chaîne de caractères (string)
 
-En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs (notées en hexadécimal) de point de code UNICODE.
+En python les chaines de caractères sont instances du type `str`, et sont des séquences ordonnées de valeurs de point de code UNICODE, pouvant être notées en hexadécimal.
 
 [source, python]
 ----
@@ -598,7 +606,9 @@ Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.
 
 === EXERCICE HACKING 28
 
-Voici un programme python faisant usage de caractères unicode non conventionnels, n'ayant pas toujours un glyphe spécifique associé !! C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants.
+Voici un programme python faisant usage de caractères unicode non conventionnels. Certains de ces caractères peuvent ne pas avoir un glyphe spécifique associé !!
+
+C'est une technique d'*obfuscation de code source*, bien connue des hackers malveillants, cherchant à décourager les personnes souhaitant comprendre le code source (souvent encodé à la base)
 
 On vous assure que ce code est sans risque ! n'hésitez pas à l'exécuter.
 
