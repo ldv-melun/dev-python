@@ -5,4 +5,15 @@
 
 == Transmissions de données à un script Python
 
+Notion de script paramétré
+
+
 == Gestion des erreurs (Python3)
+
+Syntaxe du `try catch`
+
+
+
+=== EXERCICE 50
+
+TODO

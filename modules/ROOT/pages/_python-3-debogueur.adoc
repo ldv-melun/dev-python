@@ -1,0 +1,82 @@
+= Deboguer
+
+:imagesdir: ../assets/images
+
+== Introduction
+
+Le débogage est une action qui consiste à interroger la mémoire vive d'un programme à l'exécution, à un instant _t_.
+
+L'instant débogué est d'ordinaire celui du *pointeur d'exécution*.
+
+L'idée est d'arrêter l'exécution d'un programme afin d'interroger son contexte mémoire, une sorte d'instantané d'une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d'y déceler  d'éventuels anomalies. 
+
+== Afficher des valeurs   
+
+La technique consiste à utiliser *provisoirement* des instructions *_print_* afin d'obtenir des traces d'exécution sur la console de lancement du script.
+
+.Exemple print
+[source, python]
+----
+print(f"Le prédécesseur de {chr(x)} est {chr(pred(x))}") <1>
+
+----
+
+<1> Cet exemple utilise la technique qui permet de formater des chaînes littérales incluant des expressions entre accolades `{}`. Attention à préfixer la chaîne avec 'f' ou 'F'. Ces chaînes sont appelées _formatted string literal_ ou _f-string_
+
+Cette technique a ses limites. Elle s'avère fastidieuse lorsqu'il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois réglé le problème.
+
+== Utiliser un débogueur
+
+=== instruction `breakpoint()`
+
+L'instruction `breakpoint()` permet de mettre le programme en pause afin de consulter des valeurs à un instant _t_. 
+
+.Exemple d'une instruction de point d'arrêt
+[source, python]
+----
+def exo3() :
+  x=int(input("Entrez un nombre entier svp : "))
+  breakpoint() <1>
+  if x%2==0 :  # la valeur de x est-elle divisible par 2 ?
+    print("Ce nombre est pair")
+  else :
+    print("Ce nombre est impair")
+  return 0
+----
+
+<1> L'exécution du programme s'arrêtera ici. Le développeur peut alors interroger la valeur de la variable `x`.
+
+[,console]
+----
+$ ./test.py 
+Entrez un nombre entier svp : 2
+> test.py(19)exo3() <1>
+-> if x%2==0 :  # la valeur de x est-elle divisible par 2 ?
+(Pdb) x  <2>
+2 <3>
+(Pdb) continue <4>
+Ce nombre est pair <5>
+$ 
+----
+
+<1> Le débogueur `Pdb` a mis en pause l'exécution du programme (ligne 19)
+<2> (mode interactif) Le développeur, en interaction avec le débogueur, demande la valeur de la variable `x`
+<3> Le débogueur retourne `2` (la valeur saisie par l'utilisateur)
+<4> Le développeur demande la poursuite du programme jusqu'au prochain point d'arrêt 
+<5> Le programme s'est terminé car il n'y a plus aucun autre point d'arrêt
+
+==== EXERCICE 30
+
+TODO
+
+==== EXERCICE 31
+
+TODO
+
+=== Débogueur piloté par l'IDE
+
+C'est la façon la plus souple d'interagir avec un débogueur.
+
+Nous utilisons `code` (visual studio code) pour la démonstration.
+
+TODO

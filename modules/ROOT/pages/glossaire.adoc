@@ -7,7 +7,24 @@ variable::
 
 type::
  Pour l'interpréteur, désigne comment utiliser et stocker la valeur d'une variable.
+ +
 Pour l'utilisateur, limite l'exploitation de la variable aux opérations définies sur ce type.
++
+.La fonction 'type' retourne le type de son argument 
+[source, python]
+----
+>>> type(42)
+<class 'int'>
+>>> type(42) is int
+True
+>>> type(42) is str
+False
+>>> type("42") is str
+True
+>>> 
+----
++
+Voir la discussion ici : https://stackoverflow.com/questions/4843173/how-to-check-if-type-of-a-variable-is-string
 
 valeur d'une variable:: interprétation du contenu de (l'espace occupé par) la variable, selon son type.
 +
