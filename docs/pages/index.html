@@ -521,12 +521,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_deboguer">Deboguer</a>
 <ul class="sectlevel2">
-<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_quest_ce_que_le_débogage">Qu&#8217;est-ce que le débogage ?</a></li>
+<li><a href="#_pourquoi_le_débogage_est_il_important">Pourquoi le débogage est-il important ?</a></li>
+<li><a href="#_méthodes_de_débogage">Méthodes de débogage</a>
+<ul class="sectlevel3">
 <li><a href="#_afficher_des_valeurs">Afficher des valeurs</a></li>
-<li><a href="#_utiliser_un_débogueur">Utiliser un débogueur</a>
+</ul>
+</li>
+<li><a href="#_utiliser_le_débogueur_debugger_intégré">Utiliser le débogueur (debugger) intégré</a>
 <ul class="sectlevel3">
 <li><a href="#_instruction_breakpoint">instruction <code>breakpoint()</code></a></li>
 <li><a href="#_débogueur_piloté_par_lide">Débogueur piloté par l&#8217;IDE</a></li>
+</ul>
+</li>
+<li><a href="#_les_assertions_pour_se_prémunir_de_bugs">Les assertions pour se prémunir de bugs</a>
+<ul class="sectlevel3">
+<li><a href="#_linstruction_assert">L&#8217;instruction assert</a></li>
 </ul>
 </li>
 </ul>
@@ -2189,19 +2199,62 @@ if (𝒙[4] == 𝒙[5]):
 <h2 id="_deboguer">Deboguer</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_introduction">Introduction</h3>
+<h3 id="_quest_ce_que_le_débogage">Qu&#8217;est-ce que le débogage ?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Le débogage est un processus d&#8217;identification d&#8217;erreurs dans le code source d&#8217;un programme.</p>
+</li>
+<li>
+<p>Les erreurs dans le code sont appelées des "bugs".</p>
+</li>
+<li>
+<p>Les bugs peuvent provoquer des comportements indésirables ou des plantages dans le programme.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pourquoi_le_débogage_est_il_important">Pourquoi le débogage est-il important ?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Le débogage permet de s&#8217;assurer que le code fonctionne comme attendu.</p>
+</li>
+<li>
+<p>Il permet de comprendre plus rapidement la nature des erreurs.</p>
+</li>
+<li>
+<p><strong>Le débogage aide à comprendre le fonctionnement du code, ce qui améliore les compétences en programmation</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_méthodes_de_débogage">Méthodes de débogage</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Déboguer c&#8217;est entreprendre une analyse d&#8217;un programme en cours d&#8217;exécution.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Le débogage est une action qui consiste à interroger la mémoire vive d&#8217;un programme à l&#8217;exécution, à un instant <em>t</em>.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;instant débogué est d&#8217;ordinaire celui du <strong>pointeur d&#8217;exécution</strong>.</p>
+<p>L&#8217;instant débogué est d&#8217;ordinaire celui du <strong>pointeur d&#8217;exécution</strong> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
 </div>
 <div class="paragraph">
-<p>L&#8217;idée est d&#8217;arrêter l&#8217;exécution d&#8217;un programme afin d&#8217;interroger son contexte mémoire, une sorte d&#8217;instantané d&#8217;une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d&#8217;y déceler  d&#8217;éventuels anomalies.</p>
+<p>L&#8217;idée est d&#8217;arrêter provisoirement l&#8217;exécution d&#8217;un programme afin d&#8217;interroger son contexte mémoire, une sorte d&#8217;instantané d&#8217;une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d&#8217;y déceler d&#8217;éventuels anomalies.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_afficher_des_valeurs">Afficher des valeurs</h3>
+<div class="sect3">
+<h4 id="_afficher_des_valeurs">Afficher des valeurs</h4>
 <div class="paragraph">
 <p>La technique consiste à utiliser <strong>provisoirement</strong> des instructions <strong><em>print</em></strong> afin d&#8217;obtenir des traces d&#8217;exécution sur la console de lancement du script.</p>
 </div>
@@ -2220,15 +2273,22 @@ if (𝒙[4] == 𝒙[5]):
 </table>
 </div>
 <div class="paragraph">
-<p>Cette technique a ses limites. Elle s&#8217;avère fastidieuse lorsqu&#8217;il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois réglé le problème.</p>
+<p>Cette technique a ses limites. Elle s&#8217;avère fastidieuse lorsqu&#8217;il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois le problème réglé.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_utiliser_un_débogueur">Utiliser un débogueur</h3>
+<h3 id="_utiliser_le_débogueur_debugger_intégré">Utiliser le débogueur (debugger) intégré</h3>
+<div class="paragraph">
+<p>Python dispose d&#8217;un débogueur intégré appelé <code>pdb</code>, qui permet d&#8217;exécuter le code pas à pas et d&#8217;inspecter les variables à chaque étape.</p>
+</div>
+<div class="paragraph">
+<p>Utilisez les commandes <code>break</code>, <code>continue</code>, <code>step</code>, <code>print</code>, etc., pour naviguer dans le code et examiner les valeurs.</p>
+</div>
 <div class="sect3">
 <h4 id="_instruction_breakpoint">instruction <code>breakpoint()</code></h4>
 <div class="paragraph">
-<p>L&#8217;instruction <code>breakpoint()</code> permet de mettre le programme en pause afin de consulter des valeurs à un instant <em>t</em>.</p>
+<p>L&#8217;instruction <code>breakpoint()</code> permet de mettre le programme en pause afin de consulter des valeurs à un instant <em>t</em> choisi par le développeur.</p>
 </div>
 <div class="listingblock">
 <div class="title">Listing 17. Exemple d&#8217;une instruction de point d&#8217;arrêt</div>
@@ -2252,6 +2312,7 @@ if (𝒙[4] == 𝒙[5]):
 </table>
 </div>
 <div class="listingblock">
+<div class="title">Listing 18. Exemple d&#8217;interactions avec le débogueur</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ ./test.py
 Entrez un nombre entier svp : 2
@@ -2280,7 +2341,7 @@ $</code></pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Le développeur demande la poursuite du programme jusqu&#8217;au prochain point d&#8217;arrêt</td>
+<td>Le développeur demande la poursuite du programme jusqu&#8217;au prochain point d&#8217;arrêt (sinon, pour avancer pas à pas, utiliser <code>step</code>)</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
@@ -2309,8 +2370,112 @@ $</code></pre>
 <div class="paragraph">
 <p>Nous utilisons <code>code</code> (visual studio code) pour la démonstration.</p>
 </div>
+<div class="sect4">
+<h5 id="_définition_dun_point_darrêt">Définition d&#8217;un point d&#8217;arrêt</h5>
 <div class="paragraph">
-<p>TODO</p>
+<p>Dans l&#8217;éditeur, une colonne (à gauche) est dédiée à la pause de point d&#8217;arrêt.</p>
+</div>
+<div class="paragraph">
+<p>Exemple :
+<span class="image"><img src="../assets/images/code-debug-1-dia.png" alt="code-debug-1-dia.png"></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_avancement_pas_à_pas">Avancement pas à pas</h5>
+<div class="paragraph">
+<p>Dans l&#8217;éditeur, une colonne (à gauche) est dédiée à la pause de points d&#8217;arrêt.</p>
+</div>
+<div class="paragraph">
+<p>Exemple :
+<span class="image"><img src="../assets/images/code-debug-2-dia.png" alt="code-debug-2"></span></p>
+</div>
+<div class="paragraph">
+<p>Exemple :
+<span class="image"><img src="../assets/images/code-debug-3-dia.png" alt="code-debug-3"></span></p>
+</div>
+<div class="paragraph">
+<p>N&#8217;hésitez pas à explorer les autres commandes de la bare de debug (<code>continue</code>, <code>restart</code>, <code>stop</code>)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_assertions_pour_se_prémunir_de_bugs">Les assertions pour se prémunir de bugs</h3>
+<div class="paragraph">
+<p>Les assertions sont des instructions qui vérifient la cohérence de valeurs en cours d&#8217;exécution dans le code.</p>
+</div>
+<div class="paragraph">
+<p>Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d&#8217;utilisation essentielles sont respectées.</p>
+</div>
+<div class="sect3">
+<h4 id="_linstruction_assert">L&#8217;instruction assert</h4>
+<div class="paragraph">
+<p>L&#8217;instruction <code>assert</code> permet de vérifier qu&#8217;une condition est vraie à un point particulier du code.
+Si la condition est fausse, une exception <code>AssertionError</code> sera levée, indiquant qu&#8217;il y a un problème à cet endroit.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def extract_name(full_name):
+    """
+    Algorithme naïf, full_name de la forme "prénom nom"
+    """
+    assert isinstance(full_name, str), "Le nom complet doit être une chaîne de caractères."
+    names = full_name.split()
+    assert len(names) &gt;= 2, "Le nom complet doit contenir au moins un prénom et un nom de famille."
+    first_name = names[0]
+    last_name = names[-1]
+    return first_name, last_name
+
+# Exemple d'utilisation
+try:
+    full_name = "John Doe"
+    first_name, last_name = extract_name(full_name)
+    print(f"Prénom : {first_name}")
+    print(f"Nom de famille : {last_name}")
+except AssertionError as e:
+    print(f"Erreur : {e}")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dans cet exemple, nous avons une fonction <code>extract_name()</code> qui extrait le prénom et le nom de famille d&#8217;une chaîne de caractères qui représente un nom complet.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;instruction <code>assert</code> est utilisée pour vérifier deux choses :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La variable full_name doit être une chaîne de caractères. Si ce n&#8217;est pas le cas, une exception <code>AssertionError</code> est levée avec le message : "Le nom complet doit être une chaîne de caractères."</p>
+</li>
+<li>
+<p>La chaîne de caractères full_name doit contenir au moins un prénom et un nom de famille. Si la chaîne ne contient pas au moins deux parties (prénom et nom de famille) séparées par un espace, une exception <code>AssertionError</code> est levée avec le message : "Le nom complet doit contenir au moins un prénom et un nom de famille."</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ces assertions nous permettent de nous assurer que la fonction <code>extract_name()</code> est correctement utilisée avec une chaîne de caractères représentant un nom complet. Si un développeur utilise la fonction de manière incorrecte en passant un autre type de variable ou une chaîne de caractères mal formatée, les assertions lèveront une exception pour signaler le problème.</p>
+</div>
+<div class="paragraph">
+<p>Notez que l&#8217;utilisation des assertions dépend du contexte de votre programme et de l&#8217;endroit où vous souhaitez détecter les erreurs. <strong>Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s&#8217;assurer que le code est utilisé correctement et en accord avec les attentes du développeur.</strong></p>
+</div>
+<div class="sect4">
+<h5 id="_exercice_32">EXERCICE 32</h5>
+<div class="paragraph">
+<p>Tester la fonction <code>extract_name</code>, avec au moins 3 scénarios :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>un de réussite (à l&#8217;instar de celui fourni)</p>
+</li>
+<li>
+<p>un avec une erreur de type</p>
+</li>
+<li>
+<p>un avec une erreur de mauvais contenu de chaîne</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -2331,7 +2496,7 @@ $</code></pre>
 <br>
 Pour l&#8217;utilisateur, limite l&#8217;exploitation de la variable aux opérations définies sur ce type.</p>
 <div class="listingblock">
-<div class="title">Listing 18. La fonction 'type' retourne le type de son argument</div>
+<div class="title">Listing 19. La fonction 'type' retourne le type de son argument</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; type(42)
 &lt;class 'int'&gt;
@@ -2450,6 +2615,12 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 </dl>
 </div>
 </div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. peut être aussi <em>postmortem</em>
 </div>
 </div>
 <div id="footer">

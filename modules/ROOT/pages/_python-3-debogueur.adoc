@@ -2,15 +2,30 @@
 
 :imagesdir: ../assets/images
 
-== Introduction
+== Qu'est-ce que le débogage ?
+
+* Le débogage est un processus d'identification d'erreurs dans le code source d'un programme.
+* Les erreurs dans le code sont appelées des "bugs".
+* Les bugs peuvent provoquer des comportements indésirables ou des plantages dans le programme.
+
+== Pourquoi le débogage est-il important ?
+
+* Le débogage permet de s'assurer que le code fonctionne comme attendu.
+* Il permet de comprendre plus rapidement la nature des erreurs.
+* *Le débogage aide à comprendre le fonctionnement du code, ce qui améliore les compétences en programmation*.
+
+
+== Méthodes de débogage
+
+TIP: Déboguer c'est entreprendre une analyse d'un programme en cours d'exécution.
 
 Le débogage est une action qui consiste à interroger la mémoire vive d'un programme à l'exécution, à un instant _t_.
 
-L'instant débogué est d'ordinaire celui du *pointeur d'exécution*.
+L'instant débogué est d'ordinaire celui du *pointeur d'exécution* footnote:[peut être aussi _postmortem_].
 
-L'idée est d'arrêter l'exécution d'un programme afin d'interroger son contexte mémoire, une sorte d'instantané d'une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d'y déceler  d'éventuels anomalies. 
+L'idée est d'arrêter provisoirement l'exécution d'un programme afin d'interroger son contexte mémoire, une sorte d'instantané d'une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d'y déceler d'éventuels anomalies. 
 
-== Afficher des valeurs   
+=== Afficher des valeurs   
 
 La technique consiste à utiliser *provisoirement* des instructions *_print_* afin d'obtenir des traces d'exécution sur la console de lancement du script.
 
@@ -23,13 +38,17 @@ print(f"Le prédécesseur de {chr(x)} est {chr(pred(x))}") <1>
 
 <1> Cet exemple utilise la technique qui permet de formater des chaînes littérales incluant des expressions entre accolades `{}`. Attention à préfixer la chaîne avec 'f' ou 'F'. Ces chaînes sont appelées _formatted string literal_ ou _f-string_
 
-Cette technique a ses limites. Elle s'avère fastidieuse lorsqu'il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois réglé le problème.
+Cette technique a ses limites. Elle s'avère fastidieuse lorsqu'il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois le problème réglé.
 
-== Utiliser un débogueur
+== Utiliser le débogueur (debugger) intégré
+
+Python dispose d'un débogueur intégré appelé `pdb`, qui permet d'exécuter le code pas à pas et d'inspecter les variables à chaque étape.
+
+Utilisez les commandes `break`, `continue`, `step`, `print`, etc., pour naviguer dans le code et examiner les valeurs.
 
 === instruction `breakpoint()`
 
-L'instruction `breakpoint()` permet de mettre le programme en pause afin de consulter des valeurs à un instant _t_. 
+L'instruction `breakpoint()` permet de mettre le programme en pause afin de consulter des valeurs à un instant _t_ choisi par le développeur.
 
 .Exemple d'une instruction de point d'arrêt
 [source, python]
@@ -46,6 +65,7 @@ def exo3() :
 
 <1> L'exécution du programme s'arrêtera ici. Le développeur peut alors interroger la valeur de la variable `x`.
 
+.Exemple d'interactions avec le débogueur
 [,console]
 ----
 $ ./test.py 
@@ -62,7 +82,7 @@ $
 <1> Le débogueur `Pdb` a mis en pause l'exécution du programme (ligne 19)
 <2> (mode interactif) Le développeur, en interaction avec le débogueur, demande la valeur de la variable `x`
 <3> Le débogueur retourne `2` (la valeur saisie par l'utilisateur)
-<4> Le développeur demande la poursuite du programme jusqu'au prochain point d'arrêt 
+<4> Le développeur demande la poursuite du programme jusqu'au prochain point d'arrêt (sinon, pour avancer pas à pas, utiliser `step`)
 <5> Le programme s'est terminé car il n'y a plus aucun autre point d'arrêt
 
 ==== EXERCICE 30
@@ -79,4 +99,82 @@ C'est la façon la plus souple d'interagir avec un débogueur.
 
 Nous utilisons `code` (visual studio code) pour la démonstration.
 
-TODO
+
+==== Définition d'un point d'arrêt
+
+Dans l'éditeur, une colonne (à gauche) est dédiée à la pause de point d'arrêt.
+
+Exemple :
+image:code-debug-1-dia.png[code-debug-1-dia.png]
+
+==== Avancement pas à pas
+
+Dans l'éditeur, une colonne (à gauche) est dédiée à la pause de points d'arrêt.
+
+Exemple :
+image:code-debug-2-dia.png[code-debug-2]
+
+
+Exemple :
+image:code-debug-3-dia.png[code-debug-3]
+
+N'hésitez pas à explorer les autres commandes de la bare de debug (`continue`, `restart`, `stop`)
+
+
+== Les assertions pour se prémunir de bugs
+
+Les assertions sont des instructions qui vérifient la cohérence de valeurs en cours d'exécution dans le code.
+
+Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d'utilisation essentielles sont respectées.
+
+
+=== L'instruction assert
+
+L'instruction `assert` permet de vérifier qu'une condition est vraie à un point particulier du code.
+Si la condition est fausse, une exception `AssertionError` sera levée, indiquant qu'il y a un problème à cet endroit.
+
+[source, python]
+----
+def extract_name(full_name):
+    """
+    Algorithme naïf, full_name de la forme "prénom nom"
+    """
+    assert isinstance(full_name, str), "Le nom complet doit être une chaîne de caractères."
+    names = full_name.split()
+    assert len(names) >= 2, "Le nom complet doit contenir au moins un prénom et un nom de famille."
+    first_name = names[0]
+    last_name = names[-1]
+    return first_name, last_name
+
+# Exemple d'utilisation
+try:
+    full_name = "John Doe"
+    first_name, last_name = extract_name(full_name)
+    print(f"Prénom : {first_name}")
+    print(f"Nom de famille : {last_name}")
+except AssertionError as e:
+    print(f"Erreur : {e}")
+
+----
+
+Dans cet exemple, nous avons une fonction `extract_name()` qui extrait le prénom et le nom de famille d'une chaîne de caractères qui représente un nom complet.
+
+L'instruction `assert` est utilisée pour vérifier deux choses :
+
+* La variable full_name doit être une chaîne de caractères. Si ce n'est pas le cas, une exception `AssertionError` est levée avec le message : "Le nom complet doit être une chaîne de caractères."
+
+* La chaîne de caractères full_name doit contenir au moins un prénom et un nom de famille. Si la chaîne ne contient pas au moins deux parties (prénom et nom de famille) séparées par un espace, une exception `AssertionError` est levée avec le message : "Le nom complet doit contenir au moins un prénom et un nom de famille."
+
+Ces assertions nous permettent de nous assurer que la fonction `extract_name()` est correctement utilisée avec une chaîne de caractères représentant un nom complet. Si un développeur utilise la fonction de manière incorrecte en passant un autre type de variable ou une chaîne de caractères mal formatée, les assertions lèveront une exception pour signaler le problème.
+
+Notez que l'utilisation des assertions dépend du contexte de votre programme et de l'endroit où vous souhaitez détecter les erreurs. *Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s'assurer que le code est utilisé correctement et en accord avec les attentes du développeur.*
+
+==== EXERCICE 32
+
+Tester la fonction `extract_name`, avec au moins 3 scénarios :
+
+. un de réussite (à l'instar de celui fourni)
+. un avec une erreur de type
+. un avec une erreur de mauvais contenu de chaîne
+
+
