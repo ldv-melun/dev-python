@@ -17,13 +17,11 @@
 
 == Méthodes de débogage
 
-TIP: Déboguer c'est entreprendre une analyse d'un programme en cours d'exécution.
+Il existe plusieurs approches, complémentaires entre elles.
 
-Le débogage est une action qui consiste à interroger la mémoire vive d'un programme à l'exécution, à un instant _t_.
-
-L'instant débogué est d'ordinaire celui du *pointeur d'exécution* footnote:[peut être aussi _postmortem_].
-
-L'idée est d'arrêter provisoirement l'exécution d'un programme afin d'interroger son contexte mémoire, une sorte d'instantané d'une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d'y déceler d'éventuels anomalies. 
+. Analyser la logique du programme pour en détecter les failles.
+. Afficher des valeurs en cours d'exécution.
+. Interagir pas à pas avec le programme en cours d'exécution en utilisant un _debogger_
 
 === Afficher des valeurs   
 
@@ -40,13 +38,21 @@ print(f"Le prédécesseur de {chr(x)} est {chr(pred(x))}") <1>
 
 Cette technique a ses limites. Elle s'avère fastidieuse lorsqu'il y a plusieurs variables à inspecter. De plus, le développeur ne doit pas oublier de supprimer (ou de commenter) ces instructions de débogage une fois le problème réglé.
 
-== Utiliser le débogueur (debugger) intégré
+=== Utiliser le débogueur (debugger) intégré
+
+TIP: Analyser un code avec un débogueur c'est entreprendre une analyse du programme en cours d'exécution.
+
+Le débogage est une action qui consiste à interroger la mémoire vive d'un programme à l'exécution, à un instant _t_.
+
+L'instant débogué est d'ordinaire celui du *pointeur d'exécution* footnote:[peut être aussi _postmortem_].
+
+L'idée est d'*arrêter provisoirement l'exécution d'un programme* afin d'interroger son contexte mémoire, une sorte d'instantané d'une partie de la mémoire vive. Le développeur peut alors consulter la valeur des variables exploitées à ce moment là par le programme et comparer ces valeurs avec ses prédictions afin d'y déceler d'éventuels anomalies.
 
 Python dispose d'un débogueur intégré appelé `pdb`, qui permet d'exécuter le code pas à pas et d'inspecter les variables à chaque étape.
 
 Utilisez les commandes `break`, `continue`, `step`, `print`, etc., pour naviguer dans le code et examiner les valeurs.
 
-=== En mode console 
+==== En mode console 
 
 L'instruction `breakpoint()` permet de mettre le programme en pause afin de consulter des valeurs à un instant _t_ choisi par le développeur.
 
@@ -85,26 +91,26 @@ $
 <4> Le développeur demande la poursuite du programme jusqu'au prochain point d'arrêt (sinon, pour avancer pas à pas, utiliser `step`)
 <5> Le programme s'est terminé car il n'y a plus aucun autre point d'arrêt
 
-==== EXERCICE 30
+===== EXERCICE 30
 
 Placer l'instruction `breakpoint()` dans un de vos scripts, et tester le.
 
 
-=== Débogueur piloté par l'IDE
+==== Débogueur piloté par l'IDE
 
 C'est la façon la plus souple d'interagir avec un débogueur.
 
 Nous utilisons `code` (visual studio code) pour la démonstration.
 
 
-==== Définition d'un point d'arrêt
+===== Définition d'un point d'arrêt
 
 Dans l'éditeur, une colonne (à gauche) est dédiée à la pause de point d'arrêt.
 
 Exemple :
 image:code-debug-1-dia.png[code-debug-1-dia.png]
 
-==== Avancement pas à pas
+===== Avancement pas à pas
 
 Dans l'éditeur, une colonne (à gauche) est dédiée à la pause de points d'arrêt.
 
@@ -121,7 +127,7 @@ image:code-debug-4-dia.png[code-debug-4]
 N'hésitez pas à explorer les autres commandes de la bare de debug (`continue`, `restart`, `stop`)
 
 
-==== EXERCICE 31
+===== EXERCICE 31
 
 Reprendre l'exemple ci-dessous, supprimer tous les points d'arrêt.
 
