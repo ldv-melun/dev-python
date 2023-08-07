@@ -1,5 +1,13 @@
-= XXX
-
+= Python-4 Sequences
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
 :imagesdir: ../assets/images
 
 

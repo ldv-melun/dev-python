@@ -1,4 +1,4 @@
-= Python-5 Gestion des entrées
+= Python-7 Poo
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -11,17 +11,14 @@ v0.1a, 2023-07-16 - Version asciidoc
 :imagesdir: ../assets/images
 
 
-== Transmissions de données à un script Python
+== Changement de paradigme
 
-Notion de script paramétré
+f(x) vs x.f()
 
+== Multi paradigmes
 
-== Gestion des erreurs (Python3)
+TODO
 
-Syntaxe du `try catch`
-
-
-
-=== EXERCICE 50
+=== EXERCICE 70
 
 TODO

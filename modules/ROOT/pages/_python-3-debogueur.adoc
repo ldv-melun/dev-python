@@ -1,18 +1,27 @@
-= Deboguer
-
+= Python-3 Déboguer
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
 :imagesdir: ../assets/images
+
+
 
 == Qu'est-ce que le débogage ?
 
 * Le débogage est un processus d'identification d'erreurs dans le code source d'un programme.
 * Les erreurs dans le code sont appelées des "bugs".
-* Les bugs peuvent provoquer des comportements indésirables ou des plantages dans le programme.
+* Les bugs peuvent provoquer des comportements indésirables ou un plantage du programme.
 
 == Pourquoi le débogage est-il important ?
 
-* Le débogage permet de s'assurer que le code fonctionne comme attendu.
-* Il permet de comprendre plus rapidement la nature des erreurs.
-* *Le débogage aide à comprendre le fonctionnement du code, ce qui améliore les compétences en programmation*.
+* Le débogage permet de comprendre plus rapidement la nature de certaines erreurs.
+* Le débogage aide à comprendre le fonctionnement du code, ce qui *améliore les compétences en programmation*.
 
 
 == Méthodes de débogage

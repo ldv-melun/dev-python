@@ -1,4 +1,4 @@
-= Python-5 Gestion des entrées
+= Python-6 Tests unitaires
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -11,17 +11,11 @@ v0.1a, 2023-07-16 - Version asciidoc
 :imagesdir: ../assets/images
 
 
-== Transmissions de données à un script Python
+== Les tests
 
-Notion de script paramétré
-
-
-== Gestion des erreurs (Python3)
-
-Syntaxe du `try catch`
+Classification rapide
 
 
-
-=== EXERCICE 50
+=== EXERCICE 60
 
 TODO

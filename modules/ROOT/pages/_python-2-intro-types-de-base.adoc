@@ -1,4 +1,4 @@
-= Python-2
+= Python-2 intro
 :imagesdir: ../assets/images
 
 == Méta-modèle IPO
