@@ -530,11 +530,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_utiliser_le_débogueur_debugger_intégré">Utiliser le débogueur (debugger) intégré</a>
 <ul class="sectlevel3">
-<li><a href="#_instruction_breakpoint">instruction <code>breakpoint()</code></a></li>
+<li><a href="#_en_mode_console">En mode console</a></li>
 <li><a href="#_débogueur_piloté_par_lide">Débogueur piloté par l&#8217;IDE</a></li>
 </ul>
 </li>
-<li><a href="#_les_assertions_pour_se_prémunir_de_bugs">Les assertions pour se prémunir de bugs</a>
+<li><a href="#_les_assertions_pour_se_prémunir_de_certains_bugs">Les assertions pour se prémunir de certains bugs</a>
 <ul class="sectlevel3">
 <li><a href="#_linstruction_assert">L&#8217;instruction assert</a></li>
 </ul>
@@ -2286,7 +2286,7 @@ Déboguer c&#8217;est entreprendre une analyse d&#8217;un programme en cours d&#
 <p>Utilisez les commandes <code>break</code>, <code>continue</code>, <code>step</code>, <code>print</code>, etc., pour naviguer dans le code et examiner les valeurs.</p>
 </div>
 <div class="sect3">
-<h4 id="_instruction_breakpoint">instruction <code>breakpoint()</code></h4>
+<h4 id="_en_mode_console">En mode console</h4>
 <div class="paragraph">
 <p>L&#8217;instruction <code>breakpoint()</code> permet de mettre le programme en pause afin de consulter des valeurs à un instant <em>t</em> choisi par le développeur.</p>
 </div>
@@ -2352,13 +2352,7 @@ $</code></pre>
 <div class="sect4">
 <h5 id="_exercice_30">EXERCICE 30</h5>
 <div class="paragraph">
-<p>TODO</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_exercice_31">EXERCICE 31</h5>
-<div class="paragraph">
-<p>TODO</p>
+<p>Placer l&#8217;instruction <code>breakpoint()</code> dans un de vos scripts, et tester le.</p>
 </div>
 </div>
 </div>
@@ -2386,41 +2380,67 @@ $</code></pre>
 <p>Dans l&#8217;éditeur, une colonne (à gauche) est dédiée à la pause de points d&#8217;arrêt.</p>
 </div>
 <div class="paragraph">
-<p>Exemple :
+<p>Exemple pour entrer dans le code d&#8217;une fonction appelée
 <span class="image"><img src="../assets/images/code-debug-2-dia.png" alt="code-debug-2"></span></p>
 </div>
 <div class="paragraph">
-<p>Exemple :
+<p>Exemple pour ne pas entrer dans le code d&#8217;une fonction appelée
 <span class="image"><img src="../assets/images/code-debug-3-dia.png" alt="code-debug-3"></span></p>
+</div>
+<div class="paragraph">
+<p>Exemple de consultation des variables locales
+<span class="image"><img src="../assets/images/code-debug-4-dia.png" alt="code-debug-4"></span></p>
 </div>
 <div class="paragraph">
 <p>N&#8217;hésitez pas à explorer les autres commandes de la bare de debug (<code>continue</code>, <code>restart</code>, <code>stop</code>)</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_exercice_31">EXERCICE 31</h5>
+<div class="paragraph">
+<p>Reprendre l&#8217;exemple ci-dessous, supprimer tous les points d&#8217;arrêt.</p>
+</div>
+<div class="paragraph">
+<p>Ajouter un <strong>point d&#8217;arrêt conditionnel</strong> sur la ligne 6. Pour cela, une fois placé le point d&#8217;arrêt, faire un clic droit sur celui-ci , puis sélectionner <code>Edit breakpoint&#8230;&#8203;</code>. Comme valeur de l&#8217;expression, inscrire par exemple <code>x == 42</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lancer le mode debug. Le programme se mettra en pause debug que si la valeur de x égalera 42.</p>
+</div>
+<div class="paragraph">
+<p>Une technique fort pratique pour pister des erreurs !</p>
+</div>
+<div class="paragraph">
+<p>Testez-la !</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_les_assertions_pour_se_prémunir_de_bugs">Les assertions pour se prémunir de bugs</h3>
+<h3 id="_les_assertions_pour_se_prémunir_de_certains_bugs">Les assertions pour se prémunir de certains bugs</h3>
 <div class="paragraph">
 <p>Les assertions sont des instructions qui vérifient la cohérence de valeurs en cours d&#8217;exécution dans le code.</p>
 </div>
 <div class="paragraph">
-<p>Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d&#8217;utilisation essentielles sont respectées.</p>
+<p>Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d&#8217;utilisation de fonctions (particulièrement dans le cas de langage de script non typés).</p>
 </div>
 <div class="sect3">
 <h4 id="_linstruction_assert">L&#8217;instruction assert</h4>
 <div class="paragraph">
-<p>L&#8217;instruction <code>assert</code> permet de vérifier qu&#8217;une condition est vraie à un point particulier du code.
-Si la condition est fausse, une exception <code>AssertionError</code> sera levée, indiquant qu&#8217;il y a un problème à cet endroit.</p>
+<p>L&#8217;instruction <code>assert</code> permet de vérifier qu&#8217;une condition est vraie à un point particulier du code.</p>
+</div>
+<div class="paragraph">
+<p>Si la condition est fausse, une exception <code>AssertionError</code> sera levée, indiquant qu&#8217;il y a un problème à cet endroit.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 19. Exemple d&#8217;instruction <code>assert</code> (les listes sont étudiées dans la section suivante)</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def extract_name(full_name):
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def extract_name(full_name : str) -&gt; tuple :
     """
     Algorithme naïf, full_name de la forme "prénom nom"
+    Retourne une liste de 2 éléments
     """
     assert isinstance(full_name, str), "Le nom complet doit être une chaîne de caractères."
-    names = full_name.split()
+    names = full_name.split() # place les différentes partie de full_name dans une liste
     assert len(names) &gt;= 2, "Le nom complet doit contenir au moins un prénom et un nom de famille."
     first_name = names[0]
     last_name = names[-1]
@@ -2456,10 +2476,10 @@ except AssertionError as e:
 <p>Ces assertions nous permettent de nous assurer que la fonction <code>extract_name()</code> est correctement utilisée avec une chaîne de caractères représentant un nom complet. Si un développeur utilise la fonction de manière incorrecte en passant un autre type de variable ou une chaîne de caractères mal formatée, les assertions lèveront une exception pour signaler le problème.</p>
 </div>
 <div class="paragraph">
-<p>Notez que l&#8217;utilisation des assertions dépend du contexte de votre programme et de l&#8217;endroit où vous souhaitez détecter les erreurs. <strong>Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s&#8217;assurer que le code est utilisé correctement et en accord avec les attentes du développeur.</strong></p>
+<p>Notez que l&#8217;utilisation des assertions dépend du contexte de votre programme et de l&#8217;endroit où vous souhaitez détecter les erreurs. <strong>Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s&#8217;assurer que le code est utilisé correctement et en accord avec les attentes du développeur concepteur de la fonction.</strong></p>
 </div>
 <div class="sect4">
-<h5 id="_exercice_32">EXERCICE 32</h5>
+<h5 id="_exercice_33">EXERCICE 33</h5>
 <div class="paragraph">
 <p>Tester la fonction <code>extract_name</code>, avec au moins 3 scénarios :</p>
 </div>
@@ -2473,6 +2493,16 @@ except AssertionError as e:
 </li>
 <li>
 <p>un avec une erreur de mauvais contenu de chaîne</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pour les plus avancés :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Modifier la fonction pour qu&#8217;elle considère que le nom de famille est toute la seconde partie après le prénom (premier mot). À tester avec <code>Guido van Rossum</code>.</p>
 </li>
 </ol>
 </div>
@@ -2496,7 +2526,7 @@ except AssertionError as e:
 <br>
 Pour l&#8217;utilisateur, limite l&#8217;exploitation de la variable aux opérations définies sur ce type.</p>
 <div class="listingblock">
-<div class="title">Listing 19. La fonction 'type' retourne le type de son argument</div>
+<div class="title">Listing 20. La fonction 'type' retourne le type de son argument</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; type(42)
 &lt;class 'int'&gt;

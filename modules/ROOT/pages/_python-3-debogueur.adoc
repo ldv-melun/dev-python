@@ -46,7 +46,7 @@ Python dispose d'un débogueur intégré appelé `pdb`, qui permet d'exécuter l
 
 Utilisez les commandes `break`, `continue`, `step`, `print`, etc., pour naviguer dans le code et examiner les valeurs.
 
-=== instruction `breakpoint()`
+=== En mode console 
 
 L'instruction `breakpoint()` permet de mettre le programme en pause afin de consulter des valeurs à un instant _t_ choisi par le développeur.
 
@@ -87,11 +87,8 @@ $
 
 ==== EXERCICE 30
 
-TODO
+Placer l'instruction `breakpoint()` dans un de vos scripts, et tester le.
 
-==== EXERCICE 31
-
-TODO
 
 === Débogueur piloté par l'IDE
 
@@ -111,36 +108,55 @@ image:code-debug-1-dia.png[code-debug-1-dia.png]
 
 Dans l'éditeur, une colonne (à gauche) est dédiée à la pause de points d'arrêt.
 
-Exemple :
+Exemple pour entrer dans le code d'une fonction appelée 
 image:code-debug-2-dia.png[code-debug-2]
 
-
-Exemple :
+Exemple pour ne pas entrer dans le code d'une fonction appelée
 image:code-debug-3-dia.png[code-debug-3]
+
+Exemple de consultation des variables locales
+image:code-debug-4-dia.png[code-debug-4]
+
 
 N'hésitez pas à explorer les autres commandes de la bare de debug (`continue`, `restart`, `stop`)
 
 
-== Les assertions pour se prémunir de bugs
+==== EXERCICE 31
+
+Reprendre l'exemple ci-dessous, supprimer tous les points d'arrêt.
+
+Ajouter un *point d'arrêt conditionnel* sur la ligne 6. Pour cela, une fois placé le point d'arrêt, faire un clic droit sur celui-ci , puis sélectionner `Edit breakpoint...`. Comme valeur de l'expression, inscrire par exemple `x == 42`.
+
+Lancer le mode debug. Le programme se mettra en pause debug que si la valeur de x égalera 42. 
+
+Une technique fort pratique pour pister des erreurs !
+
+Testez-la !
+
+
+== Les assertions pour se prémunir de certains bugs
 
 Les assertions sont des instructions qui vérifient la cohérence de valeurs en cours d'exécution dans le code.
 
-Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d'utilisation essentielles sont respectées.
+Elles peuvent être utilisées pour vérifier des résultats intermédiaires ou des conditions d'utilisation de fonctions (particulièrement dans le cas de langage de script non typés).
 
 
 === L'instruction assert
 
 L'instruction `assert` permet de vérifier qu'une condition est vraie à un point particulier du code.
+
 Si la condition est fausse, une exception `AssertionError` sera levée, indiquant qu'il y a un problème à cet endroit.
 
+.Exemple d'instruction `assert` (les listes sont étudiées dans la section suivante)
 [source, python]
 ----
-def extract_name(full_name):
+def extract_name(full_name : str) -> tuple :
     """
     Algorithme naïf, full_name de la forme "prénom nom"
+    Retourne une liste de 2 éléments
     """
     assert isinstance(full_name, str), "Le nom complet doit être une chaîne de caractères."
-    names = full_name.split()
+    names = full_name.split() # place les différentes partie de full_name dans une liste
     assert len(names) >= 2, "Le nom complet doit contenir au moins un prénom et un nom de famille."
     first_name = names[0]
     last_name = names[-1]
@@ -167,14 +183,18 @@ L'instruction `assert` est utilisée pour vérifier deux choses :
 
 Ces assertions nous permettent de nous assurer que la fonction `extract_name()` est correctement utilisée avec une chaîne de caractères représentant un nom complet. Si un développeur utilise la fonction de manière incorrecte en passant un autre type de variable ou une chaîne de caractères mal formatée, les assertions lèveront une exception pour signaler le problème.
 
-Notez que l'utilisation des assertions dépend du contexte de votre programme et de l'endroit où vous souhaitez détecter les erreurs. *Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s'assurer que le code est utilisé correctement et en accord avec les attentes du développeur.*
+Notez que l'utilisation des assertions dépend du contexte de votre programme et de l'endroit où vous souhaitez détecter les erreurs. *Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s'assurer que le code est utilisé correctement et en accord avec les attentes du développeur concepteur de la fonction.*
 
-==== EXERCICE 32
+==== EXERCICE 33
 
 Tester la fonction `extract_name`, avec au moins 3 scénarios :
 
 . un de réussite (à l'instar de celui fourni)
 . un avec une erreur de type
 . un avec une erreur de mauvais contenu de chaîne
+
+Pour les plus avancés :
+[start=4]
+. Modifier la fonction pour qu'elle considère que le nom de famille est toute la seconde partie après le prénom (premier mot). À tester avec `Guido van Rossum`.
 
 
