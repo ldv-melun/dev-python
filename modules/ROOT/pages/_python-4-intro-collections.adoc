@@ -1,0 +1,203 @@
+= Python-4 Collections
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images
+
+
+== Mise en condition
+
+Nous avons vu qu'un programme manipule des valeurs. Ces dernières sont principalement référencées par des variables, ou constante définies directement dans le code source (constante littérale).
+
+Nous avons alors une correspondance simple entre u identifiant et une valeur.
+
+Une variable étant associée, à un instant _t_, à un type de donnée et à une et une seule valeur.
+
+
+=== EXERCICE 42
+
+Prenons un exemple simple d'un programme qui calculerait la note d'un joueur en fonction des différents résultats aux compétitions, obtenus au cours de l'année en cours. Le calcul de la note d'un joueur est la moyenne de ses scores, mais *exclut* dans ce calcul un des scores correspondant à la valeur minimale des scores.
+
+Pour les besoins de l'exercice, on conçoit une fonction, nommée `note`, qui prend 4 valeurs de scores, que l'on nommera `score1` à `score4` (valeurs supérieures ou égales 0) et qui calcule la note selon la règle précisée ci-dessus. Voici l'interface de la fonction à implémenter en python :
+
+[source, python]
+----
+def note(score1, score2, score3, score4) -> int
+----
+
+*Travail à faire*  
+====
+. Implémenter la fonction `note` dans le respect de la logique du calcul présentée ci-dessus.  
+====
+====
+[start=2]
+. Vérifier que votre fonction retourne bien la valeur attendue. Pour cela nous vous communiquons la fonction de tests suivante :
+
+
+[source, python]
+----
+def test_note() -> bool:
+    return (
+        note(0, 100, 100, 100) == 100
+        and note(0, 100, 100, 0) == 67
+        and note(100, 100, 100, 100) == 100
+        and note(0, 0, 0, 100) == 33
+        and note(0, 0, 100, 0) == 33
+        and note(0, 100, 0, 0) == 33
+        and note(100, 0, 0, 0) == 33
+        and note(0, 0, 0, 0) == 0
+        and note(100, 100, 100, 1000) == 400
+    )
+
+----
+
+Lancer votre fonction `testNote()` à partir du `main` de votre script.
+
+[source, python]
+----
+if __name__ == "__main__":
+    print(test_note())
+----
+====
+====
+[start=3]
+. L'appel de la fonction `testNote()` doit rendre `True`.  Corrigez l'implémentation de votre fonction `note` si nécessaire.
+====
+
+=> Aborder la suite qu'après avoir réussi à résoudre l'exercice 42.
+
+
+== Structure de données de type Collection
+
+Nous avons défini une fonction `note`, qui prend en argument 4 valeurs. S'il fallait prendre 5 ou plus de valeurs, il nous faudrait définir d'autres versions de cette fonction... Exemple.
+
+[source, python]
+----
+def note(score1, score2, score3, score4) -> int
+def note5(score1, score2, score3, score4, score5) -> int
+def note6(score1, score2, score3, score4, score5, score6) -> int
+etc.
+
+----
+
+Mais ce n'est pas la bonne solution ! 
+
+TIP: Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors votre analyse est certainement à revoir.
+
+
+Il y a mieux à faire. La bonne solution consiste à passer *une liste - ou collection - de valeurs* à la fonction `note`.
+
+Python propose plusieurs types prédéfinis de collections footnote:[Le développeur peut en définir d'autres, via la classe abstraite `collections.abc` https://docs.python.org/fr/3/library/collections.abc.html]. Pour l'heure nous nous intéressons aux types natifs : `list`, `set`, `dict` et `tuple`. 
+
+. `list` est une *structure de données* de type *séquentiel*, au même titre que `str`, mais *muable*. Une instance de `list` dispose des mêmes opérations que `str`. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de `list` ne sont pas réduits à `str`. Particularité : les index sont des entiers, les éléments sont *muables* (contrairement à `str`).
+
+. `set` est une structure de données *muable* de type *ensemble*, non organisée séquentiellement. Particularité : structure *non indexée* et *pas d'éléments en doublon*. 
+
+. `dict` est une structure de données *muable* de type *dictionnaire*, non organisée séquentiellement. Particularité : les index sont des objets
+
+. `tuple` est une structure de données *immuable* de type *séquentiel*. Particularité : les index sont des entiers
+
+image:collections-heritage1.png[collections-heritage1]
+
+== Opérations courantes sur les structures séquentielles 
+
+image:sequence-operations-courantes.png[sequence-operations-courantes.png]
+https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations
+
+
+== Déclaration de variables Collection
+
+Exemple de déclaration et initialisation de variables de type conteneurs.
+
+[source, python]
+----
+def declare_collection() :
+    """ Exemple de syntaxe de déclaration de collections """
+    une_liste : list = ['a', 'a', '123', 123] # crochets (bracket) 
+    un_tuple  : tuple = ('a', 'a', '123', 123) # parenthèses (optionnelles)
+    un_ensemble : set = {'a', 'a', '123', 123} # accolades (brace)
+    un_dico : dict = {1:'a', 3:'a', 5:'123', 7:123} # accolades avec couples clé:valeur comme éléments (key:value)
+
+    print(f"Nombre d'éléments de la liste : {len(une_liste)}")  # 4
+    print(f"Nombre d'éléments du tuple : {len(un_tuple)}")      # 4
+    print(f"Nombre d'éléments de l'ensemble : {len(un_ensemble)}") # 3 (pas de doublons)
+    print(f"Nombre d'éléments du dictionnaire : {len(un_dico)}")   # 4
+    print('-------------------------------------------------------')
+    print(f"Premier élément de la liste (index 0) : {une_liste[0]}")
+    print(f"Premier élément du tuple (index 0) : {un_tuple[0]}")
+    print("Premier élément du set : Non Applicable ") # de plus l'ordre des éléments dans un `set` n'est pas garanti...
+    print(f"Élément du dico (ici index 1) : {un_dico[1]}")
+----
+
+TIP: Les structures de données natives ont leur propre syntaxe qu'il faut connaître. `[]` => `list`, `{}` => `set`, `{key:value}` => `dict`, `()` => `tuple`.
+
+
+== Choisir la bonne structure de données
+
+Si la collection de type liste n'a pas à être modifiée une fois créée, préférer un type *immuable*. Ces structures de données sont plus efficaces. Donc `tuple` au lieu de `list`.
+
+Si les index sont des valeurs métier, le dictionnaire s'impose, sinon une structure indexée par des entiers est plus efficace en générale. 
+
+Si la structure de données conteneur doit faire l'objet d'opérations ensembliste comme l'union, l'intersection etc. alors préférer le type `set`.
+
+== Itérer sur les éléments d'une collection  
+
+Voici des exemples typiques :
+
+[source, python]
+----
+fruits = ['tomates', 'bananes', 'kiwis'] <1>
+
+for fruit in fruits : <2>
+    print(fruit)  <3> 
+----
+
+<1> Il est d'usage d'utiliser le *pluriel* pour les variables de type collection
+<2> La variable `fruit` (au singulier) est une *variable de boucle*, qui prend, successivement, la valeur de chacun des éléments de la liste.
+<3> Affiche la valeur de l'élément courant (*ne pas hésitez à pauser un point d'arrêt sur cette ligne pour comprendre l'itération* )
+
+Un exécution donnera :
+
+[source, bash]
+----
+tomates
+bananes
+kiwis
+----
+
+Voir ici des autres exemples d'itération : 
+
+* https://developers.google.com/edu/python/lists?hl=fr
+* https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
+
+
+=== EXERCICE 43
+  
+Nous allons réécrire notre fonction `note` (exercice 42) afin de lui passer en paramètre, non pas 4 valeurs, mais une collection de valeurs numériques (c'est plus souple). 
+
+Voici une nouvelle version de l'interface de la fonction `note` : 
+
+[source, python]
+----
+def note(scores : tuple) -> int
+----
+
+.*Travail à faire*
+. Implémenter cette nouvelle fonction
+. Proposer une nouvelle version de `test_note()` de l'exercice 42
+. Étendre les scénarios inclus dans `test_note()` avec un nombre d'éléments autres que 4. Exemple.
++
+ note((100, 100, 100, 1000, 100)) # 325
+ note((100, 100)) # 100 
++
+Proposer au moins 4 autres scénarios. Revenir sur votre implémentation de la nouvelle fonction `note` si nécessaire. 
+
+[start=4]
+. Pour les plus avancés. Fair en sorte que la fonction ne puisse pas buguer lorsqu'on lui passe une liste de valeurs avec un nombre d'éléments incorrect. (2 cas) 
+

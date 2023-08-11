@@ -82,3 +82,10 @@ Corps d'une fonction::
 
 Algorithme déterministe::
 (sensibilisation) Une fonction, pour une même donnée d'entrée, doit invariablement produire la même sortie.
+
+Muable::
+ Une structure de données *muable* signifie que les variables de ce type peuvent sont susceptibles d'avoir leur valeur évoluée dans le temps. Exemple `list`, contre exemple `str` (ne peut pas être modifiée après création)
+
+Immuable::
+ Une structure de données *immuable* signifie que les variables de ce type ont une valeur qui ne peut être modifiée après leur création. Exemple `str` ou `tuple`, ne permettent pas l'ajout d'éléments, et leurs éléments ne peuvent être ni modifiés ni supprimés. Contre exemple `list` (accepte l'ajout, et les éléments d'une instance de `list` peuvent être modifier, supprimer)
+
