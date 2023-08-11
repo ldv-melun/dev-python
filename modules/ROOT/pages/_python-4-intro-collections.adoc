@@ -148,7 +148,7 @@ Si la structure de données conteneur doit faire l'objet d'opérations ensemblis
 
 == Itérer sur les éléments d'une collection  
 
-Voici des exemples typiques :
+=== Itération courante (connue sous le nom de `foreach`) :
 
 [source, python]
 ----
@@ -169,6 +169,28 @@ Un exécution donnera :
 tomates
 bananes
 kiwis
+----
+
+=== Itération avec structure indexée : 
+
+[source, python]
+----
+fruits = ['tomates', 'bananes', 'kiwis']
+
+for index, fruit in enumerate(fruits) : <1>
+    print(index, fruit)  <2> 
+----
+
+<1> utilise la fonction native `enumerate`
+<2> affiche l'index en plus de la valeur de l'élément 
+
+Qui donnera :
+
+[source, bash]
+----
+0 tomates
+1 bananes
+2 kiwis
 ----
 
 Voir ici des autres exemples d'itération : 
