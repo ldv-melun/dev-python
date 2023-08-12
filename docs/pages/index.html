@@ -487,6 +487,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_pourquoi_le_débogage_est_il_important">Pourquoi le débogage est-il important ?</a></li>
 <li><a href="#_méthodes_de_débogage">Méthodes de débogage</a></li>
 <li><a href="#_les_assertions_pour_se_prémunir_de_certains_bugs">Les assertions pour se prémunir de certains bugs</a></li>
+<li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_3">Contrôler vos connaissances et contribuer aux QCMs</a></li>
+</ul>
+</li>
+<li><a href="#_python_4_collections">Python-4 Collections</a>
+<ul class="sectlevel2">
+<li><a href="#_mise_en_condition">Mise en condition</a></li>
+<li><a href="#_structure_de_données_de_type_collection">Structure de données de type Collection</a></li>
+<li><a href="#_opérations_courantes_sur_les_structures_séquentielles">Opérations courantes sur les structures séquentielles</a></li>
+<li><a href="#_déclaration_de_variables_collection">Déclaration de variables Collection</a></li>
+<li><a href="#_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</a></li>
+<li><a href="#_itérer_sur_les_éléments_dune_collection">Itérer sur les éléments d&#8217;une collection</a></li>
 </ul>
 </li>
 <li><a href="#_glossaire">Glossaire</a></li>
@@ -1203,7 +1214,7 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>tp1</code>)</p>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-1-intro</code>)</p>
 </li>
 <li>
 <p>Proposer, pour le thème <code>PYTHON-1</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
@@ -2133,10 +2144,10 @@ if (𝒙[4] == 𝒙[5]):
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>tp2</code>)</p>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-2-type</code>)</p>
 </li>
 <li>
-<p>Proposer, pour le thème <code>PYTHON-1</code>, scope <code>tp2</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+<p>Proposer, pour le thème <code>PYTHON-1</code>, scope <code>p-2-type</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
 </li>
 </ol>
 </div>
@@ -2482,6 +2493,461 @@ except AssertionError as e:
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_contrôler_vos_connaissances_et_contribuer_aux_qcms_3">Contrôler vos connaissances et contribuer aux QCMs</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-3-debug</code>)</p>
+</li>
+<li>
+<p>Proposer, pour le thème <code>PYTHON-1</code>, scope <code>p-3-debug</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_python_4_collections">Python-4 Collections</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images</p>
+</div>
+<div class="sect2">
+<h3 id="_mise_en_condition">Mise en condition</h3>
+<div class="paragraph">
+<p>Nous avons vu qu&#8217;un programme manipule des valeurs. Ces dernières sont principalement référencées par des variables, ou constante définies directement dans le code source (constante littérale).</p>
+</div>
+<div class="paragraph">
+<p>Nous avons alors une correspondance simple entre u identifiant et une valeur.</p>
+</div>
+<div class="paragraph">
+<p>Une variable étant associée, à un instant <em>t</em>, à un type de donnée et à une et une seule valeur.</p>
+</div>
+<div class="sect3">
+<h4 id="_exercice_42">EXERCICE 42</h4>
+<div class="paragraph">
+<p>Prenons un exemple simple d&#8217;un programme qui calculerait la note d&#8217;un joueur en fonction de ses différents scores aux compétitions, obtenus au cours de l&#8217;année en cours. Le calcul de la note d&#8217;un joueur est la moyenne de ses scores, mais est <strong>exclut</strong> de ce calcul un des scores correspondant à la valeur minimale des scores. Exemple, si les scores sont <code>0, 100, 100, 100</code> alors le <code>0</code> ne sera pas comptabilisé dans la moyenne, donc la note du joueur sera <code>(100 + 100 + 100) / 3 = 100</code>.</p>
+</div>
+<div class="paragraph">
+<p>Pour les besoins de l&#8217;exercice, on conçoit une fonction, nommée <code>note</code>, qui prend 4 valeurs de scores, que l&#8217;on nommera <code>score1</code> à <code>score4</code> (valeurs supérieures ou égales 0) et qui calcule la note selon la règle précisée ci-dessus. Voici l&#8217;interface de la fonction à implémenter en python :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def note(score1, score2, score3, score4) -&gt; int</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Travail à faire</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implémenter la fonction <code>note</code> dans le respect de la logique du calcul présentée ci-dessus.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Vérifier que votre fonction retourne bien la valeur attendue. Pour cela nous vous communiquons la fonction de tests suivante :</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def test_note() -&gt; bool:
+    return (
+        note(0, 100, 100, 100) == 100
+        and note(0, 100, 100, 0) == 67
+        and note(100, 100, 100, 100) == 100
+        and note(0, 0, 0, 100) == 33
+        and note(0, 0, 100, 0) == 33
+        and note(0, 100, 0, 0) == 33
+        and note(100, 0, 0, 0) == 33
+        and note(0, 0, 0, 0) == 0
+        and note(100, 100, 100, 1000) == 400
+    )</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lancer votre fonction <code>testNote()</code> à partir du <code>main</code> de votre script.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">if __name__ == "__main__":
+    print(test_note())</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>L&#8217;appel de la fonction <code>testNote()</code> doit rendre <code>True</code>.  Corrigez l&#8217;implémentation de votre fonction <code>note</code> si nécessaire.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>&#8658; <mark>IMPORTANT</mark> : Aborder la suite qu&#8217;après avoir réussi à résoudre l&#8217;exercice 42.</strong> Faites-vous aider le cas échéant.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structure_de_données_de_type_collection">Structure de données de type Collection</h3>
+<div class="paragraph">
+<p>Nous avons défini une fonction <code>note</code>, qui prend en argument 4 valeurs. S&#8217;il fallait prendre 5 ou plus de valeurs, il nous faudrait définir d&#8217;autres versions de cette fonction&#8230;&#8203; Exemple.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def note(score1, score2, score3, score4) -&gt; int
+def note5(score1, score2, score3, score4, score5) -&gt; int
+def note6(score1, score2, score3, score4, score5, score6) -&gt; int
+etc.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mais ce n&#8217;est pas la bonne solution !</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors votre analyse est certainement à revoir.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Il y a mieux à faire. La bonne solution consiste à passer <strong>une liste - ou collection - de valeurs</strong> à la fonction <code>note</code>.</p>
+</div>
+<div class="paragraph">
+<p>Python propose plusieurs types prédéfinis de collections <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>. Pour l&#8217;heure nous nous intéressons aux types natifs : <code>list</code>, <code>set</code>, <code>dict</code> et <code>tuple</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list</code> est une <strong>structure de données</strong> de type <strong>séquentiel</strong>, au même titre que <code>str</code>, mais <strong>muable</strong>. Une instance de <code>list</code> dispose des mêmes opérations que <code>str</code>. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de <code>list</code> ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est <strong>muable</strong> (contrairement à <code>str</code>).</p>
+</li>
+<li>
+<p><code>set</code> est une structure de données <strong>muable</strong> de type <strong>ensemble</strong>, non organisée séquentiellement. Particularité : structure <strong>non indexée</strong> et <strong>pas d&#8217;éléments en doublon</strong>.</p>
+</li>
+<li>
+<p><code>dict</code> est une structure de données <strong>muable</strong> de type <strong>dictionnaire</strong>, non organisée séquentiellement. Particularité : les index sont des objets</p>
+</li>
+<li>
+<p><code>tuple</code> est une structure de données <strong>immuable</strong> de type <strong>séquentiel</strong>. Particularité : type séquentiel, donc les index sont des entiers (comme string)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Une classification des principales collections natives :</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../assets/images/collections-heritage1.png" alt="collections heritage1">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opérations_courantes_sur_les_structures_séquentielles">Opérations courantes sur les structures séquentielles</h3>
+<div class="paragraph">
+<p><span class="image"><img src="../assets/images/sequence-operations-courantes.png" alt="sequence-operations-courantes.png"></span>
+<a href="https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_déclaration_de_variables_collection">Déclaration de variables Collection</h3>
+<div class="paragraph">
+<p>Exemple de déclaration et initialisation de variables de type conteneur (autre nom pour collection)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def declare_collection() :
+    """ Exemple de syntaxe de déclaration et initialisation de collections """
+    une_liste : list = ['a', 'a', '123', 123] # crochets (bracket)
+    un_tuple  : tuple = ('a', 'a', '123', 123) # parenthèses (optionnelles)
+    un_ensemble : set = {'a', 'a', '123', 123} # accolades (brace)
+    un_dico : dict = {1:'a', 3:'a', 5:'123', 7:123} # accolades avec couples clé:valeur comme éléments (key:value)
+
+    print(f"Nombre d'éléments de la liste : {len(une_liste)}")  # 4
+    print(f"Nombre d'éléments du tuple : {len(un_tuple)}")      # 4
+    print(f"Nombre d'éléments de l'ensemble : {len(un_ensemble)}") # 3 (pas de doublons)
+    print(f"Nombre d'éléments du dictionnaire : {len(un_dico)}")   # 4
+    print('-------------------------------------------------------')
+    print(f"Premier élément de la liste (index 0) : {une_liste[0]}")
+    print(f"Premier élément du tuple (index 0) : {un_tuple[0]}")
+    print("Premier élément du set : Non Applicable ") # de plus l'ordre des éléments dans un `set` n'est pas garanti...
+    print(f"Élément du dico (ici index 1) : {un_dico[1]}")</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Les structures de données natives ont leur propre syntaxe qu&#8217;il faut connaître. <code>[]</code> &#8658; <code>list</code>, <code>{}</code> &#8658; <code>set</code>, <code>{key:value}</code> &#8658; <code>dict</code>, <code>()</code> &#8658; <code>tuple</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</h3>
+<div class="paragraph">
+<p>Si la collection de type liste n&#8217;a pas à être modifiée une fois créée, préférer un type <strong>immuable</strong>. Ces structures de données sont plus efficaces. Donc <code>tuple</code> au lieu de <code>list</code>.</p>
+</div>
+<div class="paragraph">
+<p>Si les index sont des valeurs métier, le dictionnaire s&#8217;impose, sinon une structure indexée par des entiers est plus efficace en générale.</p>
+</div>
+<div class="paragraph">
+<p>Si la structure de données conteneur doit faire l&#8217;objet d&#8217;opérations ensembliste comme l&#8217;union, l&#8217;intersection etc. alors préférer le type <code>set</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_itérer_sur_les_éléments_dune_collection">Itérer sur les éléments d&#8217;une collection</h3>
+<div class="sect3">
+<h4 id="_itération_foreach_idiomatique">Itération <code>foreach</code> idiomatique :</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis'] <i class="conum" data-value="1"></i><b>(1)</b>
+
+for fruit in fruits : <i class="conum" data-value="2"></i><b>(2)</b>
+    print(fruit)  <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Il est d&#8217;usage d&#8217;utiliser le <strong>pluriel</strong> (<code>fruits</code>) pour le noms de variables de type collection</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>La variable <code>fruit</code> (au singulier) est une <strong>variable de boucle</strong>, qui prend, successivement, la valeur de chacun des éléments de la liste.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Affiche la valeur de l&#8217;élément courant (<strong>ne pas hésitez à pauser un point d&#8217;arrêt sur cette ligne pour comprendre l&#8217;itération</strong> )</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Un exécution donnera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">tomates
+bananes
+kiwis</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_itération_avec_un_index">Itération avec un index :</h4>
+<div class="sect4">
+<h5 id="_modèle_idiomatique">modèle idiomatique</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
+
+for index, fruit in enumerate(fruits) : <i class="conum" data-value="1"></i><b>(1)</b>
+    print(index, fruit)  <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>utilise la fonction native <code>enumerate</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>affiche l&#8217;index en plus de la valeur de l&#8217;élément</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Qui donnera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">0 tomates
+1 bananes
+2 kiwis</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_modèle_classique">Modèle classique</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
+
+i = 0 <i class="conum" data-value="1"></i><b>(1)</b>
+while i &lt; len(fruits) : <i class="conum" data-value="2"></i><b>(2)</b>
+    print(i, fruits[i]) <i class="conum" data-value="3"></i><b>(3)</b>
+    i += 1 <i class="conum" data-value="4"></i><b>(4)</b>
+
+print(i) <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Les indices commencent à zéro</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Tant que <code>i</code> est inférieur au nombre d&#8217;éléments</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Affiche l&#8217;index et l&#8217;élément situé à cet index</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Incrémente <code>i</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Affiche la valeur de <code>i</code> qui est <code>len(fruits)</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Qui donnera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">0 tomates
+1 bananes
+2 kiwis
+3</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_modèle_à_éviter_non_idiomatique">Modèle à éviter (non idiomatique)</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
+
+for index in range(len(fruits)):
+    print(index, fruits[index])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bien qu&#8217;opérationnel, ce modèle appelle <code>range</code>, qui crée inutilement une séquence (immuable) de nombres en guise d&#8217;indices.</p>
+</div>
+<div class="paragraph">
+<p>Cette remarque se vaut dans la mesure où l&#8217;on souhaite itérer sur l&#8217;ensemble des éléments de la liste.</p>
+</div>
+<div class="paragraph">
+<p>Approfondir le sujet sur stackoverflow : <a href="https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops" class="bare">https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops</a></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_43">EXERCICE 43</h4>
+<div class="paragraph">
+<p>L&#8217;objectif est de réécrire la fonction <code>note</code> (exercice 42) afin de lui passer en paramètre, non pas 4 valeurs, mais une collection de valeurs numériques (c&#8217;est plus souple).</p>
+</div>
+<div class="paragraph">
+<p>Voici une nouvelle version de l&#8217;interface de la fonction <code>note</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def note(scores : tuple) -&gt; int <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Le paramètre est typé <code>tuple</code> plutôt que <code>list</code> car la fonction n&#8217;a pas vocation à modifier les éléments de la collection reçue en argument (voir <a href="#_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</a>)</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
+<ol class="arabic">
+<li>
+<p>Implémenter cette nouvelle fonction</p>
+</li>
+<li>
+<p>Proposer une nouvelle version de <code>test_note()</code> de l&#8217;exercice 42 afin de tester la nouvelle fonction</p>
+</li>
+<li>
+<p>Étendre les scénarios inclus dans <code>test_note()</code> qui passe à <code>note</code> un tuple de plus ou moins 4 éléments. Exemple.</p>
+<div class="literalblock">
+<div class="content">
+<pre>note((100, 100, 100, 1000, 100)) # 325 (5 éléments)
+note((100, 100)) # 100 (2 éléments)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Proposer au moins 4 autres scénarios. Revenir sur votre implémentation de la nouvelle fonction <code>note</code> si nécessaire.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Faire en sorte que la fonction ne puisse pas buguer lorsqu&#8217;on lui passe une liste de valeurs avec un nombre incorrect d&#8217;éléments (à identifier). (2 cas)</p>
+<div class="paragraph">
+<p>Indice : Utiliser <code>assert</code> (ref cours sur le debugger), et mettre à jour la <code>docstring</code> de la fonction <code>note</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_44">EXERCICE 44</h4>
+<div class="paragraph">
+<p>TODO exercice avec usage du debogger + questions</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_45">EXERCICE 45</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exercice_46">EXERCICE 46</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2633,11 +3099,14 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 <div class="footnote" id="_footnotedef_1">
 <a href="#_footnoteref_1">1</a>. peut être aussi <em>postmortem</em>
 </div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Le développeur a la possibilité d&#8217;en définir d&#8217;autres, via la classe abstraite <code>collections.abc</code> <a href="https://docs.python.org/fr/3/library/collections.abc.html" class="bare">https://docs.python.org/fr/3/library/collections.abc.html</a>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1a<br>
-Last updated 2023-08-07 19:04:38 +0200
+Last updated 2023-08-12 18:19:04 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

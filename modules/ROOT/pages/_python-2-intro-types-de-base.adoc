@@ -636,8 +636,8 @@ if (𝒙[4] == 𝒙[5]):
 
 == Contrôler vos connaissances et contribuer aux QCMs
 
-. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `tp2`)
-. Proposer, pour le thème `PYTHON-1`, scope `tp2`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `p-2-type`)
+. Proposer, pour le thème `PYTHON-1`, scope `p-2-type`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
 
 
 

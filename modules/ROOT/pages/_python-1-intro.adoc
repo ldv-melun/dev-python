@@ -455,5 +455,5 @@ A l'issue de cette première séance de travaux pratiques, vous avez appris à *
 == Contrôler vos connaissances et contribuer aux QCMs
 
 .*Travail à faire*
-. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `tp1`)
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `p-1-intro`)
 . Proposer, pour le thème `PYTHON-1`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.

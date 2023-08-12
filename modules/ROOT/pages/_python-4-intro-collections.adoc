@@ -22,7 +22,7 @@ Une variable étant associée, à un instant _t_, à un type de donnée et à un
 
 === EXERCICE 42
 
-Prenons un exemple simple d'un programme qui calculerait la note d'un joueur en fonction des différents résultats aux compétitions, obtenus au cours de l'année en cours. Le calcul de la note d'un joueur est la moyenne de ses scores, mais *exclut* dans ce calcul un des scores correspondant à la valeur minimale des scores.
+Prenons un exemple simple d'un programme qui calculerait la note d'un joueur en fonction de ses différents scores aux compétitions, obtenus au cours de l'année en cours. Le calcul de la note d'un joueur est la moyenne de ses scores, mais est *exclut* de ce calcul un des scores correspondant à la valeur minimale des scores. Exemple, si les scores sont `0, 100, 100, 100` alors le `0` ne sera pas comptabilisé dans la moyenne, donc la note du joueur sera `(100 + 100 + 100) / 3 = 100`.
 
 Pour les besoins de l'exercice, on conçoit une fonction, nommée `note`, qui prend 4 valeurs de scores, que l'on nommera `score1` à `score4` (valeurs supérieures ou égales 0) et qui calcule la note selon la règle précisée ci-dessus. Voici l'interface de la fonction à implémenter en python :
 
@@ -65,12 +65,13 @@ if __name__ == "__main__":
     print(test_note())
 ----
 ====
+
 ====
 [start=3]
 . L'appel de la fonction `testNote()` doit rendre `True`.  Corrigez l'implémentation de votre fonction `note` si nécessaire.
 ====
 
-=> Aborder la suite qu'après avoir réussi à résoudre l'exercice 42.
+*=> #IMPORTANT# : Aborder la suite qu'après avoir réussi à résoudre l'exercice 42.* Faites-vous aider le cas échéant.
 
 
 == Structure de données de type Collection
@@ -93,17 +94,19 @@ TIP: Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, 
 
 Il y a mieux à faire. La bonne solution consiste à passer *une liste - ou collection - de valeurs* à la fonction `note`.
 
-Python propose plusieurs types prédéfinis de collections footnote:[Le développeur peut en définir d'autres, via la classe abstraite `collections.abc` https://docs.python.org/fr/3/library/collections.abc.html]. Pour l'heure nous nous intéressons aux types natifs : `list`, `set`, `dict` et `tuple`. 
+Python propose plusieurs types prédéfinis de collections footnote:[Le développeur a la possibilité d'en définir d'autres, via la classe abstraite `collections.abc` https://docs.python.org/fr/3/library/collections.abc.html]. Pour l'heure nous nous intéressons aux types natifs : `list`, `set`, `dict` et `tuple`. 
 
-. `list` est une *structure de données* de type *séquentiel*, au même titre que `str`, mais *muable*. Une instance de `list` dispose des mêmes opérations que `str`. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de `list` ne sont pas réduits à `str`. Particularité : les index sont des entiers, les éléments sont *muables* (contrairement à `str`).
+. `list` est une *structure de données* de type *séquentiel*, au même titre que `str`, mais *muable*. Une instance de `list` dispose des mêmes opérations que `str`. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de `list` ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est *muable* (contrairement à `str`).
 
 . `set` est une structure de données *muable* de type *ensemble*, non organisée séquentiellement. Particularité : structure *non indexée* et *pas d'éléments en doublon*. 
 
 . `dict` est une structure de données *muable* de type *dictionnaire*, non organisée séquentiellement. Particularité : les index sont des objets
 
-. `tuple` est une structure de données *immuable* de type *séquentiel*. Particularité : les index sont des entiers
+. `tuple` est une structure de données *immuable* de type *séquentiel*. Particularité : type séquentiel, donc les index sont des entiers (comme string)
 
-image:collections-heritage1.png[collections-heritage1]
+Une classification des principales collections natives :
+
+image::collections-heritage1.png[caption="Une classification des principales collections natives", align=center]
 
 == Opérations courantes sur les structures séquentielles 
 
@@ -113,12 +116,12 @@ https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations
 
 == Déclaration de variables Collection
 
-Exemple de déclaration et initialisation de variables de type conteneurs.
+Exemple de déclaration et initialisation de variables de type conteneur (autre nom pour collection)
 
 [source, python]
 ----
 def declare_collection() :
-    """ Exemple de syntaxe de déclaration de collections """
+    """ Exemple de syntaxe de déclaration et initialisation de collections """
     une_liste : list = ['a', 'a', '123', 123] # crochets (bracket) 
     un_tuple  : tuple = ('a', 'a', '123', 123) # parenthèses (optionnelles)
     un_ensemble : set = {'a', 'a', '123', 123} # accolades (brace)
@@ -148,7 +151,7 @@ Si la structure de données conteneur doit faire l'objet d'opérations ensemblis
 
 == Itérer sur les éléments d'une collection  
 
-=== Itération courante (connue sous le nom de `foreach`) :
+=== Itération `foreach` idiomatique :
 
 [source, python]
 ----
@@ -158,7 +161,7 @@ for fruit in fruits : <2>
     print(fruit)  <3> 
 ----
 
-<1> Il est d'usage d'utiliser le *pluriel* pour les variables de type collection
+<1> Il est d'usage d'utiliser le *pluriel* (`fruits`) pour le noms de variables de type collection
 <2> La variable `fruit` (au singulier) est une *variable de boucle*, qui prend, successivement, la valeur de chacun des éléments de la liste.
 <3> Affiche la valeur de l'élément courant (*ne pas hésitez à pauser un point d'arrêt sur cette ligne pour comprendre l'itération* )
 
@@ -171,7 +174,7 @@ bananes
 kiwis
 ----
 
-=== Itération avec structure indexée : 
+=== Itération avec un index : 
 
 ==== modèle idiomatique
 
@@ -238,31 +241,49 @@ for index in range(len(fruits)):
 
 Bien qu'opérationnel, ce modèle appelle `range`, qui crée inutilement une séquence (immuable) de nombres en guise d'indices.
 
+Cette remarque se vaut dans la mesure où l'on souhaite itérer sur l'ensemble des éléments de la liste.
+
 
 Approfondir le sujet sur stackoverflow : https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
 
 
 === EXERCICE 43
   
-Nous allons réécrire notre fonction `note` (exercice 42) afin de lui passer en paramètre, non pas 4 valeurs, mais une collection de valeurs numériques (c'est plus souple). 
+L'objectif est de réécrire la fonction `note` (exercice 42) afin de lui passer en paramètre, non pas 4 valeurs, mais une collection de valeurs numériques (c'est plus souple). 
 
 Voici une nouvelle version de l'interface de la fonction `note` : 
 
 [source, python]
 ----
-def note(scores : tuple) -> int
+def note(scores : tuple) -> int <1>
 ----
+
+<1> Le paramètre est typé `tuple` plutôt que `list` car la fonction n'a pas vocation à modifier les éléments de la collection reçue en argument (voir <<_choisir_la_bonne_structure_de_données>>)
 
 .*Travail à faire*
 . Implémenter cette nouvelle fonction
-. Proposer une nouvelle version de `test_note()` de l'exercice 42
-. Étendre les scénarios inclus dans `test_note()` avec un nombre d'éléments autres que 4. Exemple.
+. Proposer une nouvelle version de `test_note()` de l'exercice 42 afin de tester la nouvelle fonction
+. Étendre les scénarios inclus dans `test_note()` qui passe à `note` un tuple de plus ou moins 4 éléments. Exemple.
 +
- note((100, 100, 100, 1000, 100)) # 325
- note((100, 100)) # 100 
+ note((100, 100, 100, 1000, 100)) # 325 (5 éléments)
+ note((100, 100)) # 100 (2 éléments)
 +
 Proposer au moins 4 autres scénarios. Revenir sur votre implémentation de la nouvelle fonction `note` si nécessaire. 
 
 [start=4]
-. Pour les plus avancés. Fair en sorte que la fonction ne puisse pas buguer lorsqu'on lui passe une liste de valeurs avec un nombre d'éléments incorrect. (2 cas) 
+. Faire en sorte que la fonction ne puisse pas buguer lorsqu'on lui passe une liste de valeurs avec un nombre incorrect d'éléments (à identifier). (2 cas) 
++
+Indice : Utiliser `assert` (ref cours sur le debugger), et mettre à jour la `docstring` de la fonction `note`.
+
+=== EXERCICE 44
+
+TODO exercice avec usage du debogger + questions 
+
+=== EXERCICE 45
+
+TODO
+
+=== EXERCICE 46
+
+TODO
 
