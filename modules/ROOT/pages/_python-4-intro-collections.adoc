@@ -173,6 +173,8 @@ kiwis
 
 === Itération avec structure indexée : 
 
+==== modèle idiomatique
+
 [source, python]
 ----
 fruits = ['tomates', 'bananes', 'kiwis']
@@ -193,10 +195,51 @@ Qui donnera :
 2 kiwis
 ----
 
-Voir ici des autres exemples d'itération : 
+==== Modèle classique
 
-* https://developers.google.com/edu/python/lists?hl=fr
-* https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
+[source, python]
+----
+fruits = ['tomates', 'bananes', 'kiwis']
+
+i = 0 <1>
+while i < len(fruits) : <2>
+    print(i, fruits[i]) <3> 
+    i += 1 <4>
+
+print(i) <5>
+----
+
+<1> Les indices commencent à zéro
+<2> Tant que `i` est inférieur au nombre d'éléments 
+<3> Affiche l'index et l'élément situé à cet index  
+<4> Incrémente `i`
+<5> Affiche la valeur de `i` qui est `len(fruits)`  
+
+Qui donnera :
+
+[source, bash]
+----
+0 tomates
+1 bananes
+2 kiwis
+3
+----
+
+==== Modèle à éviter (non idiomatique)
+
+
+[source, python]
+----
+fruits = ['tomates', 'bananes', 'kiwis']
+
+for index in range(len(fruits)):
+    print(index, fruits[index])
+----
+
+Bien qu'opérationnel, ce modèle appelle `range`, qui crée inutilement une séquence (immuable) de nombres en guise d'indices.
+
+
+Approfondir le sujet sur stackoverflow : https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
 
 
 === EXERCICE 43
