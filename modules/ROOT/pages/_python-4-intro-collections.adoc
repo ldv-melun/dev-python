@@ -135,10 +135,62 @@ def declare_collection() :
     print(f"Premier élément de la liste (index 0) : {une_liste[0]}")
     print(f"Premier élément du tuple (index 0) : {un_tuple[0]}")
     print("Premier élément du set : Non Applicable ") # de plus l'ordre des éléments dans un `set` n'est pas garanti...
-    print(f"Élément du dico (ici index 1) : {un_dico[1]}")
+    print(f"Élément du dico (ici clé = 1) : {un_dico[1]}")
 ----
 
-TIP: Les structures de données natives ont leur propre syntaxe qu'il faut connaître. `[]` => `list`, `{}` => `set`, `{key:value}` => `dict`, `()` => `tuple`.
+TIP: Les structures de données natives ont leur propre syntaxe qu'il faut connaître. `[]` => `list`, `{}` => `set` et `dict`, `{key:value}` => `dict`, `()` => `tuple`.
+
+
+=== Création d'instances de `tuple`
+
+Les tuples peuvent être construits de différentes façons :
+
+* en utilisant une paire de parenthèses pour désigner le tuple vide : `()` ;
+
+* en utilisant une virgule, pour créer un tuple d'un élément : `a,` ou `(a,)` ;
+
+* en séparant les éléments avec des virgules : `a, b, c` ou `(a, b, c)` ; (parenthèses optionnelles)
+
+* en utilisant la fonction native `tuple()` : `tuple()` ou `tuple(iterable)`.
+
+voir ici : https://docs.python.org/fr/3/library/stdtypes.html#tuple
+
+
+=== Création d'instances de `set`
+
+Les ensembles peuvent être construits de différentes manières :
+
+* création d'un ensemble vide : `set()` (`{}` est réservé au dictionnaire)
+* en utilisant une liste d'éléments séparés par des virgules entre accolades : `{'Bob', 'Alice'}`
+
+* en utilisant un ensemble en compréhension : `{c for c in 'abracadabra' if c not in 'abc'}`  (donne `{'d', 'r'}`);
+
+* en utilisant le constructeur du type : `set()`, `set('foobar')`, `set(['a', 'b', 'foo'])`.
+
+[TIP]
+====
+Les `set` sont de type muable (_mutable_), mais il existe aussi le type `frozenset` qui est un `set` immuable (_immutable_).  
+
+Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : l'*union*, l'*intersection*, la *différence* de 2 ensembles. Voir ici  https://docs.python.org/fr/3/library/stdtypes.html#set.
+
+====
+
+
+=== Création d'instances de `dict`
+
+Les dictionnaires peuvent être construits de différentes manières :
+
+* en utilisant une liste de paires clé: valeur séparées par des virgules entre accolades : `{'Bob': 13, 'Alice': 42}` ou, inversion clé/valeur, `{13: 'Bob', 42: 'Alice'}` 
+
+* en utilisant un dictionnaire en compréhension : `{}`, `{x: x ** 2 for x in range(10)}` ;
+
+* en utilisant le constructeur du type : `dict()`, `dict([('foo', 100), ('bar', 200)])`, `dict(foo=100, bar=200)`.
+
+voir ici : https://docs.python.org/fr/3/library/stdtypes.html#dict
+
+
+
+
 
 
 == Choisir la bonne structure de données
@@ -149,7 +201,7 @@ Si les index sont des valeurs métier, le dictionnaire s'impose, sinon une struc
 
 Si la structure de données conteneur doit faire l'objet d'opérations ensembliste comme l'union, l'intersection etc. alors préférer le type `set`.
 
-== Itérer sur les éléments d'une collection  
+== Itérer sur tous les éléments d'une collection  
 
 === Itération `foreach` idiomatique :
 
@@ -174,31 +226,55 @@ bananes
 kiwis
 ----
 
-=== Itération avec un index : 
-
-==== modèle idiomatique
+[TIP]
+====
+Attention, dans le cas des dictionnaire, cette structure retournera les clés, pas les valeurs.
 
 [source, python]
 ----
-fruits = ['tomates', 'bananes', 'kiwis']
+un_dico : dict = {1:'a', 3:'a', 5:'123', 7:123}
+for k in un_dico :
+    print(k, un_dico[k])
 
-for index, fruit in enumerate(fruits) : <1>
-    print(index, fruit)  <2> 
+'''
+result :
+1 a
+3 a
+5 123
+7 123
+'''
 ----
+Pour d'autres façons d'opérer, voir ici : https://stackoverflow.com/questions/3294889/iterating-over-dictionaries-using-for-loops
 
-<1> utilise la fonction native `enumerate`
-<2> affiche l'index en plus de la valeur de l'élément 
+====
 
-Qui donnera :
 
-[source, bash]
-----
-0 tomates
-1 bananes
-2 kiwis
-----
+=== Autres modèle d'itérations : 
 
-==== Modèle classique
+// ==== modèle idiomatique
+
+// [source, python]
+// ----
+// fruits = ['tomates', 'bananes', 'kiwis']
+
+// for index, fruit in enumerate(fruits) : <1>
+//     print(index, fruit)  <2> 
+// ----
+
+// <1> utilise la fonction native `enumerate`
+// <2> affiche l'index en plus de la valeur de l'élément 
+
+// Qui donnera :
+
+// [source, bash]
+// ----
+// 0 tomates
+// 1 bananes
+// 2 kiwis
+// ----
+
+
+==== Modèle "classique"
 
 [source, python]
 ----
@@ -228,7 +304,7 @@ Qui donnera :
 3
 ----
 
-==== Modèle à éviter (non idiomatique)
+==== Modèle non idiomatique
 
 
 [source, python]
@@ -241,7 +317,7 @@ for index in range(len(fruits)):
 
 Bien qu'opérationnel, ce modèle appelle `range`, qui crée inutilement une séquence (immuable) de nombres en guise d'indices.
 
-Cette remarque se vaut dans la mesure où l'on souhaite itérer sur l'ensemble des éléments de la liste.
+Cette remarque se vaut dans la mesure où l'on souhaite itérer sur la *totalité* des éléments de la liste.
 
 
 Approfondir le sujet sur stackoverflow : https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
@@ -277,11 +353,82 @@ Indice : Utiliser `assert` (ref cours sur le debugger), et mettre à jour la `do
 
 === EXERCICE 44
 
-TODO exercice avec usage du debogger + questions 
+// TODO exercice avec usage du debogger + questions 
+
+Voici une version d'une fonction qui prend 2 listes et retourne une liste des éléments communs.
+
+[source, python]
+----
+def recherche_elements_communs(list1 : list, list2 : list) -> list :
+    common_elements = []
+    for item1 in list1:
+        for item2 in list2:            
+            if item1 == item2:  
+                common_elements.append(item1) # ajoute cet élément
+    return common_elements
+----
+
+Exemple 
+[source, python]
+----
+recherche_elements_communs(['a', 'b'], ['x', 'b', 'y', 'z']) # retourne ['b']
+----
+
+.*Travail à faire*
+. Déterminer le nombre de parcours de boucles de l'exemple ci-dessus. Utiliser le *débogueur* pour une exécution *pas à pas* de la fonction à fin de vérification. Inspecter les variables `item1` et `item2` à chaque itération de la boucle.
+. Donner une formule générale qui donne le nombre d'itérations, quelque soit le nombre d'éléments des arguments 
+. Définir une fonction nommé `test_recherche_elements_communs` qui teste plusieurs scénarios (inspirez-vous de l'exemple donnée et de `test_note()`)
+. Proposez une amélioration de l'implémentation de la fonction `test_recherche_elements_communs()`. Il y a plusieurs possibilités, l'idée est de faire confiance aux structures existantes du langage. Attention, l'interface de la fonction ne doit pas être modifiée !  
++
+`def recherche_elements_communs(list1 : list, list2 : list) -> list`
+
+// Exemple de solutions (commentaire de chatGPT) 
+// 1. Utilisation de l'opérateur in pour vérifier l'appartenance :
+
+// python
+// Copy code
+// def find_common_elements(list1, list2):
+//     common_elements = []
+//     for item1 in list1:
+//         if item1 in list2:
+//             common_elements.append(item1)
+//     return common_elements
+// Dans cette version optimisée, nous utilisons l'opérateur in pour vérifier si item1 appartient à list2. Cela évite les boucles imbriquées et réduit le nombre d'itérations, ce qui améliore considérablement les performances pour de grandes listes.
+
+// 2. Utilisation de l'intersection des ensembles :
+
+// python
+// Copy code
+// def find_common_elements(list1, list2):
+//     set1 = set(list1)
+//     set2 = set(list2)
+//     common_elements = list(set1.intersection(set2))
+//     return common_elements
+// Dans cette version optimisée, nous convertissons d'abord les listes en ensembles à l'aide de la fonction set(). Ensuite, nous utilisons la méthode intersection() pour trouver les éléments communs entre les ensembles set1 et set2. Enfin, nous convertissons le résultat en une liste. Cette approche tire parti des performances élevées des ensembles pour trouver rapidement les éléments communs.
+
 
 === EXERCICE 45
 
-TODO
+Concevoir et tester une fonction qui prend en argument une liste de caractères (liste de chaînes de 1 caractère) et qui retourne une liste des éléments en doublons. Voici son *interface* :
+
+`def doublons(liste : list) -> list`
+
+.Exemple d'utilisation :
+[source, python, caption=""]
+----
+doublons(['1', 'X','2','2','3','4','3', 'A' 'a', 'X']) # ['X', '2', '3']
+----
+
+
+.*Travail à faire*
+. Implémenter la fonction `doublons`
+. Définir une fonction qui teste plusieurs scénarios d'utilisation de cette fonction.
+. Définir une deuxième implémentation de la fonction `doublons`
+. Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste est sans doublon ou non.
+.. Définir l'interface de cette fonction
+.. Implémenter cette fonction
+.. Tester cette fonction 
+
 
 === EXERCICE 46
 

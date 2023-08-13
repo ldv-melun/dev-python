@@ -497,7 +497,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_opérations_courantes_sur_les_structures_séquentielles">Opérations courantes sur les structures séquentielles</a></li>
 <li><a href="#_déclaration_de_variables_collection">Déclaration de variables Collection</a></li>
 <li><a href="#_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</a></li>
-<li><a href="#_itérer_sur_les_éléments_dune_collection">Itérer sur les éléments d&#8217;une collection</a></li>
+<li><a href="#_itérer_sur_tous_les_éléments_dune_collection">Itérer sur tous les éléments d&#8217;une collection</a></li>
 </ul>
 </li>
 <li><a href="#_glossaire">Glossaire</a></li>
@@ -2701,7 +2701,7 @@ Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors
     print(f"Premier élément de la liste (index 0) : {une_liste[0]}")
     print(f"Premier élément du tuple (index 0) : {un_tuple[0]}")
     print("Premier élément du set : Non Applicable ") # de plus l'ordre des éléments dans un `set` n'est pas garanti...
-    print(f"Élément du dico (ici index 1) : {un_dico[1]}")</code></pre>
+    print(f"Élément du dico (ici clé = 1) : {un_dico[1]}")</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2711,10 +2711,96 @@ Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Les structures de données natives ont leur propre syntaxe qu&#8217;il faut connaître. <code>[]</code> &#8658; <code>list</code>, <code>{}</code> &#8658; <code>set</code>, <code>{key:value}</code> &#8658; <code>dict</code>, <code>()</code> &#8658; <code>tuple</code>.
+Les structures de données natives ont leur propre syntaxe qu&#8217;il faut connaître. <code>[]</code> &#8658; <code>list</code>, <code>{}</code> &#8658; <code>set</code> et <code>dict</code>, <code>{key:value}</code> &#8658; <code>dict</code>, <code>()</code> &#8658; <code>tuple</code>.
 </td>
 </tr>
 </table>
+</div>
+<div class="sect3">
+<h4 id="_création_dinstances_de_tuple">Création d&#8217;instances de <code>tuple</code></h4>
+<div class="paragraph">
+<p>Les tuples peuvent être construits de différentes façons :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>en utilisant une paire de parenthèses pour désigner le tuple vide : <code>()</code> ;</p>
+</li>
+<li>
+<p>en utilisant une virgule, pour créer un tuple d&#8217;un élément : <code>a,</code> ou <code>(a,)</code> ;</p>
+</li>
+<li>
+<p>en séparant les éléments avec des virgules : <code>a, b, c</code> ou <code>(a, b, c)</code> ; (parenthèses optionnelles)</p>
+</li>
+<li>
+<p>en utilisant la fonction native <code>tuple()</code> : <code>tuple()</code> ou <code>tuple(iterable)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>voir ici : <a href="https://docs.python.org/fr/3/library/stdtypes.html#tuple" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#tuple</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_création_dinstances_de_set">Création d&#8217;instances de <code>set</code></h4>
+<div class="paragraph">
+<p>Les ensembles peuvent être construits de différentes manières :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>création d&#8217;un ensemble vide : <code>set()</code> (<code>{}</code> est réservé au dictionnaire)</p>
+</li>
+<li>
+<p>en utilisant une liste d&#8217;éléments séparés par des virgules entre accolades : <code>{'Bob', 'Alice'}</code></p>
+</li>
+<li>
+<p>en utilisant un ensemble en compréhension : <code>{c for c in 'abracadabra' if c not in 'abc'}</code>  (donne <code>{'d', 'r'}</code>);</p>
+</li>
+<li>
+<p>en utilisant le constructeur du type : <code>set()</code>, <code>set('foobar')</code>, <code>set(['a', 'b', 'foo'])</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les <code>set</code> sont de type muable (<em>mutable</em>), mais il existe aussi le type <code>frozenset</code> qui est un <code>set</code> immuable (<em>immutable</em>).</p>
+</div>
+<div class="paragraph">
+<p>Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : l'<strong>union</strong>, l'<strong>intersection</strong>, la <strong>différence</strong> de 2 ensembles. Voir ici  <a href="https://docs.python.org/fr/3/library/stdtypes.html#set" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#set</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_création_dinstances_de_dict">Création d&#8217;instances de <code>dict</code></h4>
+<div class="paragraph">
+<p>Les dictionnaires peuvent être construits de différentes manières :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>en utilisant une liste de paires clé: valeur séparées par des virgules entre accolades : <code>{'Bob': 13, 'Alice': 42}</code> ou, inversion clé/valeur, <code>{13: 'Bob', 42: 'Alice'}</code></p>
+</li>
+<li>
+<p>en utilisant un dictionnaire en compréhension : <code>{}</code>, <code>{x: x ** 2 for x in range(10)}</code> ;</p>
+</li>
+<li>
+<p>en utilisant le constructeur du type : <code>dict()</code>, <code>dict([('foo', 100), ('bar', 200)])</code>, <code>dict(foo=100, bar=200)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>voir ici : <a href="https://docs.python.org/fr/3/library/stdtypes.html#dict" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#dict</a></p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2730,7 +2816,7 @@ Les structures de données natives ont leur propre syntaxe qu&#8217;il faut conn
 </div>
 </div>
 <div class="sect2">
-<h3 id="_itérer_sur_les_éléments_dune_collection">Itérer sur les éléments d&#8217;une collection</h3>
+<h3 id="_itérer_sur_tous_les_éléments_dune_collection">Itérer sur tous les éléments d&#8217;une collection</h3>
 <div class="sect3">
 <h4 id="_itération_foreach_idiomatique">Itération <code>foreach</code> idiomatique :</h4>
 <div class="listingblock">
@@ -2767,44 +2853,43 @@ bananes
 kiwis</code></pre>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_itération_avec_un_index">Itération avec un index :</h4>
-<div class="sect4">
-<h5 id="_modèle_idiomatique">modèle idiomatique</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
-
-for index, fruit in enumerate(fruits) : <i class="conum" data-value="1"></i><b>(1)</b>
-    print(index, fruit)  <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
+<div class="admonitionblock tip">
 <table>
 <tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>utilise la fonction native <code>enumerate</code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>affiche l&#8217;index en plus de la valeur de l&#8217;élément</td>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Attention, dans le cas des dictionnaire, cette structure retournera les clés, pas les valeurs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">un_dico : dict = {1:'a', 3:'a', 5:'123', 7:123}
+for k in un_dico :
+    print(k, un_dico[k])
+
+'''
+result :
+1 a
+3 a
+5 123
+7 123
+'''</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour d&#8217;autres façons d&#8217;opérer, voir ici : <a href="https://stackoverflow.com/questions/3294889/iterating-over-dictionaries-using-for-loops" class="bare">https://stackoverflow.com/questions/3294889/iterating-over-dictionaries-using-for-loops</a></p>
+</div>
+</td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Qui donnera :</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">0 tomates
-1 bananes
-2 kiwis</code></pre>
-</div>
-</div>
-</div>
+<div class="sect3">
+<h4 id="_autres_modèle_ditérations">Autres modèle d&#8217;itérations :</h4>
 <div class="sect4">
-<h5 id="_modèle_classique">Modèle classique</h5>
+<h5 id="_modèle_classique">Modèle "classique"</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
@@ -2854,7 +2939,7 @@ print(i) <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_modèle_à_éviter_non_idiomatique">Modèle à éviter (non idiomatique)</h5>
+<h5 id="_modèle_non_idiomatique">Modèle non idiomatique</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">fruits = ['tomates', 'bananes', 'kiwis']
@@ -2867,7 +2952,7 @@ for index in range(len(fruits)):
 <p>Bien qu&#8217;opérationnel, ce modèle appelle <code>range</code>, qui crée inutilement une séquence (immuable) de nombres en guise d&#8217;indices.</p>
 </div>
 <div class="paragraph">
-<p>Cette remarque se vaut dans la mesure où l&#8217;on souhaite itérer sur l&#8217;ensemble des éléments de la liste.</p>
+<p>Cette remarque se vaut dans la mesure où l&#8217;on souhaite itérer sur la <strong>totalité</strong> des éléments de la liste.</p>
 </div>
 <div class="paragraph">
 <p>Approfondir le sujet sur stackoverflow : <a href="https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops" class="bare">https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops</a></p>
@@ -2932,13 +3017,91 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <div class="sect3">
 <h4 id="_exercice_44">EXERCICE 44</h4>
 <div class="paragraph">
-<p>TODO exercice avec usage du debogger + questions</p>
+<p>Voici une version d&#8217;une fonction qui prend 2 listes et retourne une liste des éléments communs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def recherche_elements_communs(list1 : list, list2 : list) -&gt; list :
+    common_elements = []
+    for item1 in list1:
+        for item2 in list2:
+            if item1 == item2:
+                common_elements.append(item1) # ajoute cet élément
+    return common_elements</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">recherche_elements_communs(['a', 'b'], ['x', 'b', 'y', 'z']) # retourne ['b']</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
+<ol class="arabic">
+<li>
+<p>Déterminer le nombre de parcours de boucles de l&#8217;exemple ci-dessus. Utiliser le <strong>débogueur</strong> pour une exécution <strong>pas à pas</strong> de la fonction à fin de vérification. Inspecter les variables <code>item1</code> et <code>item2</code> à chaque itération de la boucle.</p>
+</li>
+<li>
+<p>Donner une formule générale qui donne le nombre d&#8217;itérations, quelque soit le nombre d&#8217;éléments des arguments</p>
+</li>
+<li>
+<p>Définir une fonction nommé <code>test_recherche_elements_communs</code> qui teste plusieurs scénarios (inspirez-vous de l&#8217;exemple donnée et de <code>test_note()</code>)</p>
+</li>
+<li>
+<p>Proposez une amélioration de l&#8217;implémentation de la fonction <code>test_recherche_elements_communs()</code>. Il y a plusieurs possibilités, l&#8217;idée est de faire confiance aux structures existantes du langage. Attention, l&#8217;interface de la fonction ne doit pas être modifiée !</p>
+<div class="paragraph">
+<p><code>def recherche_elements_communs(list1 : list, list2 : list) &#8594; list</code></p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_exercice_45">EXERCICE 45</h4>
 <div class="paragraph">
-<p>TODO</p>
+<p>Concevoir et tester une fonction qui prend en argument une liste de caractères (liste de chaînes de 1 caractère) et qui retourne une liste des éléments en doublons. Voici son <strong>interface</strong> :</p>
+</div>
+<div class="paragraph">
+<p><code>def doublons(liste : list) &#8594; list</code></p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;utilisation :</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">doublons(['1', 'X','2','2','3','4','3', 'A' 'a', 'X']) # ['X', '2', '3']</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
+<ol class="arabic">
+<li>
+<p>Implémenter la fonction <code>doublons</code></p>
+</li>
+<li>
+<p>Définir une fonction qui teste plusieurs scénarios d&#8217;utilisation de cette fonction.</p>
+</li>
+<li>
+<p>Définir une deuxième implémentation de la fonction <code>doublons</code></p>
+</li>
+<li>
+<p>Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste est sans doublon ou non.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Définir l&#8217;interface de cette fonction</p>
+</li>
+<li>
+<p>Implémenter cette fonction</p>
+</li>
+<li>
+<p>Tester cette fonction</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
