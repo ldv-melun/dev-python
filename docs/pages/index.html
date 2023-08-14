@@ -2645,18 +2645,18 @@ Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors
 <p>Il y a mieux à faire. La bonne solution consiste à passer <strong>une liste - ou collection - de valeurs</strong> à la fonction <code>note</code>.</p>
 </div>
 <div class="paragraph">
-<p>Python propose plusieurs types prédéfinis de collections <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>. Pour l&#8217;heure nous nous intéressons aux types natifs : <code>list</code>, <code>set</code>, <code>dict</code> et <code>tuple</code>.</p>
+<p>Python propose plusieurs types prédéfinis de collections <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>. Pour l&#8217;heure nous nous intéressons aux principaux types natifs : <code>list</code>, <code>set</code>, <code>dict</code> et <code>tuple</code>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>list</code> est une <strong>structure de données</strong> de type <strong>séquentiel</strong>, au même titre que <code>str</code>, mais <strong>muable</strong>. Une instance de <code>list</code> dispose des mêmes opérations que <code>str</code>. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de <code>list</code> ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est <strong>muable</strong> (contrairement à <code>str</code>).</p>
+<p><code>list</code> est une <strong>structure de données</strong> de type <strong>séquentiel</strong>, au même titre que <code>str</code>, mais <strong>muable</strong>. Une instance de <code>list</code> dispose des mêmes opérations que <code>str</code>. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de <code>list</code> ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est <strong>muable</strong>, elle permet donc l&#8217;ajout, la suppression et le remplacement d&#8217;éléments (contrairement à <code>str</code>).</p>
 </li>
 <li>
-<p><code>set</code> est une structure de données <strong>muable</strong> de type <strong>ensemble</strong>, non organisée séquentiellement. Particularité : structure <strong>non indexée</strong> et <strong>pas d&#8217;éléments en doublon</strong>.</p>
+<p><code>set</code> est une structure de données <strong>muable</strong> de type <strong>ensemble</strong>, non organisée séquentiellement. Particularité : structure <strong>non indexée</strong> et <strong>n&#8217;accepte pas  d&#8217;éléments en doublon</strong>.</p>
 </li>
 <li>
-<p><code>dict</code> est une structure de données <strong>muable</strong> de type <strong>dictionnaire</strong>, non organisée séquentiellement. Particularité : les index sont des objets</p>
+<p><code>dict</code> est une structure de données <strong>muable</strong> de type <strong>dictionnaire</strong>, non organisée séquentiellement. Particularité : les index sont des objets, par exemple des index de type string, comme un dictionnaire (nom &#8594; définition), d&#8217;où son nom.</p>
 </li>
 <li>
 <p><code>tuple</code> est une structure de données <strong>immuable</strong> de type <strong>séquentiel</strong>. Particularité : type séquentiel, donc les index sont des entiers (comme string)</p>
@@ -2670,6 +2670,9 @@ Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors
 <div class="content">
 <img src="../assets/images/collections-heritage1.png" alt="collections heritage1">
 </div>
+</div>
+<div class="paragraph">
+<p>À noter : Il existe également un type <code>set</code> immuable : <a href="https://docs.python.org/fr/3/library/stdtypes.html#set-types-set-frozenset"><code>frozenset</code></a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2773,7 +2776,15 @@ Les structures de données natives ont leur propre syntaxe qu&#8217;il faut conn
 <p>Les <code>set</code> sont de type muable (<em>mutable</em>), mais il existe aussi le type <code>frozenset</code> qui est un <code>set</code> immuable (<em>immutable</em>).</p>
 </div>
 <div class="paragraph">
-<p>Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : l'<strong>union</strong>, l'<strong>intersection</strong>, la <strong>différence</strong> de 2 ensembles. Voir ici  <a href="https://docs.python.org/fr/3/library/stdtypes.html#set" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#set</a>.</p>
+<p>Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : la <strong>différence</strong>, l'<strong>union</strong> et l'<strong>intersection</strong> de 2 ensembles.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../assets/images/ens-operations-venn.png" alt="ens operations venn">
+</div>
+</div>
+<div class="paragraph">
+<p>Voir ici  <a href="https://docs.python.org/fr/3/library/stdtypes.html#set" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#set</a> et là aussi par exemple <a href="https://python.developpez.com/tutoriels/apprendre-programmation-python/notions-avancees/">python - notions avancées chez developpez.com</a></p>
 </div>
 </td>
 </tr>
@@ -2831,7 +2842,7 @@ for fruit in fruits : <i class="conum" data-value="2"></i><b>(2)</b>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Il est d&#8217;usage d&#8217;utiliser le <strong>pluriel</strong> (<code>fruits</code>) pour le noms de variables de type collection</td>
+<td><strong>(IMPORTANT)</strong> Il est d&#8217;usage d&#8217;utiliser le <strong>pluriel</strong> (<code>fruits</code>) pour le noms de variables de type collection</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -2861,7 +2872,7 @@ kiwis</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Attention, dans le cas des dictionnaire, cette structure retournera les clés, pas les valeurs.</p>
+<p>Attention, dans le cas des dictionnaires, cette structure retournera les clés, pas les valeurs.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2922,7 +2933,7 @@ print(i) <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Affiche la valeur de <code>i</code> qui est <code>len(fruits)</code></td>
+<td>Affiche la valeur de <code>i</code> qui est <code>len(fruits)</code> (condition d&#8217;arrêt de l&#8217;itération)</td>
 </tr>
 </table>
 </div>
@@ -3048,13 +3059,16 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <p>Donner une formule générale qui donne le nombre d&#8217;itérations, quelque soit le nombre d&#8217;éléments des arguments</p>
 </li>
 <li>
-<p>Définir une fonction nommé <code>test_recherche_elements_communs</code> qui teste plusieurs scénarios (inspirez-vous de l&#8217;exemple donnée et de <code>test_note()</code>)</p>
+<p>Définir une fonction nommée <code>test_recherche_elements_communs</code> qui teste plusieurs scénarios (inspirez-vous de l&#8217;exemple donnée et de <code>test_note()</code>)</p>
 </li>
 <li>
 <p>Proposez une amélioration de l&#8217;implémentation de la fonction <code>test_recherche_elements_communs()</code>. Il y a plusieurs possibilités, l&#8217;idée est de faire confiance aux structures existantes du langage. Attention, l&#8217;interface de la fonction ne doit pas être modifiée !</p>
 <div class="paragraph">
 <p><code>def recherche_elements_communs(list1 : list, list2 : list) &#8594; list</code></p>
 </div>
+</li>
+<li>
+<p>Tester la nouvelle version de votre fonction</p>
 </li>
 </ol>
 </div>
@@ -3070,7 +3084,7 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <div class="listingblock">
 <div class="title">Exemple d&#8217;utilisation :</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">doublons(['1', 'X','2','2','3','4','3', 'A' 'a', 'X']) # ['X', '2', '3']</code></pre>
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">doublons(['1','X','2','2','3','4','3','A','a','X']) # rend ['X', '2', '3']</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -3086,7 +3100,7 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <p>Définir une deuxième implémentation de la fonction <code>doublons</code></p>
 </li>
 <li>
-<p>Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste est sans doublon ou non.</p>
+<p>Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste détient des doublons ou non.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3096,7 +3110,7 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <p>Implémenter cette fonction</p>
 </li>
 <li>
-<p>Tester cette fonction</p>
+<p>Définir une fonction de test pour cette fonction</p>
 </li>
 </ol>
 </div>
@@ -3263,7 +3277,7 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 <a href="#_footnoteref_1">1</a>. peut être aussi <em>postmortem</em>
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. Le développeur a la possibilité d&#8217;en définir d&#8217;autres, via la classe abstraite <code>collections.abc</code> <a href="https://docs.python.org/fr/3/library/collections.abc.html" class="bare">https://docs.python.org/fr/3/library/collections.abc.html</a>
+<a href="#_footnoteref_2">2</a>. Le développeur a la possibilité d&#8217;en définir d&#8217;autres, via la <strong>c</strong>lasse de <strong>b</strong>ase <strong>a</strong>bstraite <code>collections.abc</code> <a href="https://docs.python.org/fr/3/library/collections.abc.html" class="bare">https://docs.python.org/fr/3/library/collections.abc.html</a>
 </div>
 </div>
 <div id="footer">

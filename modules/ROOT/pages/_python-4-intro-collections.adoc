@@ -94,13 +94,13 @@ TIP: Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, 
 
 Il y a mieux à faire. La bonne solution consiste à passer *une liste - ou collection - de valeurs* à la fonction `note`.
 
-Python propose plusieurs types prédéfinis de collections footnote:[Le développeur a la possibilité d'en définir d'autres, via la classe abstraite `collections.abc` https://docs.python.org/fr/3/library/collections.abc.html]. Pour l'heure nous nous intéressons aux types natifs : `list`, `set`, `dict` et `tuple`. 
+Python propose plusieurs types prédéfinis de collections footnote:[Le développeur a la possibilité d'en définir d'autres, via la **c**lasse de **b**ase **a**bstraite `collections.abc` https://docs.python.org/fr/3/library/collections.abc.html]. Pour l'heure nous nous intéressons aux principaux types natifs : `list`, `set`, `dict` et `tuple`. 
 
-. `list` est une *structure de données* de type *séquentiel*, au même titre que `str`, mais *muable*. Une instance de `list` dispose des mêmes opérations que `str`. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de `list` ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est *muable* (contrairement à `str`).
+. `list` est une *structure de données* de type *séquentiel*, au même titre que `str`, mais *muable*. Une instance de `list` dispose des mêmes opérations que `str`. Donc vous êtes déjà familiarisé avec cette structure, sauf que les éléments de `list` ne sont pas réduits à des chaînes. Particularité : type séquentiel, donc les index sont des entiers (commence à zéro) et la structure est *muable*, elle permet donc l'ajout, la suppression et le remplacement d'éléments (contrairement à `str`).
 
-. `set` est une structure de données *muable* de type *ensemble*, non organisée séquentiellement. Particularité : structure *non indexée* et *pas d'éléments en doublon*. 
+. `set` est une structure de données *muable* de type *ensemble*, non organisée séquentiellement. Particularité : structure *non indexée* et *n'accepte pas  d'éléments en doublon*. 
 
-. `dict` est une structure de données *muable* de type *dictionnaire*, non organisée séquentiellement. Particularité : les index sont des objets
+. `dict` est une structure de données *muable* de type *dictionnaire*, non organisée séquentiellement. Particularité : les index sont des objets, par exemple des index de type string, comme un dictionnaire (nom -> définition), d'où son nom.
 
 . `tuple` est une structure de données *immuable* de type *séquentiel*. Particularité : type séquentiel, donc les index sont des entiers (comme string)
 
@@ -108,12 +108,14 @@ Une classification des principales collections natives :
 
 image::collections-heritage1.png[caption="Une classification des principales collections natives", align=center]
 
+À noter : Il existe également un type `set` immuable : https://docs.python.org/fr/3/library/stdtypes.html#set-types-set-frozenset[`frozenset`].
+
 == Opérations courantes sur les structures séquentielles 
 
 image:sequence-operations-courantes.png[sequence-operations-courantes.png]
 https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations
 
-
+ 
 == Déclaration de variables Collection
 
 Exemple de déclaration et initialisation de variables de type conteneur (autre nom pour collection)
@@ -171,7 +173,11 @@ Les ensembles peuvent être construits de différentes manières :
 ====
 Les `set` sont de type muable (_mutable_), mais il existe aussi le type `frozenset` qui est un `set` immuable (_immutable_).  
 
-Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : l'*union*, l'*intersection*, la *différence* de 2 ensembles. Voir ici  https://docs.python.org/fr/3/library/stdtypes.html#set.
+Ces deux classes disposent des opérations sur les ensembles bien pratiques telles que : la *différence*, l'*union* et l'*intersection* de 2 ensembles. 
+
+image::ens-operations-venn.png[]
+
+Voir ici  https://docs.python.org/fr/3/library/stdtypes.html#set et là aussi par exemple https://python.developpez.com/tutoriels/apprendre-programmation-python/notions-avancees/[python - notions avancées chez developpez.com]
 
 ====
 
@@ -187,9 +193,6 @@ Les dictionnaires peuvent être construits de différentes manières :
 * en utilisant le constructeur du type : `dict()`, `dict([('foo', 100), ('bar', 200)])`, `dict(foo=100, bar=200)`.
 
 voir ici : https://docs.python.org/fr/3/library/stdtypes.html#dict
-
-
-
 
 
 
@@ -213,7 +216,7 @@ for fruit in fruits : <2>
     print(fruit)  <3> 
 ----
 
-<1> Il est d'usage d'utiliser le *pluriel* (`fruits`) pour le noms de variables de type collection
+<1> *(IMPORTANT)* Il est d'usage d'utiliser le *pluriel* (`fruits`) pour le noms de variables de type collection
 <2> La variable `fruit` (au singulier) est une *variable de boucle*, qui prend, successivement, la valeur de chacun des éléments de la liste.
 <3> Affiche la valeur de l'élément courant (*ne pas hésitez à pauser un point d'arrêt sur cette ligne pour comprendre l'itération* )
 
@@ -228,7 +231,7 @@ kiwis
 
 [TIP]
 ====
-Attention, dans le cas des dictionnaire, cette structure retournera les clés, pas les valeurs.
+Attention, dans le cas des dictionnaires, cette structure retournera les clés, pas les valeurs.
 
 [source, python]
 ----
@@ -292,7 +295,7 @@ print(i) <5>
 <2> Tant que `i` est inférieur au nombre d'éléments 
 <3> Affiche l'index et l'élément situé à cet index  
 <4> Incrémente `i`
-<5> Affiche la valeur de `i` qui est `len(fruits)`  
+<5> Affiche la valeur de `i` qui est `len(fruits)` (condition d'arrêt de l'itération) 
 
 Qui donnera :
 
@@ -377,10 +380,11 @@ recherche_elements_communs(['a', 'b'], ['x', 'b', 'y', 'z']) # retourne ['b']
 .*Travail à faire*
 . Déterminer le nombre de parcours de boucles de l'exemple ci-dessus. Utiliser le *débogueur* pour une exécution *pas à pas* de la fonction à fin de vérification. Inspecter les variables `item1` et `item2` à chaque itération de la boucle.
 . Donner une formule générale qui donne le nombre d'itérations, quelque soit le nombre d'éléments des arguments 
-. Définir une fonction nommé `test_recherche_elements_communs` qui teste plusieurs scénarios (inspirez-vous de l'exemple donnée et de `test_note()`)
-. Proposez une amélioration de l'implémentation de la fonction `test_recherche_elements_communs()`. Il y a plusieurs possibilités, l'idée est de faire confiance aux structures existantes du langage. Attention, l'interface de la fonction ne doit pas être modifiée !  
+. Définir une fonction nommée `test_recherche_elements_communs` qui teste plusieurs scénarios (inspirez-vous de l'exemple donnée et de `test_note()`)
+. Proposez une amélioration de l'implémentation de la fonction `test_recherche_elements_communs()`. Il y a plusieurs possibilités, l'idée est de faire confiance aux structures existantes du langage. Attention, l'interface de la fonction ne doit pas être modifiée ! 
 +
 `def recherche_elements_communs(list1 : list, list2 : list) -> list`
+. Tester la nouvelle version de votre fonction
 
 // Exemple de solutions (commentaire de chatGPT) 
 // 1. Utilisation de l'opérateur in pour vérifier l'appartenance :
@@ -416,7 +420,7 @@ Concevoir et tester une fonction qui prend en argument une liste de caractères 
 .Exemple d'utilisation :
 [source, python, caption=""]
 ----
-doublons(['1', 'X','2','2','3','4','3', 'A' 'a', 'X']) # ['X', '2', '3']
+doublons(['1','X','2','2','3','4','3','A','a','X']) # rend ['X', '2', '3']
 ----
 
 
@@ -424,10 +428,10 @@ doublons(['1', 'X','2','2','3','4','3', 'A' 'a', 'X']) # ['X', '2', '3']
 . Implémenter la fonction `doublons`
 . Définir une fonction qui teste plusieurs scénarios d'utilisation de cette fonction.
 . Définir une deuxième implémentation de la fonction `doublons`
-. Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste est sans doublon ou non.
+. Concevoir une nouvelle fonction qui prend en argument une liste et qui détermine si cette liste détient des doublons ou non.
 .. Définir l'interface de cette fonction
 .. Implémenter cette fonction
-.. Tester cette fonction 
+.. Définir une fonction de test pour cette fonction 
 
 
 === EXERCICE 46
