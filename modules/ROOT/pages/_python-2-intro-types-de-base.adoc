@@ -597,8 +597,11 @@ def process_data() :
 
 === EXERCICE 27
 
-On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
-Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.
+On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Le voici : 
+
+_Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
+*Seuls les champs renseignés lors de cette seconde saisie seront mis à jour*._
+
 
 .*Travail à faire*
 . Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
@@ -637,7 +640,7 @@ if (𝒙[4] == 𝒙[5]):
 == Contrôler vos connaissances et contribuer aux QCMs
 
 . Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `p-2-type`)
-. Proposer, pour le thème `PYTHON-1`, scope `p-2-type`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+. Proposer, pour le thème `PYTHON-LDV`, scope `p-2-type`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
 
 
 

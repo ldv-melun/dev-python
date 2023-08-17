@@ -851,18 +851,18 @@ Hello World
 <div class="title">Listing 3. fichier tp1.py</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">#!/usr/bin/env python3 <i class="conum" data-value="1"></i><b>(1)</b>
-def exo2() : <i class="conum" data-value="2"></i><b>(2)</b>
+def exo2() -&gt; None : <i class="conum" data-value="2"></i><b>(2)</b>
   """
    exercice 2 du TP1
   """
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
-  return 0 <i class="conum" data-value="3"></i><b>(3)</b>
 
-if __name__ == "__main__": <i class="conum" data-value="4"></i><b>(4)</b>
-  import sys <i class="conum" data-value="5"></i><b>(5)</b>
-  code_retour = exo2() <i class="conum" data-value="6"></i><b>(6)</b>
-  sys.exit(code_retour) <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
+
+if __name__ == "__main__": <i class="conum" data-value="3"></i><b>(3)</b>
+  import sys <i class="conum" data-value="4"></i><b>(4)</b>
+  exo2() <i class="conum" data-value="5"></i><b>(5)</b>
+  sys.exit(0) <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -873,27 +873,23 @@ if __name__ == "__main__": <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Définition d&#8217;une fonction nommée <code>exo2</code> avec sa chaine de documentation</td>
+<td>Définition d&#8217;une fonction nommée <code>exo2</code>, qui ne retourne "rien" avec sa chaîne de documentation</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale une anomalie à l&#8217;exécution.</td>
+<td>Si le script est utilisé directement (en argument de l&#8217;interpréteur python), alors la valeur de la variable <code><em>__main__</em></code> est "<em>__main__</em>", sinon il est utilisé en import dans un autre script et c&#8217;est le nom du script (module), sans son extension. Remarque : les noms de variables encadrés de 2 underscores (<code>__</code>) sont des variables système (pré)définies par l&#8217;interpréteur.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Si le script est utilisé directement (en argument de l&#8217;interpréteur python), alors la valeur de la variable <code><em>__main__</em></code> est "<em>__main__</em>" sinon c&#8217;est le nom du module (sans son extension). Remarque : les noms de variables encadrés de 2 underscores (<code>__</code>) sont des variables système définies par l&#8217;interpréteur.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
 <td>Importation du module <code>sys</code> (qui contient des fonctions système, dont <code>exit</code> utilisée plus loin)</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Appel de la fonction <code>exo2</code> et enregistrement du code de retour.</td>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Appel de la fonction <code>exo2</code>.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Appel la fonction <code>exit</code> afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir <a href="https://docs.python.org/fr/3/library/sys.html#sys.exit" class="bare">https://docs.python.org/fr/3/library/sys.html#sys.exit</a>, ou, en mode interactif, appeler l&#8217;aide sur cette fonction via la commande <code>help(sys.exit)</code></td>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Appel la fonction <code>exit</code> afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir <a href="https://docs.python.org/fr/3/library/sys.html#sys.exit" class="bare">https://docs.python.org/fr/3/library/sys.html#sys.exit</a>, ou, en mode interactif, appeler l&#8217;aide sur cette fonction via la commande <code>help(sys.exit)</code>. <strong>Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale à l&#8217;appelant une anomalie à l&#8217;exécution</strong>.</td>
 </tr>
 </table>
 </div>
@@ -958,13 +954,12 @@ FinSi</pre>
 <div class="listingblock">
 <div class="title">Listing 5. Version python</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo3() :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo3() -&gt; None :
   x = int(input("Entrez un nombre entier svp : "))
-  if x % 2 == 0 :  # le reste de divisition par 2 est-il zéro ?
+  if x % 2 == 0 :  # le reste de division par 2 est-il zéro ?
     print("Ce nombre est pair")
   else :
-    print("Ce nombre est impair")
-  return 0</code></pre>
+    print("Ce nombre est impair")</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -1069,7 +1064,7 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Puis améliorer la fonction <code>exo6</code> de sorte que l&#8217;utilisateur puisse fournir des valeurs pour les zones mémoire référencées par les identificateurs <code>m</code> et <code>n</code>. Vérifier la justesse des sorties.</p>
+<p>Puis améliorer la fonction <code>exo6</code> de sorte que l&#8217;utilisateur puisse lui-même fournir des valeurs pour les zones mémoire référencées par les identificateurs <code>m</code> et <code>n</code>. Vérifier la justesse des sorties.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1086,17 +1081,17 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Commençons par définir une fonction qui réalise une somme de 2 valeurs reçues en argument. Nous appellerons cette fonction <code>somme</code>.</p>
+<p>Commençons par définir une fonction qui réalise une somme de 2 entiers reçues en argument. Nous appellerons cette fonction <code>somme</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def somme(arg1, arg2) :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def somme(arg1: int, arg2: int) -&gt; Int :
   """
-    Retoure la somme des arguments
+    Return la somme des arguments
   """
-  # affecte à la var resultat le résultat de l'opération +
-  resultat = arg1 + arg2
-  return resultat <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+  # affecte à la var result le résultat de l'opération +
+  result = arg1 + arg2
+  return result <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1112,7 +1107,7 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo7() :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo7() -&gt; None:
   print("Bonjour, je suis un programme écrit en Python.")
 
   # invite l'utilisateur à entrer un nombre entier
@@ -1135,7 +1130,7 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
   n2 = input("Entrez un second nombre entier : ")
 
   # appel à la fonction somme, définie plus haut,
-  # en vue de réaliser une addition
+  # en vue de réaliser une addition (normalement pb de type ici)
   res = somme(arg1 = n1, arg2 = n2) <i class="conum" data-value="1"></i><b>(1)</b>
 
   # affichage du résultat
@@ -1144,13 +1139,11 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
   # dernière instruction pour une fin annoncée
   print("bye, je meurs...")
 
-  return 0
-
 
 if __name__ == "__main__":
   import sys
-  code_retour = exo7()
-  sys.exit(code_retour)</code></pre>
+  exo7()
+  sys.exit(0)</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1177,7 +1170,7 @@ if __name__ == "__main__":
 <p>Modifiez la fonction <code>exo7.py</code> afin qu&#8217;elle réalise la somme de 3 nombres.</p>
 </li>
 <li>
-<p>Faire évoluer la fonction <code>exo7.py</code> afin qu&#8217;lle réalise, en plus
+<p>Faire évoluer la fonction <code>exo7.py</code> afin qu&#8217;elle réalise, en plus
 de la somme de 3 nombres, le produit de ces 3 nombres. Pour cela vous
 devrez créer, juste après la déclaration de <code>somme()</code>, une nouvelle fonction nommée <code>produit()</code>, inspirée de <code>somme()</code>.</p>
 </li>
@@ -1214,10 +1207,10 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-1-intro</code>)</p>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-LDV</code>, scope <code>p-1-intro</code>)</p>
 </li>
 <li>
-<p>Proposer, pour le thème <code>PYTHON-1</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+<p>Proposer, pour le thème <code>PYTHON-LDV</code> (scope <code>p-1-intro</code>), 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
 </li>
 </ol>
 </div>
@@ -2086,8 +2079,11 @@ def process_data() :
 <div class="sect3">
 <h4 id="_exercice_27">EXERCICE 27</h4>
 <div class="paragraph">
-<p>On se place dans le scénario A. Nous appellerons <strong>A'</strong> (A prime) ce scénario étendu. Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l&#8217;utilisateur souhaite une mise à jour du produit.
-Seuls les champs renseignés lors de cette seconde saisie seront mis à jour.</p>
+<p>On se place dans le scénario A. Nous appellerons <strong>A'</strong> (A prime) ce scénario étendu. Le voici :</p>
+</div>
+<div class="paragraph">
+<p><em>Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l&#8217;utilisateur souhaite une mise à jour du produit.
+<strong>Seuls les champs renseignés lors de cette seconde saisie seront mis à jour</strong>.</em></p>
 </div>
 <div class="olist arabic">
 <div class="title"><strong>Travail à faire</strong></div>
@@ -2147,7 +2143,7 @@ if (𝒙[4] == 𝒙[5]):
 <p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-2-type</code>)</p>
 </li>
 <li>
-<p>Proposer, pour le thème <code>PYTHON-1</code>, scope <code>p-2-type</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+<p>Proposer, pour le thème <code>PYTHON-LDV</code>, scope <code>p-2-type</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
 </li>
 </ol>
 </div>
@@ -2276,14 +2272,13 @@ Analyser un code avec un débogueur c&#8217;est entreprendre une analyse du prog
 <div class="listingblock">
 <div class="title">Listing 17. Exemple d&#8217;une instruction de point d&#8217;arrêt</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo3() :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def exo3() -&gt; None :
   x=int(input("Entrez un nombre entier svp : "))
   breakpoint() <i class="conum" data-value="1"></i><b>(1)</b>
   if x%2==0 :  # la valeur de x est-elle divisible par 2 ?
     print("Ce nombre est pair")
   else :
-    print("Ce nombre est impair")
-  return 0</code></pre>
+    print("Ce nombre est impair")</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2410,15 +2405,12 @@ $</code></pre>
 <div class="sect3">
 <h4 id="_linstruction_assert">L&#8217;instruction assert</h4>
 <div class="paragraph">
-<p>L&#8217;instruction <code>assert</code> permet de vérifier qu&#8217;une condition est vraie à un point particulier du code.</p>
-</div>
-<div class="paragraph">
-<p>Si la condition est fausse, une exception <code>AssertionError</code> sera levée, indiquant qu&#8217;il y a un problème à cet endroit.</p>
+<p>L&#8217;instruction <code>assert</code> permet de vérifier qu&#8217;une condition est vraie à un point particulier du code. Si la condition n&#8217;est pas vérifié, une exception (<code>AssertionError</code>) est alors déclenchée qui, si elle n&#8217;est pas traitée par l&#8217;appelant, entraînera l&#8217;arrêt non contrôlé du programme (bug)</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 19. Exemple d&#8217;instruction <code>assert</code> (les listes sont étudiées dans la section suivante)</div>
+<div class="title">Listing 19. Exemple d&#8217;instruction <code>assert</code></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def extract_name(full_name : str) -&gt; tuple :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def extract_name(full_name : str) -&gt; tuple : <i class="conum" data-value="1"></i><b>(1)</b>
     """
     Algorithme naïf, full_name de la forme "prénom nom"
     Retourne une liste de 2 éléments
@@ -2440,6 +2432,14 @@ except AssertionError as e:
     print(f"Erreur : {e}")</code></pre>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>La structure de données <code>tuple</code> (une liste de valeurs) sera étudiée dans la section suivante</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Dans cet exemple, nous avons une fonction <code>extract_name()</code> qui extrait le prénom et le nom de famille d&#8217;une chaîne de caractères qui représente un nom complet.</p>
 </div>
@@ -2459,13 +2459,22 @@ except AssertionError as e:
 <div class="paragraph">
 <p>Ces assertions nous permettent de nous assurer que la fonction <code>extract_name()</code> est correctement utilisée avec une chaîne de caractères représentant un nom complet. Si un développeur utilise la fonction de manière incorrecte en passant un autre type de variable ou une chaîne de caractères mal formatée, les assertions lèveront une exception pour signaler le problème.</p>
 </div>
-<div class="paragraph">
-<p>Notez que l&#8217;utilisation des assertions dépend du contexte de votre programme et de l&#8217;endroit où vous souhaitez détecter les erreurs. <strong>Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s&#8217;assurer que le code est utilisé correctement et en accord avec les attentes du développeur concepteur de la fonction.</strong></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Les assertions sont particulièrement utiles pour valider les entrées de fonction, les préconditions et les invariants, permettant ainsi de s&#8217;assurer que le code est utilisé correctement et en accord avec les attentes du développeur concepteur de la fonction.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_exercice_33">EXERCICE 33</h5>
 <div class="paragraph">
-<p>Tester la fonction <code>extract_name</code>, avec au moins 3 scénarios :</p>
+<p>Tester la fonction <code>extract_name</code>, en pas à pas avec le débogueur, avec au moins 3 scénarios :</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">

@@ -222,27 +222,26 @@ Voici un code source d'un programme python respectant les conventions d'usage :
 [source, python, number]
 ----
 #!/usr/bin/env python3 <1>
-def exo2() : <2>
+def exo2() -> None : <2>
   """
    exercice 2 du TP1
   """
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
-  return 0 <3>
 
-if __name__ == "__main__": <4>
-  import sys <5>
-  code_retour = exo2() <6>
-  sys.exit(code_retour) <7>
+
+if __name__ == "__main__": <3>
+  import sys <4>
+  exo2() <5>
+  sys.exit(0) <6>
 ----
 
 <1> (optionnel) Shebang. Permet de rendre le script "directement" exécutable. voir https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
-<2> Définition d'une fonction nommée `exo2` avec sa chaine de documentation
-<3> Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale une anomalie à l'exécution.
-<4> Si le script est utilisé directement (en argument de l'interpréteur python), alors la valeur de la variable `_\__main___` est "_\__main___" sinon c'est le nom du module (sans son extension). Remarque : les noms de variables encadrés de 2 underscores (`__`) sont des variables système définies par l'interpréteur.
-<5> Importation du module `sys` (qui contient des fonctions système, dont `exit` utilisée plus loin)
-<6> Appel de la fonction `exo2` et enregistrement du code de retour.
-<7> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`
+<2> Définition d'une fonction nommée `exo2`, qui ne retourne "rien" avec sa chaîne de documentation
+<3> Si le script est utilisé directement (en argument de l'interpréteur python), alors la valeur de la variable `_\__main___` est "_\__main___", sinon il est utilisé en import dans un autre script et c'est le nom du script (module), sans son extension. Remarque : les noms de variables encadrés de 2 underscores (`__`) sont des variables système (pré)définies par l'interpréteur.
+<4> Importation du module `sys` (qui contient des fonctions système, dont `exit` utilisée plus loin)
+<5> Appel de la fonction `exo2`.
+<6> Appel la fonction `exit` afin de demander la sortie du mode interpréteur de python avec transmission du code de retour. Voir https://docs.python.org/fr/3/library/sys.html#sys.exit, ou, en mode interactif, appeler l'aide sur cette fonction via la commande `help(sys.exit)`. *Retourner zéro signifie que le programme se termine avec succès, toute autre valeur signale à l'appelant une anomalie à l'exécution*.
 
 .*Travail à faire*
 . Si ce n'est pas déjà fait, créer un dossier `dev`
@@ -279,13 +278,13 @@ FinSi
 .Version python
 [source, python]
 ----
-def exo3() :
+def exo3() -> None :
   x = int(input("Entrez un nombre entier svp : "))
-  if x % 2 == 0 :  # le reste de divisition par 2 est-il zéro ?
+  if x % 2 == 0 :  # le reste de division par 2 est-il zéro ?
     print("Ce nombre est pair")
   else :
     print("Ce nombre est impair")
-  return 0
+  
 ----
 
 .*Travail à faire*
@@ -354,7 +353,7 @@ afficher("leur quotient est ", m/n)
 afficher("le reste de la division entière m/n est ", m modulo n)
 ----
 
-Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse fournir des valeurs pour les zones mémoire référencées par les identificateurs `m` et `n`. Vérifier la justesse des sorties.
+Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse lui-même fournir des valeurs pour les zones mémoire référencées par les identificateurs `m` et `n`. Vérifier la justesse des sorties.
 
 === EXERCICE 7
 
@@ -368,17 +367,17 @@ Cet exercice introduit la notion de type. En effet, toute variable est associée
 <class 'int'>   # <== le type de x est int 
 ----
 
-Commençons par définir une fonction qui réalise une somme de 2 valeurs reçues en argument. Nous appellerons cette fonction `somme`.
+Commençons par définir une fonction qui réalise une somme de 2 entiers reçues en argument. Nous appellerons cette fonction `somme`.
 
 [source, python]
 ----
-def somme(arg1, arg2) :
+def somme(arg1: int, arg2: int) -> Int :
   """
-    Retoure la somme des arguments
+    Return la somme des arguments
   """
-  # affecte à la var resultat le résultat de l'opération +
-  resultat = arg1 + arg2
-  return resultat <1>
+  # affecte à la var result le résultat de l'opération +
+  result = arg1 + arg2
+  return result <1>
 ----
 
 <1> On remarquera que la fonction "n'affiche" rien. C'est très important. *Le fait d'afficher ou non la valeur retournée est de la responsabilité de l'appelant, pas de l'appelé* (voir xref:glossaire.adoc#Appelant[Glossaire Appelant/Appelé])
@@ -388,7 +387,7 @@ Voici un exemple de programme (une fonction) qui appelle la fonction `somme` (li
 
 [source, python, number]
 ----
-def exo7() :
+def exo7() -> None:
   print("Bonjour, je suis un programme écrit en Python.")
 
   # invite l'utilisateur à entrer un nombre entier
@@ -411,7 +410,7 @@ def exo7() :
   n2 = input("Entrez un second nombre entier : ")
 
   # appel à la fonction somme, définie plus haut,
-  # en vue de réaliser une addition
+  # en vue de réaliser une addition (normalement pb de type ici)
   res = somme(arg1 = n1, arg2 = n2) <1>
 
   # affichage du résultat
@@ -420,13 +419,11 @@ def exo7() :
   # dernière instruction pour une fin annoncée
   print("bye, je meurs...")
 
-  return 0
-
 
 if __name__ == "__main__":
   import sys
-  code_retour = exo7()
-  sys.exit(code_retour)
+  exo7()
+  sys.exit(0)
 
 ----
 
@@ -437,7 +434,7 @@ if __name__ == "__main__":
 . Tester et *comprendre pourquoi la fonction `exo7` bugue*
 . Corriger la fonction `exo7`
 . Modifiez la fonction `exo7.py` afin qu'elle réalise la somme de 3 nombres.
-. Faire évoluer la fonction `exo7.py` afin qu'lle réalise, en plus
+. Faire évoluer la fonction `exo7.py` afin qu'elle réalise, en plus
 de la somme de 3 nombres, le produit de ces 3 nombres. Pour cela vous
 devrez créer, juste après la déclaration de `somme()`, une nouvelle fonction nommée `produit()`, inspirée de `somme()`.
 
@@ -455,5 +452,5 @@ A l'issue de cette première séance de travaux pratiques, vous avez appris à *
 == Contrôler vos connaissances et contribuer aux QCMs
 
 .*Travail à faire*
-. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `p-1-intro`)
-. Proposer, pour le thème `PYTHON-1`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-LDV`, scope `p-1-intro`)
+. Proposer, pour le thème `PYTHON-LDV` (scope `p-1-intro`), 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
