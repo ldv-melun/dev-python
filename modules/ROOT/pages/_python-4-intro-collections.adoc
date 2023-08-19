@@ -71,7 +71,8 @@ if __name__ == "__main__":
 . L'appel de la fonction `testNote()` doit rendre `True`.  Corrigez l'implémentation de votre fonction `note` si nécessaire.
 ====
 
-*=> #IMPORTANT# : Aborder la suite qu'après avoir réussi à résoudre l'exercice 42.* Faites-vous aider le cas échéant.
+*=> #IMPORTANT# : Aborder la suite qu'après avoir réussi à résoudre l'exercice 42.* Faites-vous aider le cas échéant. https://www.cairn.info/revue-approche-centree-sur-la-personne-2009-2-page-29.htm[On apprend par nos erreurs]
+
 
 
 == Structure de données de type Collection
@@ -90,7 +91,6 @@ etc.
 Mais ce n'est pas la bonne solution ! 
 
 TIP: Rappelez-vous de cela, si un jour vous êtes amené à penser de la sorte, alors votre analyse est certainement à revoir.
-
 
 Il y a mieux à faire. La bonne solution consiste à passer *une liste - ou collection - de valeurs* à la fonction `note`.
 
@@ -118,11 +118,11 @@ https://docs.python.org/fr/3/library/stdtypes.html#common-sequence-operations
  
 == Déclaration de variables Collection
 
-Exemple de déclaration et initialisation de variables de type conteneur (autre nom pour collection)
+Exemple de déclaration et initialisation de variables de type *conteneur* (autre nom pour *collection*)
 
 [source, python]
 ----
-def declare_collection() :
+def declare_collections() :
     """ Exemple de syntaxe de déclaration et initialisation de collections """
     une_liste : list = ['a', 'a', '123', 123] # crochets (bracket) 
     un_tuple  : tuple = ('a', 'a', '123', 123) # parenthèses (optionnelles)
@@ -188,7 +188,7 @@ Les dictionnaires peuvent être construits de différentes manières :
 
 * en utilisant une liste de paires clé: valeur séparées par des virgules entre accolades : `{'Bob': 13, 'Alice': 42}` ou, inversion clé/valeur, `{13: 'Bob', 42: 'Alice'}` 
 
-* en utilisant un dictionnaire en compréhension : `{}`, `{x: x ** 2 for x in range(10)}` ;
+* en utilisant un dictionnaire en *compréhension* : `{}`, `{x: x ** 2 for x in range(10)}` ;
 
 * en utilisant le constructeur du type : `dict()`, `dict([('foo', 100), ('bar', 200)])`, `dict(foo=100, bar=200)`.
 
@@ -206,7 +206,7 @@ Si la structure de données conteneur doit faire l'objet d'opérations ensemblis
 
 == Itérer sur tous les éléments d'une collection  
 
-=== Itération `foreach` idiomatique :
+=== Boucle _for_ idiomatique :
 
 [source, python]
 ----
@@ -217,8 +217,8 @@ for fruit in fruits : <2>
 ----
 
 <1> *(IMPORTANT)* Il est d'usage d'utiliser le *pluriel* (`fruits`) pour le noms de variables de type collection
-<2> La variable `fruit` (au singulier) est une *variable de boucle*, qui prend, successivement, la valeur de chacun des éléments de la liste.
-<3> Affiche la valeur de l'élément courant (*ne pas hésitez à pauser un point d'arrêt sur cette ligne pour comprendre l'itération* )
+<2> La variable `fruit` (au singulier) est une *variable de boucle* (créée pour l'occasion), qui var prendre, successivement, la valeur de chacun des éléments de la liste.
+<3> Le corps de la boucle. Ici on affiche la valeur de l'élément courant (*ne pas hésitez à pauser un point d'arrêt sur cette ligne pour comprendre l'itération* )
 
 Un exécution donnera :
 
@@ -325,6 +325,49 @@ Cette remarque se vaut dans la mesure où l'on souhaite itérer sur la *totalit�
 
 Approfondir le sujet sur stackoverflow : https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
 
+
+==== Directement avec un itérateur (_iterator_)
+
+En fait, toutes les collections sont itérables. Python dispose de 2 fonctions `iter` et `next` qui permettent de boucler sur les éléments d'une collection. 
+
+[source, python]
+----
+iterateur = iter(fruits)
+print(next(iterateur))
+print(next(iterateur))
+print(next(iterateur))
+----      
+
+Qui donnera :
+
+[source, bash]
+----
+tomates
+bananes
+kiwis
+----
+
+La fonction *next()* donne l'élément courant, et passe à l'élément suivant pour se préparer à son prochain appel. Un appel à next() alors que le dernier élément a déjà été atteint déclenchera une exception de type `StopIteration`
+
+Ainsi, peut-on reproduire ce que fait en réalité la structure de boucle `for`: 
+
+[source, python]
+----
+
+iterateur = iter(fruits)
+while(True) : <1> 
+  try:
+    fruit = next(iterateur)
+    print(fruit)
+  except StopIteration :
+    break <2>
+
+# equivalent à : for fruit in fruits : print(fruit) <3> 
+----      
+
+<1> Oh, boucle infinie !
+<2> Ouf, fort heureusement l'instruction `break` provoquera l'arrêt de la boucle lorsque que l'exception `StopIteration` sera déclenchée. 
+<3> Syntaxe à préférer !
 
 === EXERCICE 43
   

@@ -1,4 +1,13 @@
 = Python-1 intro type
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
 :imagesdir: ../assets/images
 
 == Python
@@ -62,7 +71,7 @@ Cette procédure peut être automatisée (la première instruction est équivale
 
 L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (ajout).
 
-=> La redirection du flux standard vers un fichier est une technique bien connue des hackers malveillants.
+=> La redirection du flux standard vers un fichier est une technique bien connue des hackers.
 ====
 
 == Documentation
@@ -196,7 +205,7 @@ Pour aller plus loin, voir : https://docs.python.org/fr/3/library/stdtypes.html#
 
 Vous trouverez ici https://docs.python.org/3/using/editors.html un inventaire de nombreux éditeurs.
 
-Voici ceux que vous devriez connaître :
+Voici une sélection :
 
 . `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
 . `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion, vérification de cohérence de type, débogueur intégré...), également utilisé pour le dev frontend. 
@@ -209,8 +218,7 @@ image::vscode-python.png[vscode]
 
 Un script python, appelé aussi "module", peut être utilisé directement, comme dans l'exemple `python3 tp1.py` ou intégré dans un autre module (via l'instruction `import`).
 
-Python vient avec de nombreux modules préinstallés. Vous pouvez en consulter la liste avec : `pip3 list -V`. Voir ici pour en savoir plus sur la gestion des modules : https://docs.python.org/fr/dev/installing/index.html
-
+Python vient avec de nombreux modules préinstallés. Vous pouvez en consulter la liste avec : `pip3 list -V`. Pour en utiliser d'autres, il faut préalablement les télécharger. Voir ici pour en savoir plus sur la gestion des modules : https://docs.python.org/fr/dev/installing/index.html
 
 Dans un premier temps, placez-vous dans un dossier de votre espace personnel dédié aux exercices en python.
 
@@ -237,7 +245,7 @@ if __name__ == "__main__": <3>
 ----
 
 <1> (optionnel) Shebang. Permet de rendre le script "directement" exécutable. voir https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
-<2> Définition d'une fonction nommée `exo2`, qui ne retourne "rien" avec sa chaîne de documentation
+<2> Définition d'une fonction nommée `exo2`, qui déclare ne "rien" retourner (`None`), avec sa chaîne de documentation
 <3> Si le script est utilisé directement (en argument de l'interpréteur python), alors la valeur de la variable `_\__main___` est "_\__main___", sinon il est utilisé en import dans un autre script et c'est le nom du script (module), sans son extension. Remarque : les noms de variables encadrés de 2 underscores (`__`) sont des variables système (pré)définies par l'interpréteur.
 <4> Importation du module `sys` (qui contient des fonctions système, dont `exit` utilisée plus loin)
 <5> Appel de la fonction `exo2`.
@@ -453,4 +461,4 @@ A l'issue de cette première séance de travaux pratiques, vous avez appris à *
 
 .*Travail à faire*
 . Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-LDV`, scope `p-1-intro`)
-. Proposer, pour le thème `PYTHON-LDV` (scope `p-1-intro`), 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+. Enrichir la base de données QCM. Pour cela, proposer, pour le thème `PYTHON-LDV` (scope `p-1-intro`), 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices. *Il est important d'associer un feedback à chacune des réponses proposées, qu'elles soient justes ou fausses*.

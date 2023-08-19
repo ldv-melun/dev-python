@@ -1,5 +1,15 @@
 = Python-2 intro
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
 :imagesdir: ../assets/images
+
 
 == Méta-modèle IPO
 
@@ -41,7 +51,7 @@ def signe(x: int) -> str: <1>
 <1> On précise ici le type du premier argument (premier paramètre) ainsi que le type de retour de la fonction (string). Cette possibilité a été introduite à partir de la version 3.5 de python. Cette information n'est pour l'heure pas exploitée par l'interpréteur. (voir https://docs.python.org/3/library/typing.html)
 
 <2> C'est une chaîne de documentation ("docstring"). Son but est de présenter le rôle de la fonction. C'est à destination des développeurs (pas de l'interpréteur). N'hésitez pas à mettre des exemples dans cette partie.
-<3> *elif*, une contraction de `else if`, c'est un des mots clés de python.
+<3> *elif*, une contraction de `else if`, c'est un des https://docs.python.org/fr/3/reference/lexical_analysis.html#keywords[mots clés] de python. 
 
 On pourra appeler autant de fois notre fonction `signe` avec la même valeur de donnée d'entrée, elle nous retournera toujours le même résultat.
 
