@@ -1,4 +1,4 @@
-= Python-1 intro type
+= Python-1 intro
 
 // https://github.com/asciidoctor/asciidoctor/issues/1808
 :isinclude:
