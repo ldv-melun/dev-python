@@ -326,9 +326,9 @@ Cette remarque se vaut dans la mesure où l'on souhaite itérer sur la *totalit�
 Approfondir le sujet sur stackoverflow : https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
 
 
-==== Directement avec un itérateur (_iterator_)
+==== Avec un itérateur (_iterator_)
 
-En fait, toutes les collections sont itérables. Python dispose de 2 fonctions `iter` et `next` qui permettent de boucler sur les éléments d'une collection. 
+En fait, toutes les collections sont itérables. Python dispose de 2 fonctions `iter` et `next` qui permettent de boucler sur les éléments d'une collection (mais pas seulement) 
 
 [source, python]
 ----
@@ -347,7 +347,7 @@ bananes
 kiwis
 ----
 
-La fonction *next()* donne l'élément courant, et passe à l'élément suivant pour se préparer à son prochain appel. Un appel à next() alors que le dernier élément a déjà été atteint déclenchera une exception de type `StopIteration`
+La fonction *next()* donne l'élément suivant (le premier appel à `next` donne le premier élément). Un appel à next() alors que le dernier élément a déjà été atteint déclenchera une exception de type `StopIteration`.
 
 Ainsi, peut-on reproduire ce que fait en réalité la structure de boucle `for`: 
 
@@ -381,6 +381,18 @@ def note(scores : tuple) -> int <1>
 ----
 
 <1> Le paramètre est typé `tuple` plutôt que `list` car la fonction n'a pas vocation à modifier les éléments de la collection reçue en argument (voir <<_choisir_la_bonne_structure_de_données>>)
+
+[TIP]
+====
+ Une autre approche consiste à placer une étoile (`*`) en *préfixe du paramètre* (qui dénote un tuple)  -- une double étoile (`**`) dénote un dictionnaire. 
+ 
+`def note(*scores) -> int`
+
+Dans ce cas, il faut *omettre les parenthèses* englobant les *arguments*. Exemple:
+
+`note(100, 100, 100, 1000, 100) # 325`
+
+====
 
 .*Travail à faire*
 . Implémenter cette nouvelle fonction
@@ -456,7 +468,7 @@ recherche_elements_communs(['a', 'b'], ['x', 'b', 'y', 'z']) # retourne ['b']
 
 === EXERCICE 45
 
-Concevoir et tester une fonction qui prend en argument une liste de caractères (liste de chaînes de 1 caractère) et qui retourne une liste des éléments en doublons. Voici son *interface* :
+Concevoir et tester une fonction qui prend en argument une liste d'objets et qui retourne une liste des éléments en doublons. Voici son *interface* :
 
 `def doublons(liste : list) -> list`
 
@@ -477,7 +489,11 @@ doublons(['1','X','2','2','3','4','3','A','a','X']) # rend ['X', '2', '3']
 .. Définir une fonction de test pour cette fonction 
 
 
-=== EXERCICE 46
 
-TODO
+== Contrôler vos connaissances et contribuer aux QCMs
+
+. Contrôler vos connaissances sur https://quizbe.org/question?id-selected-topic=6[quizbe.org]. (choisir `PYTHON-1`, scope `p-2-collection`)
+. Proposer, pour le thème `PYTHON-LDV`, scope `p-2-collection`, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d'exercices.
+
+
 

@@ -498,6 +498,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_déclaration_de_variables_collection">Déclaration de variables Collection</a></li>
 <li><a href="#_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</a></li>
 <li><a href="#_itérer_sur_tous_les_éléments_dune_collection">Itérer sur tous les éléments d&#8217;une collection</a></li>
+<li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_4">Contrôler vos connaissances et contribuer aux QCMs</a></li>
 </ul>
 </li>
 <li><a href="#_glossaire">Glossaire</a></li>
@@ -3003,9 +3004,9 @@ for index in range(len(fruits)):
 </div>
 </div>
 <div class="sect4">
-<h5 id="_directement_avec_un_itérateur_iterator">Directement avec un itérateur (<em>iterator</em>)</h5>
+<h5 id="_avec_un_itérateur_iterator">Avec un itérateur (<em>iterator</em>)</h5>
 <div class="paragraph">
-<p>En fait, toutes les collections sont itérables. Python dispose de 2 fonctions <code>iter</code> et <code>next</code> qui permettent de boucler sur les éléments d&#8217;une collection.</p>
+<p>En fait, toutes les collections sont itérables. Python dispose de 2 fonctions <code>iter</code> et <code>next</code> qui permettent de boucler sur les éléments d&#8217;une collection (mais pas seulement)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3026,7 +3027,7 @@ kiwis</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>La fonction <strong>next()</strong> donne l&#8217;élément courant, et passe à l&#8217;élément suivant pour se préparer à son prochain appel. Un appel à next() alors que le dernier élément a déjà été atteint déclenchera une exception de type <code>StopIteration</code></p>
+<p>La fonction <strong>next()</strong> donne l&#8217;élément suivant (le premier appel à <code>next</code> donne le premier élément). Un appel à next() alors que le dernier élément a déjà été atteint déclenchera une exception de type <code>StopIteration</code>.</p>
 </div>
 <div class="paragraph">
 <p>Ainsi, peut-on reproduire ce que fait en réalité la structure de boucle <code>for</code>:</p>
@@ -3080,6 +3081,31 @@ while(True) : <i class="conum" data-value="1"></i><b>(1)</b>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
 <td>Le paramètre est typé <code>tuple</code> plutôt que <code>list</code> car la fonction n&#8217;a pas vocation à modifier les éléments de la collection reçue en argument (voir <a href="#_choisir_la_bonne_structure_de_données">Choisir la bonne structure de données</a>)</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Une autre approche consiste à placer une étoile (`*`) en *préfixe du paramètre* (qui dénote un tuple)  -- une double étoile (`**`) dénote un dictionnaire.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>def note(*scores) &#8594; int</code></p>
+</div>
+<div class="paragraph">
+<p>Dans ce cas, il faut <strong>omettre les parenthèses</strong> englobant les <strong>arguments</strong>. Exemple:</p>
+</div>
+<div class="paragraph">
+<p><code>note(100, 100, 100, 1000, 100) # 325</code></p>
+</div>
+</td>
 </tr>
 </table>
 </div>
@@ -3168,7 +3194,7 @@ note((100, 100)) # 100 (2 éléments)</pre>
 <div class="sect3">
 <h4 id="_exercice_45">EXERCICE 45</h4>
 <div class="paragraph">
-<p>Concevoir et tester une fonction qui prend en argument une liste de caractères (liste de chaînes de 1 caractère) et qui retourne une liste des éléments en doublons. Voici son <strong>interface</strong> :</p>
+<p>Concevoir et tester une fonction qui prend en argument une liste d&#8217;objets et qui retourne une liste des éléments en doublons. Voici son <strong>interface</strong> :</p>
 </div>
 <div class="paragraph">
 <p><code>def doublons(liste : list) &#8594; list</code></p>
@@ -3210,11 +3236,18 @@ note((100, 100)) # 100 (2 éléments)</pre>
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_exercice_46">EXERCICE 46</h4>
-<div class="paragraph">
-<p>TODO</p>
 </div>
+<div class="sect2">
+<h3 id="_contrôler_vos_connaissances_et_contribuer_aux_qcms_4">Contrôler vos connaissances et contribuer aux QCMs</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Contrôler vos connaissances sur <a href="https://quizbe.org/question?id-selected-topic=6">quizbe.org</a>. (choisir <code>PYTHON-1</code>, scope <code>p-2-collection</code>)</p>
+</li>
+<li>
+<p>Proposer, pour le thème <code>PYTHON-LDV</code>, scope <code>p-2-collection</code>, 2 questions QCM originales et personnelles, sur des thèmes couverts pas cette séquence d&#8217;exercices.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
