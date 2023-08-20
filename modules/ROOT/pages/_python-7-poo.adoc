@@ -1,4 +1,8 @@
 = Python-7 Poo
+// https://github.com/asciidoctor/asciidoctor/issues/1808
+:isinclude:
+
+ifeval::["{isinclude}" == "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -9,13 +13,17 @@ v0.1a, 2023-07-16 - Version asciidoc
 :toclevels: 4
 :source-highlighter: highlight.js
 :imagesdir: ../assets/images
-
+endif::[]
 
 == Changement de paradigme
 
 f(x) vs x.f()
 
-== Multi paradigmes
+mais fonction protocole : `len(object)` 
+
+(voir https://lucumr.pocoo.org/2011/7/9/python-and-pola/)
+
+== Multi paradigmes ?
 
 TODO
 

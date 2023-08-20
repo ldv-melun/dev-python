@@ -1,4 +1,8 @@
 = Python-6 Tests unitaires
+// https://github.com/asciidoctor/asciidoctor/issues/1808
+:isinclude:
+
+ifeval::["{isinclude}" == "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -9,7 +13,7 @@ v0.1a, 2023-07-16 - Version asciidoc
 :toclevels: 4
 :source-highlighter: highlight.js
 :imagesdir: ../assets/images
-
+endif::[]
 
 == Les tests
 
