@@ -523,7 +523,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Python est un langage inventé par le programmeur Guido van Rossum dans les années 90. C&#8217;est un projet open source et multi-plateformes.</p>
 </div>
 <div class="paragraph">
-<p>Python est un langage interprété, contrairement à d&#8217;autres, comme le C qui nécessite une phase de compilation qui produit une version exécutable pour une plateforme cible, le code source d&#8217;un programme Python est directement portable (l&#8217;analyse et sa traduction en langage machine se fait au cours de son lancement par un interpréteur Python).</p>
+<p>Python est un langage interprété, contrairement à d&#8217;autres, comme le C qui nécessite une phase de compilation qui produit une version exécutable pour une plateforme cible, le code source d&#8217;un programme Python est directement portable (l&#8217;analyse et sa traduction en langage machine se fait au cours de son lancement par un interpréteur Python lié à l&#8217;OS hôte).</p>
 </div>
 </div>
 <div class="sect2">
@@ -551,7 +551,7 @@ Python 3.10.6</code></pre>
 <p>Il suffit de lancer la commande <code>python3</code>, dans ce cas l&#8217;interpréteur attend la saisie de code, qu&#8217;il interprétera à partir du moment où il reçoit une donnée de fin de saisie (touche <code>Enter</code>)</p>
 </div>
 <div class="paragraph">
-<p>Pour sortir de ce mode, lancer la commande <code>CTRL + D</code>.</p>
+<p>Pour sortir de ce mode, lancer la commande <code>CTRL + D</code> (ou <code>CTRL + Z</code> sous windows).</p>
 </div>
 <div class="listingblock">
 <div class="title">Listing 2. Tester ce code</div>
@@ -574,13 +574,13 @@ Hello World
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>créer un fichier texte nommé tp1.py</p>
+<p>créer un fichier texte nommé <code>tp1.py</code></p>
 </li>
 <li>
-<p>inscrire l&#8217;instruction <strong>print('Hello World')̀</strong>,  comme seule ligne de ce fichier</p>
+<p>inscrire l&#8217;instruction <code>print('Hello World')</code> comme seule ligne de ce fichier</p>
 </li>
 <li>
-<p>sauvegarder le fichier tp1.py</p>
+<p>sauvegarder le fichier <code>tp1.py</code></p>
 </li>
 <li>
 <p>dans un terminal, lancer la commande : <code>python3 tp1.py</code>.</p>
@@ -688,7 +688,7 @@ Hello World
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>power(2, 16)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pow(2, 16)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -699,6 +699,17 @@ Hello World
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>int(2/5)</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>round(2/5)</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import math</code>
+<code>math.ceil(2/5)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -1221,6 +1232,18 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <div class="sect1">
 <h2 id="_python_2_intro_type">Python-2 intro - type</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images</p>
+</div>
 <div class="sect2">
 <h3 id="_méta_modèle_ipo">Méta-modèle IPO</h3>
 <div class="paragraph">
@@ -2154,6 +2177,18 @@ if (𝒙[4] == 𝒙[5]):
 <div class="sect1">
 <h2 id="_python_3_déboguer">Python-3 Déboguer</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images</p>
+</div>
 <div class="sect2">
 <h3 id="_quest_ce_que_le_débogage">Qu&#8217;est-ce que le débogage ?</h3>
 <div class="ulist">
@@ -2509,6 +2544,18 @@ Les assertions sont particulièrement utiles pour valider les entrées de foncti
 <div class="sect1">
 <h2 id="_python_4_collections">Python-4 Collections</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images</p>
+</div>
 <div class="sect2">
 <h3 id="_mise_en_condition">Mise en condition</h3>
 <div class="paragraph">
@@ -3360,7 +3407,7 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 <div id="footer">
 <div id="footer-text">
 Version 0.1a<br>
-Last updated 2023-08-12 18:19:04 +0200
+Last updated 2023-08-28 10:02:22 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

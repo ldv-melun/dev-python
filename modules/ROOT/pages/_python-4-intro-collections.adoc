@@ -1,7 +1,8 @@
 = Python-4 Collections
 // https://github.com/asciidoctor/asciidoctor/issues/1808
-:isinclude:
-
+ifdef::allbook[]
+:isinclude: true
+endif::allbook[]
 ifeval::["{isinclude}" == "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc

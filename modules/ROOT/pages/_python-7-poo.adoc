@@ -1,7 +1,8 @@
 = Python-7 Poo
 // https://github.com/asciidoctor/asciidoctor/issues/1808
-:isinclude:
-
+ifdef::allbook[]
+:isinclude: true
+endif::allbook[]
 ifeval::["{isinclude}" == "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
@@ -25,7 +26,8 @@ mais fonction protocole : `len(object)`
 
 == Multi paradigmes ?
 
-TODO
+Oui et non. En python tout est objet, même les foncions.
+
 
 === EXERCICE 70
 

@@ -1,9 +1,9 @@
 = Python-1 intro
-
 // https://github.com/asciidoctor/asciidoctor/issues/1808
-:isinclude:
-
-ifeval::["{isinclude}" == "true"]
+ifdef::allbook[]
+:isinclude: true
+endif::allbook[]
+ifeval::["{isinclude}" != "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -20,7 +20,7 @@ endif::[]
 
 Python est un langage inventé par le programmeur Guido van Rossum dans les années 90. C'est un projet open source et multi-plateformes.
 
-Python est un langage interprété, contrairement à d'autres, comme le C qui nécessite une phase de compilation qui produit une version exécutable pour une plateforme cible, le code source d'un programme Python est directement portable (l'analyse et sa traduction en langage machine se fait au cours de son lancement par un interpréteur Python).
+Python est un langage interprété, contrairement à d'autres, comme le C qui nécessite une phase de compilation qui produit une version exécutable pour une plateforme cible, le code source d'un programme Python est directement portable (l'analyse et sa traduction en langage machine se fait au cours de son lancement par un interpréteur Python lié à l'OS hôte).
 
 == Vérification de votre système
 
@@ -41,7 +41,7 @@ Python peut être lancé en mode interactif ou en mode script.
 
 Il suffit de lancer la commande `python3`, dans ce cas l'interpréteur attend la saisie de code, qu'il interprétera à partir du moment où il reçoit une donnée de fin de saisie (touche `Enter`)
 
-Pour sortir de ce mode, lancer la commande `CTRL + D`.
+Pour sortir de ce mode, lancer la commande `CTRL + D` (ou `CTRL + Z` sous windows).
 
 .Tester ce code
 [listing]
@@ -59,9 +59,9 @@ Dans ce mode (usage courant) le code source est placé dans un fichier text, ave
 .Tester cette procédure
 [start=1]
 ****
-. créer un fichier texte nommé tp1.py
-. inscrire l'instruction *print('Hello World')̀*,  comme seule ligne de ce fichier
-. sauvegarder le fichier tp1.py
+. créer un fichier texte nommé `tp1.py`
+. inscrire l'instruction `print('Hello World')` comme seule ligne de ce fichier
+. sauvegarder le fichier `tp1.py`
 . dans un terminal, lancer la commande : `python3 tp1.py`.
 +
 Vous devriez voir afficher `Hello World`
@@ -111,15 +111,27 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 |
 |
 
-|`power(2, 16)`
+|`pow(2, 16)`
 |
 |
+
 
 |`2/5, 2/5.0`
 |
 |
 
 |`int(2/5)`
+|
+|
+
+
+|`round(2/5)`
+|
+|
+
+
+|`import math`
+`math.ceil(2/5)`
 |
 |
 

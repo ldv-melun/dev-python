@@ -8,7 +8,7 @@ v0.1a, 2023-07-16 - Version asciidoc
 :toc: left
 :toclevels: 2
 :source-highlighter: highlight.js
-
+:allbook: true
 
 ifdef::env-github[]
 :tip-caption: :bulb:

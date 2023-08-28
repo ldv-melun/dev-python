@@ -11,6 +11,12 @@ voir le render (github pages) => https://ldv-melun.github.io/dev-python
 
 # Info à destination des contributeurs
 
-* Pour lancer la transformation en HTML, **dans un terminal**, lancer, **à partir de la racine**, le script `./process-asciidoc-to-html-github-pages.sh` (réalise les transformation asciidoc vers html dans le dossier de publication `/docs`)
+* Pour lancer la transformation en HTML, **dans un terminal**, lancer, **à partir de la racine**, le script `./process-asciidoc-to-html-github-pages.sh` (réalise les transformation asciidoc vers html dans le dossier de publication `/docs`).
+
+  Pour générer un chapitre uniquement, passer en argument le chemin relatif du fichier asciidoc. Exemple : 
+
+  `./process-asciidoc-to-html-github-pages.sh  modules/ROOT/pages/_python-1-intro.adoc` 
+
+  produira le rendu `docs/pages/_python-1-intro.html`, avec sa table des matières.
 
 * La structure de la ressource est "antora ready"
