@@ -3,7 +3,7 @@
 ifdef::allbook[]
 :isinclude: true
 endif::allbook[]
-ifeval::["{isinclude}" == "true"]
+ifeval::["{isinclude}" != "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices

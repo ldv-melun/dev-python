@@ -472,10 +472,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_déterminisme">Déterminisme</a></li>
 <li><a href="#_type_et_opérations">Type et opérations</a></li>
 <li><a href="#_types_numériques">Types numériques</a></li>
-<li><a href="#_chaine_de_caractères">Chaine de caractères</a></li>
+<li><a href="#_chaîne_de_caractères">Chaîne de caractères</a></li>
 <li><a href="#_travaux_pratiques">Travaux pratiques</a></li>
 <li><a href="#_type_booléen">Type booléen</a></li>
-<li><a href="#_travaux_pratiques_2">Travaux pratiques</a></li>
 <li><a href="#_type_chaîne_de_caractères_string">Type chaîne de caractères (string)</a></li>
 <li><a href="#_travaux_pratique">Travaux pratique</a></li>
 <li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_2">Contrôler vos connaissances et contribuer aux QCMs</a></li>
@@ -693,22 +692,23 @@ Hello World
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2/5, 2/5.0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2/3</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int(2/5)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int(2/3)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>round(2/5)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>round(2/3)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>import math</code>
+<code>math.ceil(2/3)</code>
 <code>math.ceil(2/5)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -720,31 +720,6 @@ Hello World
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>12%7</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2e3</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int(2e3)</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2e10</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2e-3</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>int(2e-3)</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -1232,18 +1207,6 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <div class="sect1">
 <h2 id="_python_2_intro_type">Python-2 intro - type</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Lycée Léonard de Vinci - Melun
-v0.1a, 2023-07-16 - Version asciidoc
-:description: support avec exercices
-:icons: font
-:listing-caption: Listing
-:toc-title: Table des matières
-:toc: left
-:toclevels: 4
-:source-highlighter: highlight.js
-:imagesdir: ../assets/images</p>
-</div>
 <div class="sect2">
 <h3 id="_méta_modèle_ipo">Méta-modèle IPO</h3>
 <div class="paragraph">
@@ -1349,16 +1312,16 @@ print(signe(0)) #</code></pre>
 <p>Nous avons constaté (Exercice 7) que les opérations sont dépendantes du type de la donnée sur laquelle elles travaillent.</p>
 </div>
 <div class="paragraph">
-<p>Il existe des types prédéfinis, dits natifs à l&#8217;interpréteur (<em>Built-in</em>). Ce sont les <strong>numériques</strong>, les <strong>séquences</strong>, les <strong>dictionnaires</strong>, les <strong>classes</strong>, les <strong>instances</strong> et les <strong>exceptions</strong>.</p>
+<p>Il existe des types prédéfinis, dits natifs à l&#8217;interpréteur (<em>Built-in</em>). Ce sont les types <strong><em>numériques</em></strong>, les <strong>séquences</strong>, les <strong>dictionnaires</strong>, les <strong>classes</strong>, les <strong>instances</strong> et les <strong>exceptions</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Python manipule des objets et certaines opérations sont prises en charge par plusieurs types d&#8217;objets ; en particulier, pratiquement tous les objets peuvent être comparés en égalité, testés en valeur de vérité (valeur booléenne) et convertis en une chaîne de caractères (avec la fonction <code>repr()</code> ou la fonction légèrement différente <code>str()</code>). Cette dernière est implicitement utilisée quand un objet est affiché par la fonction print().</p>
+<p>Python manipule des <strong>objets</strong> (un concept qui sera approfondi dans une prochaine section) et certaines opérations sont prises en charge par plusieurs types d&#8217;objets ; en particulier, pratiquement tous les objets peuvent être comparés en égalité, testés en valeur de vérité (valeur booléenne) et convertis en une chaîne de caractères (avec la fonction <code>repr()</code> ou la fonction légèrement différente <code>str()</code>). Cette dernière est implicitement utilisée quand un objet est affiché par la fonction <code>print()</code>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_types_numériques">Types numériques</h3>
 <div class="paragraph">
-<p>Il existe trois types numériques distincts : les <strong>entiers</strong> (<em>integers</em>), les nombres <strong>flottants</strong> (<em>floating point numbers</em>) et les nombres <strong>complexes</strong> (<em>complex numbers</em>). En outre, les <strong>booléens</strong> sont un sous-type des entiers. Les entiers ont une précision illimitée.</p>
+<p>Il existe trois types d&#8217;objets numériques : les <strong>entiers</strong> (<em>integers</em>), les nombres <strong>flottants</strong> (<em>floating point numbers</em>) et les nombres <strong>complexes</strong> (<em>complex numbers</em>). En outre, les <strong>booléens</strong> sont un sous-type des entiers. Les entiers ont une précision illimitée.</p>
 </div>
 <div class="paragraph">
 <p>Exemples d&#8217;opérations courantes (source : <a href="https://docsindex.python.org/fr/3/library/stdtypes.html#numeric-types-int-float-complex">documentation opérations</a>)
@@ -1366,7 +1329,7 @@ print(signe(0)) #</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_chaine_de_caractères">Chaine de caractères</h3>
+<h3 id="_chaîne_de_caractères">Chaîne de caractères</h3>
 <div class="paragraph">
 <p>Les données textuelles en Python sont manipulées avec des objets <code>str</code> ou <em>strings</em>. Les chaînes sont des <strong>séquences immuables</strong> de points de code Unicode (une suite ordonnée d&#8217;indice dans la table UNICODE).</p>
 </div>
@@ -1377,7 +1340,12 @@ print(signe(0)) #</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Une donnée <strong>immuable</strong> est une donnée qui <strong>ne peut pas être modifiée</strong> une fois créée.
+<div class="paragraph">
+<p>Une donnée <strong>immuable</strong> est une donnée qui <strong>ne peut pas être modifiée</strong> une fois créée.</p>
+</div>
+<div class="paragraph">
+<p>Les structures de type Collection seront abordées prochainement</p>
+</div>
 </td>
 </tr>
 </table>
@@ -1458,7 +1426,7 @@ Une donnée <strong>immuable</strong> est une donnée qui <strong>ne peut pas ê
 <p>Le type caractère n&#8217;existe pas en Python. <strong>Un caractère est une chaîne de un seul caractère</strong>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Challenge</strong> : Proposez une POC (preuve de concept) de cette remarque !</p>
+<p><strong>Challenge</strong> : Proposez un <em>POC</em> (preuve de concept) de cette remarque !</p>
 </div>
 </td>
 </tr>
@@ -1494,7 +1462,7 @@ Une donnée <strong>immuable</strong> est une donnée qui <strong>ne peut pas ê
 <div class="title">Listing 9. Exemple d&#8217;exécution</div>
 <div class="content">
 <pre>Entrez un caractère, svp : A
- # l'utilisateur choisit le caractère  'A'
+ # remarque : l'utilisateur choisit le caractère  'A'
  # le programme répond
 Le code du caractère est : 65
 Le caractère précédent  : @
@@ -1557,7 +1525,7 @@ Le caractère suivant : B</pre>
 <p>Vous pouvez consulter la discussion ici : <a href="https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python" class="bare">https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python</a></p>
 </div>
 <div class="paragraph">
-<p>Le déclenchement d&#8217;une exception provoque un <strong>arrêt brutal</strong> de l&#8217;interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire <code>try .. catch</code></p>
+<p>Le déclenchement d&#8217;une exception provoque un <strong>arrêt brutal</strong> de l&#8217;interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire <code>try .. catch</code>. En l&#8217;absence d&#8217;un contrôleur d&#8217;exception, l&#8217;application s&#8217;arrêtera de façon anormale.</p>
 </div>
 </td>
 </tr>
@@ -1575,7 +1543,17 @@ Le caractère suivant : B</pre>
 <p>L&#8217;utilisateur est invité à saisir un <strong>code</strong> de caractère</p>
 </li>
 <li>
-<p>Le programme affiche, dans un tableau, le caractère correspondant encadré à droite des 5 caractères suivants et à gauche des 5 caractères précédents à condition que leur code soit supérieur ou égal à celui du caractère <code>espace</code>.</p>
+<p>Le programme affiche, dans un tableau, le caractère correspondant encadré</p>
+<div class="ulist">
+<ul>
+<li>
+<p>à droite des 5 caractères suivants</p>
+</li>
+<li>
+<p>à gauche des 5 caractères précédents, à condition que leur code soit supérieur ou égal à celui du caractère <code>espace</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
@@ -1774,11 +1752,10 @@ True</code></pre>
 <p>Voir le tableau ici : <a href="https://docs.python.org/fr/3/library/stdtypes.html#comparisons" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#comparisons</a></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_travaux_pratiques_2">Travaux pratiques</h3>
 <div class="sect3">
-<h4 id="_exercice_24">EXERCICE 24</h4>
+<h4 id="_travaux_pratiques_2">Travaux pratiques</h4>
+<div class="sect4">
+<h5 id="_exercice_24">EXERCICE 24</h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 2. à renseigner</caption>
 <colgroup>
@@ -1856,6 +1833,7 @@ True</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1989,8 +1967,11 @@ Hello World</code></pre>
 <div class="sect3">
 <h4 id="_exercice_26">EXERCICE 26</h4>
 <div class="paragraph">
-<p>On vous demande de programmer le scénario suivant (fonction nommée <code>exo26</code>).</p>
+<p>On vous demande de programmer le scénario suivant (fonction nommée <code>exo26</code>) :</p>
 </div>
+<div class="exampleblock">
+<div class="title">Scénario exo 26</div>
+<div class="content">
 <div class="paragraph">
 <p>L&#8217;utilisateur est invité à entrer <strong>deux lignes</strong> de texte respectant chacune le format suivant :</p>
 </div>
@@ -2014,6 +1995,8 @@ Hello World</code></pre>
 <p>Le code produit est différent, les informations seront affichées en deux fois.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Exemples de scénarios à reproduire</p>
@@ -2105,15 +2088,20 @@ def process_data() :
 <div class="paragraph">
 <p>On se place dans le scénario A. Nous appellerons <strong>A'</strong> (A prime) ce scénario étendu. Le voici :</p>
 </div>
+<div class="exampleblock">
+<div class="title">Scénario exo 27</div>
+<div class="content">
 <div class="paragraph">
 <p><em>Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l&#8217;utilisateur souhaite une mise à jour du produit.
-<strong>Seuls les champs renseignés lors de cette seconde saisie seront mis à jour</strong>.</em></p>
+<strong>Seuls les champs renseignés (non vide) lors de cette seconde saisie seront mis à jour</strong>.</em></p>
+</div>
+</div>
 </div>
 <div class="olist arabic">
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Donner un exemple de scénario A', avec des valeurs comme dans l&#8217;énoncé.</p>
+<p>Donner un exemple de scénario <strong>A'</strong>, avec des valeurs comme dans l&#8217;énoncé.</p>
 </li>
 <li>
 <p>Implémenter et, bien entendu, tester le scénario A'</p>
@@ -2177,18 +2165,6 @@ if (𝒙[4] == 𝒙[5]):
 <div class="sect1">
 <h2 id="_python_3_déboguer">Python-3 Déboguer</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Lycée Léonard de Vinci - Melun
-v0.1a, 2023-07-16 - Version asciidoc
-:description: support avec exercices
-:icons: font
-:listing-caption: Listing
-:toc-title: Table des matières
-:toc: left
-:toclevels: 4
-:source-highlighter: highlight.js
-:imagesdir: ../assets/images</p>
-</div>
 <div class="sect2">
 <h3 id="_quest_ce_que_le_débogage">Qu&#8217;est-ce que le débogage ?</h3>
 <div class="ulist">
@@ -2544,18 +2520,6 @@ Les assertions sont particulièrement utiles pour valider les entrées de foncti
 <div class="sect1">
 <h2 id="_python_4_collections">Python-4 Collections</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Lycée Léonard de Vinci - Melun
-v0.1a, 2023-07-16 - Version asciidoc
-:description: support avec exercices
-:icons: font
-:listing-caption: Listing
-:toc-title: Table des matières
-:toc: left
-:toclevels: 4
-:source-highlighter: highlight.js
-:imagesdir: ../assets/images</p>
-</div>
 <div class="sect2">
 <h3 id="_mise_en_condition">Mise en condition</h3>
 <div class="paragraph">

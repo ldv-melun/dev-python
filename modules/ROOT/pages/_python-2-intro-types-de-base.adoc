@@ -3,7 +3,7 @@
 ifdef::allbook[]
 :isinclude: true
 endif::allbook[]
-ifeval::["{isinclude}" == "true"]
+ifeval::["{isinclude}" != "true"]
 Lycée Léonard de Vinci - Melun
 v0.1a, 2023-07-16 - Version asciidoc
 :description: support avec exercices
@@ -88,23 +88,27 @@ Une fonction pure a de nombreux avantages, dont celui de permettre la programmat
 
 Nous avons constaté (Exercice 7) que les opérations sont dépendantes du type de la donnée sur laquelle elles travaillent.
 
-Il existe des types prédéfinis, dits natifs à l'interpréteur (_Built-in_). Ce sont les *numériques*, les *séquences*, les *dictionnaires*, les *classes*, les *instances* et les *exceptions*.
+Il existe des types prédéfinis, dits natifs à l'interpréteur (_Built-in_). Ce sont les types *_numériques_*, les *séquences*, les *dictionnaires*, les *classes*, les *instances* et les *exceptions*.
 
-Python manipule des objets et certaines opérations sont prises en charge par plusieurs types d'objets ; en particulier, pratiquement tous les objets peuvent être comparés en égalité, testés en valeur de vérité (valeur booléenne) et convertis en une chaîne de caractères (avec la fonction `repr()` ou la fonction légèrement différente `str()`). Cette dernière est implicitement utilisée quand un objet est affiché par la fonction print().
+Python manipule des *objets* (un concept qui sera approfondi dans une prochaine section) et certaines opérations sont prises en charge par plusieurs types d'objets ; en particulier, pratiquement tous les objets peuvent être comparés en égalité, testés en valeur de vérité (valeur booléenne) et convertis en une chaîne de caractères (avec la fonction `repr()` ou la fonction légèrement différente `str()`). Cette dernière est implicitement utilisée quand un objet est affiché par la fonction `print()`.
 
 == Types numériques
 
-Il existe trois types numériques distincts : les *entiers* (_integers_), les nombres *flottants* (_floating point numbers_) et les nombres *complexes* (_complex numbers_). En outre, les *booléens* sont un sous-type des entiers. Les entiers ont une précision illimitée.
+Il existe trois types d'objets numériques : les *entiers* (_integers_), les nombres *flottants* (_floating point numbers_) et les nombres *complexes* (_complex numbers_). En outre, les *booléens* sont un sous-type des entiers. Les entiers ont une précision illimitée.
 
 Exemples d'opérations courantes (source : https://docsindex.python.org/fr/3/library/stdtypes.html#numeric-types-int-float-complex[documentation opérations])
 image:op-type-numerique.png[op et types numériques]
 
-== Chaine de caractères
+== Chaîne de caractères
 
 Les données textuelles en Python sont manipulées avec des objets `str` ou _strings_. Les chaînes sont des *séquences immuables* de points de code Unicode (une suite ordonnée d'indice dans la table UNICODE).
 
-TIP: Une donnée *immuable* est une donnée qui *ne peut pas être modifiée* une fois créée.
+[TIP]
+====
+Une donnée *immuable* est une donnée qui *ne peut pas être modifiée* une fois créée.
 
+Les structures de type Collection seront abordées prochainement
+====
 
 Les chaînes littérales peuvent être écrites de différentes manières :
 
@@ -140,7 +144,7 @@ Voir plus en détail ici : https://docs.python.org/fr/3/howto/unicode.html[pytho
 ====
 Le type caractère n'existe pas en Python. *Un caractère est une chaîne de un seul caractère*.
 
-*Challenge* : Proposez une POC (preuve de concept) de cette remarque !
+*Challenge* : Proposez un _POC_ (preuve de concept) de cette remarque !
 ====
 
 
@@ -158,7 +162,7 @@ Le type caractère n'existe pas en Python. *Un caractère est une chaîne de un 
 [listing]
 ----
 Entrez un caractère, svp : A
- # l'utilisateur choisit le caractère  'A'
+ # remarque : l'utilisateur choisit le caractère  'A'
  # le programme répond
 Le code du caractère est : 65
 Le caractère précédent  : @
@@ -201,7 +205,7 @@ raise ValueError('A very specific bad thing happened.')
 Vous pouvez consulter la discussion ici : https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
 [stackoverflow : manually-raising-throwing-an-exception-in-python]
 
-Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire `try .. catch` 
+Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétation du corps de la fonction dans lequel il est lancé, contrôlable par un gestionnaire `try .. catch`. En l'absence d'un contrôleur d'exception, l'application s'arrêtera de façon anormale.
 ====
 
 === EXERCICE 22
@@ -209,7 +213,9 @@ Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétati
 Concevoir une fonction nommée `exo22` qui respecte le scénario suivant :
 
 . L'utilisateur est invité à saisir un *code* de caractère
-. Le programme affiche, dans un tableau, le caractère correspondant encadré à droite des 5 caractères suivants et à gauche des 5 caractères précédents à condition que leur code soit supérieur ou égal à celui du caractère `espace`.
+. Le programme affiche, dans un tableau, le caractère correspondant encadré 
+** à droite des 5 caractères suivants 
+** à gauche des 5 caractères précédents, à condition que leur code soit supérieur ou égal à celui du caractère `espace`.
 
 === EXERCICE 23
 
@@ -347,9 +353,9 @@ https://docs.python.org/fr/3/library/stdtypes.html#boolean-operations-and-or-not
 
 Voir le tableau ici : https://docs.python.org/fr/3/library/stdtypes.html#comparisons
 
-== Travaux pratiques
+=== Travaux pratiques
 
-=== EXERCICE 24
+==== EXERCICE 24
 
 .à renseigner
 [cols="2,1,2", options="header"]
@@ -523,8 +529,11 @@ Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le typ
 
 === EXERCICE 26
 
-On vous demande de programmer le scénario suivant (fonction nommée `exo26`).
+On vous demande de programmer le scénario suivant (fonction nommée `exo26`) :
 
+[caption=""]
+.Scénario exo 26
+====
 L'utilisateur est invité à entrer *deux lignes* de texte respectant chacune le format suivant :
 [listing]
 ----
@@ -537,7 +546,7 @@ Il y a deux cas de figure :
 
 - Le code produit est le même, alors les informations ne seront affichées qu'une seule fois,
 - Le code produit est différent, les informations seront affichées en deux fois.
-
+====
 Exemples de scénarios à reproduire
 
 .Scénario A (même code produit pour les deux lignes)
@@ -615,12 +624,16 @@ def process_data() :
 
 On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Le voici : 
 
-_Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
-*Seuls les champs renseignés lors de cette seconde saisie seront mis à jour*._
 
+[caption=""]
+.Scénario exo 27
+====
+_Si le code produit est de nouveau saisi sur la deuxième ligne, alors on considère que l'utilisateur souhaite une mise à jour du produit.
+*Seuls les champs renseignés (non vide) lors de cette seconde saisie seront mis à jour*._
+====
 
 .*Travail à faire*
-. Donner un exemple de scénario A', avec des valeurs comme dans l'énoncé.
+. Donner un exemple de scénario *A'*, avec des valeurs comme dans l'énoncé.
 . Implémenter et, bien entendu, tester le scénario A'
 
 === EXERCICE HACKING 28

@@ -116,24 +116,26 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 |
 
 
-|`2/5, 2/5.0`
+|`2/3`
 |
 |
 
-|`int(2/5)`
+|`int(2/3)`
 |
 |
 
 
-|`round(2/5)`
+|`round(2/3)`
 |
 |
 
 
 |`import math`
+`math.ceil(2/3)`
 `math.ceil(2/5)`
 |
 |
+
 
 |`4%2`
 |
@@ -143,25 +145,6 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 |
 |
 
-|`2e3`
-|
-|
-
-|`int(2e3)`
-|
-|
-
-|`2e10`
-|
-|
-
-|`2e-3`
-|
-|
-
-|`int(2e-3)`
-|
-|
 
 |`float(40+2)`
 |
