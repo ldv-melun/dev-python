@@ -260,27 +260,29 @@ Pour d'autres façons d'opérer, voir ici : https://stackoverflow.com/questions/
 
 === Autres modèle d'itérations : 
 
-// ==== modèle idiomatique
+==== modèle idiomatique
 
-// [source, python]
-// ----
-// fruits = ['tomates', 'bananes', 'kiwis']
+C'est un modèle d'itération présenté dans https://docs.python-guide.org/writing/style/#idioms[le guide de l'auto-stoppeur python]  
 
-// for index, fruit in enumerate(fruits) : <1>
-//     print(index, fruit)  <2> 
-// ----
+[source, python]
+----
+fruits = ['tomates', 'bananes', 'kiwis']
 
-// <1> utilise la fonction native `enumerate`
-// <2> affiche l'index en plus de la valeur de l'élément 
+for index, fruit in enumerate(fruits) : <1>
+    print(index, fruit)  <2> 
+----
 
-// Qui donnera :
+<1> utilise la fonction native `enumerate` (pour les listes, ou tuples)
+<2> affiche l'index en plus de la valeur de l'élément 
 
-// [source, bash]
-// ----
-// 0 tomates
-// 1 bananes
-// 2 kiwis
-// ----
+Qui donnera :
+
+[source, bash]
+----
+0 tomates
+1 bananes
+2 kiwis
+----
 
 
 ==== Modèle "classique"

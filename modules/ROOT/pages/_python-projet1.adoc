@@ -1,0 +1,85 @@
+= Python-Projet 1
+// https://github.com/asciidoctor/asciidoctor/issues/1808
+ifdef::allbook[]
+:isinclude: true
+endif::allbook[]
+ifeval::["{isinclude}" != "true"]
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images
+endif::[]
+
+== Big Data et Web Scraping
+ 
+Le web regorge de données exposées, le plus souvent, au format HTML.
+
+Ces données peuvent être extraites des sites web. On parle alors de *_web scraping_*
+
+TIP: _Le web scraping est une technique d'extraction des données de sites Web par l'utilisation d'un script ou d'un programme dans le but de les transformer et les réutiliser dans un autre contexte comme l'enrichissement de bases de données, le référencement ou l'exploration de données._ (source : https://fr.wikipedia.org/wiki/Web_scraping[Web_scraping Wikipedia])
+
+Les IA sont très gourmandes de ces données, mais pas que.
+
+L'exploitation de données publiques ou privées est au coeur des systèmes décisionnels. C'est une branche à part entière de l'informatique.
+
+[NOTE]
+====
+Exemple de parcours https://www.univ-paris8.fr/-Master-Big-Data-et-fouille-de-donnees-BD- :
+
+_ développement de solutions Big Data, à l’aide des techniques les plus récentes de l’intelligence artificielle, de l’apprentissage automatique et de la fouille de données, et à l’aide d’architectures distribuées. Ils seront capables de comprendre et maîtriser le traitement des données structurées ou non, numériques et textuelles, pour dialoguer avec les experts métier, ainsi que les mathématiques appliquées nécessaires au domaine. La place de l’alternance est importante dans ce parcours. Attention, pour pouvoir entrer dans ce parcours en M2 il faut avoir obtenu l’option BD en M1._
+====
+
+== BeautifulSoup
+
+Beautiful Soup est un package Python pour parser (traiter) des documents `HTML` et `XML` (incluant des documents mal formés, i.e. balise on fermées par exemple, d'où le nom de _tag soup_). Une solution couramment utilisée pour du  web scraping.
+
+Beautiful Soup a été crée par Leonard Richardson, qui continue à contribuer à ce project.
+
+https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)
+
+== TP préparatoire
+
+À partir de l'exemple de code suivant, extrait de la document sur Wikipédia
+
+[source, python]
+----
+#!/usr/bin/env python3
+# Anchor extraction from HTML document
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
+    soup = BeautifulSoup(response, 'html.parser')
+    for anchor in soup.find_all('a'):
+        print(anchor.get('href', '/'))
+
+----
+
+Concevoir un script qui extrait les liens en `https` de la ressource web suivante : https://python-guide-fr.readthedocs.io/fr/latest/, sous la forme d'un document `HTML` bien formé.
+
+Exemple de lancement du script :
+
+[source, bash]
+----
+$ python3 tp-bs4-web-scraping.py > res.html
+----
+Exemple de résultat attendu 
+image:tp-web-scraping.png[web-scraping]
+
+*ATTENTION* : à l'image de cet exemple, le *texte des liens* sera tronqué au-delà d'une certaine longueur.
+
+
+== Projet Web Scraping
+
+À partir de l'expérience acquise au cours de ces moments passés à coder en Python, et en vous inspirant du travail réalisé à l'issu du dernier TP,  proposez (analyser, coder, tester) une application Python (sous la forme d'un script) qui extrait et met en forme des données d'un ou plusieurs site de votre choix.
+
+Vous placerez ce travail sous la forme d'un projet hébergé sur GitHub, en *mode public*,  et rédigerez votre *rapport* sous la forme d'un *README* de votre projet(markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et *servira de base à l'évaluation de votre projet*.
+
+#Date de rendu du projet : à déterminer#
+
+

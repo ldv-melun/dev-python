@@ -82,16 +82,21 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 
 == Documentation
 
-* Préférer le site officiel https://docs.python.org/fr/3/[docs.python.org] et https://stackoverflow.com/questions/tagged/python[stackoverflow dédié à python].
+* Préférer le site officiel https://docs.python.org/fr/3/[docs.python.org] et https://stackoverflow.com/questions/tagged/python[stackoverflow].
 
-* L'usage des commandes de l'interpréteur Python `help()` et `dir()`.
+* Consulter la documentation technique des objets du langages `help()` (et `dir()`).
 ** la fonction help() extrait des chaînes de documentation (modules, fonctions et méthodes). Exemples :
 *** `help(print)`
 *** `help(sys.exit)` (le module `sys` doit être importé avant cette commande)
 
-<<<
-== Exercices en mode interactif
+* Consulter régulièrement le référentiel de bonnes pratiques de programmation en python :
+** https://pep8.org/[Style Guide for Python Code] - par Kenneth Reitz et Tanya Schlusser
+** https://python-guide-fr.readthedocs.io/fr/latest/[Le guide de l’auto-stoppeur pour Python] - par https://kennethreitz.org/[Kenneth Reitz]
 
+<<<
+== Mode interactif
+
+=== EXERCICE 1
 . Lancez l'interpréteur dans un terminal
 . Tester une à une les expressions suivantes et essayez d'expliquer ce qui se passe dans chacun des cas. N'hésitez pas à échanger entre vous et à chercher des explications en ligne. Le langage python est utilisé par une grande communauté internationale. Voir le tableau de correspondances opérateur-fonction : https://docs.python.org/fr/3/library/operator.html#mapping-operators-to-functions
 
@@ -197,7 +202,7 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 
 |===
 
-Pour aller plus loin, voir : https://docs.python.org/fr/3/library/stdtypes.html#typesseq
+Les opérations associées aux structures de données de type _conteneur_ seront étudiées plus loin. Pour les curieux, voir : https://docs.python.org/fr/3/library/stdtypes.html#typesseq
 
 
 <<<
