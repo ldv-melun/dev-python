@@ -1,0 +1,116 @@
+= Git-GitHub&CO
+// https://github.com/asciidoctor/asciidoctor/issues/1808
+ifdef::allbook[]
+:isinclude: true
+endif::allbook[]
+ifeval::["{isinclude}" != "true"]
+Lycée Léonard de Vinci - Melun
+v0.1a, 2023-07-16 - Version asciidoc
+:description: support avec exercices
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matières
+:toc: left
+:toclevels: 4
+:source-highlighter: highlight.js
+:imagesdir: ../assets/images
+endif::[]
+
+== Présentation de Git
+
+.(source Wikipedia septembre-2023)
+`Git` est un logiciel de gestion de versions *décentralisé* (c'est important).
+
+C'est un logiciel libre et gratuit, créé en 2005 par Linus Torvalds, auteur du noyau Linux, et distribué selon les termes de la licence publique générale GNU version 2. Le principal contributeur actuel de Git, et ce depuis plus de 16 ans, est Junio C Hamano.
+
+`Git` est utilisé par des dizaines de millions de personnes, sur tous les environnements (Windows, Mac, Linux). `Git` est aussi le système à la base du célèbre site web `GitHub`, le plus important hébergeur de code informatique, mais il faut compter aussi avec d'autres solutions, parfois plus ouvertes comme https://gitlab.com/[`GitLab`] ou https://www.atlassian.com/fr/software/bitbucket[`BitBucket`]...
+
+
+`Git` n'est pas la seule solution de gestion de versions, les plus connues (et plus anciennes) sont : `Subversion`, `CVS`, `Perforce`, `ClearCase`...
+
+
+== Installation de Git
+
+La procédure dépend du système d'exploitation de la machine hôte.
+
+=== Vérification préalable
+
+Avant tout, vérifier que l'application `git` n'est pas déjà installée et opérationnelle sur votre machine.
+
+.Procédure indépendante de l'OS :
+. Ouvrir un terminal
+. Lancer la commande : `git --version`
+.. Exemple de réponse : `git version 2.34.1`
+
+
+Sous linux, vous pouvez, en plus, vérifier son emplacement par la commande : `which git`
+
+* réponse `/usr/bin/git`  (un binaire dans _unix system resources_ `/usr`)
+
+Si le système ne connaît pas `git`, alors suivre les instructions de son installation ci-après.
+
+=== Installation
+
+Sous ubuntu 22.04 : installer le paquet `git` (présent dans le dépôt initial)
+
+Puis tester l'installation en lançant la procédure <<_vérification_préalable>>
+
+
+=== Configuration
+
+Une fois l'installation réalisée, vous devez définir le compte `git` dit global.
+
+On suppose que vous êtes logué en tant que `bob`.
+
+Vérifier que vous êtes à la racine de votre compte : `pwd`
+
+La réponse attendue est : `/home/bob`
+
+Placez-vos dans le bon dossier si nécessaire.
+
+Vérifier le contenu du fichier `.gitconfig` (via la commande `cat .gitconfig`)
+
+Modifier son contenu en renseignant les données utilisateur : paramètre [user], champs `name` et `email` :
+
+[caption='']
+./home/bob/.gitconfig
+[source, yaml]
+----
+ [user]
+    email = emailuser
+    name = nomuser
+----
+
+Vérifier votre travail en lançant cette commande  dans un terminal : `git config -l --global`
+
+== Présentation de GitHub
+
+TODO
+
+== Création d'un compte GitHub
+
+TODO
+
+== GitHub travailler avec soi-même
+
+Test d'une sauvegarde/restauration
+
+TODO
+
+== GitHub et README du projet
+
+MarkDown vs asciidoc
+
+TODO
+
+== GitHub pages
+
+TODO
+
+
+== GitHub travailler avec les autres
+
+TODO
+
+
+
