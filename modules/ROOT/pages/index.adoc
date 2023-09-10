@@ -25,9 +25,13 @@ Ce support vise à introduire des concepts de base en programmation, avec une fo
 
 // <<<
 include::_python-1-intro.adoc[leveloffset=+1]
+
+////
 include::_python-2-intro-types-de-base.adoc[leveloffset=+1]
 include::_python-3-debogueur.adoc[leveloffset=+1]
 include::_python-4-intro-collections.adoc[leveloffset=+1]
 include::_python-projet1.adoc[leveloffset=+1]
+////
+
 include::glossaire.adoc[leveloffset=+1]
 
