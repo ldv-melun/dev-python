@@ -841,7 +841,7 @@ def exo2() -&gt; None : <i class="conum" data-value="2"></i><b>(2)</b>
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
 
-
+# le main (partie exécutée lors du lancement du programme)
 if __name__ == "__main__": <i class="conum" data-value="3"></i><b>(3)</b>
   import sys <i class="conum" data-value="4"></i><b>(4)</b>
   exo2() <i class="conum" data-value="5"></i><b>(5)</b>
@@ -907,9 +907,9 @@ if __name__ == "__main__": <i class="conum" data-value="3"></i><b>(3)</b>
 <h4 id="_exercice_3">EXERCICE 3</h4>
 <div class="paragraph">
 <p>On vous présente un programme exprimé en pseudo-langage
-et une traduction en Python. Après avoir pris connaissance
+ainsi qu&#8217;une traduction de ce programme en Python (<code>exo3()</code>). Après avoir pris connaissance
 de la version en pseudo-langage, recopier la traduction
-proposée en Python (code source ci-dessous) comme nouvelle fonction dans le script <code>tp1.py</code>.</p>
+proposée en Python (code source ci-dessous), à insérer à la suite de <code>exo2()</code> et <strong>avant la partie <code>main</code></strong>, comme nouvelle fonction dans le script <code>tp1.py</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Listing 4. Version pseudo-langage</div>
@@ -949,13 +949,13 @@ FinSi</pre>
 <div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
-<p>Intégrer la nouvelle fonction <code>exo3</code> dans le module <code>tp1.py</code></p>
+<p>Intégrer, comme indiqué (avant la partie <code>main</code>), la nouvelle fonction <code>exo3</code> dans le module <code>tp1.py</code>. Respecter l&#8217;indentation.</p>
 </li>
 <li>
-<p>Appeler cette fonction dans le <code>main</code> de <code>tp1.py</code>.</p>
+<p>Appeler cette fonction dans la partie <code>main</code> de <code>tp1.py</code>.</p>
 </li>
 <li>
-<p>Tester différentes valeurs afin de vérifier la justesse du code. (Si l&#8217;utilisateur ne saisit pas un nombre, le programme s&#8217;arrête brutalement - c&#8217;est normal, la gestion des cas d&#8217;erreurs sera abordée utlérieurement)</p>
+<p>Tester différentes valeurs afin de vérifier la justesse du code. (Si l&#8217;utilisateur ne saisit pas un nombre, le programme s&#8217;arrête brutalement - c&#8217;est normal, la gestion des cas d&#8217;erreurs sera abordée ultérieurement)</p>
 </li>
 </ol>
 </div>
@@ -963,7 +963,7 @@ FinSi</pre>
 <div class="sect3">
 <h4 id="_exercice_4">EXERCICE 4</h4>
 <div class="paragraph">
-<p>On souhaite proposer une variante de la fonction <code>exo2</code> de sorte que, si l&#8217;utilisateur ne fournit pas d&#8217;identité, le programme lui attribut d&#8217;office le nom "anonymous".</p>
+<p>On souhaite proposer une variante de la fonction <code>exo2</code>, sous la forme d&#8217;une nouvelle fonction nommée <code>exo4</code>, de sorte que, si l&#8217;utilisateur ne fournit pas d&#8217;identité, le programme lui attribut d&#8217;office le nom <strong>"anonymous"</strong>.</p>
 </div>
 <div class="paragraph">
 <p>Voici une version en pseudo-code founit par un de vos collègues.</p>
@@ -976,7 +976,7 @@ nom &lt;-- lire une chaîne de caractère au clavier
 Afficher("Entrez votre prenom svp :")
 prenom &lt;-- lire une chaîne de caractère au clavier
 Si nom est vide Alors
-  Afficher("Bonjour anonymus !")
+  Afficher("Bonjour Anonymous !")
 Sinon
   Afficher("Bonjour " + prenom + " " + nom + " !")
 FinSi</pre>
@@ -1068,7 +1068,7 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def somme(arg1: int, arg2: int) -&gt; Int :
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def somme(arg1: int, arg2: int) -&gt; int :
   """
     Return la somme des arguments
   """

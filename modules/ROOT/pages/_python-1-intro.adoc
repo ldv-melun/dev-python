@@ -214,7 +214,7 @@ Vous trouverez ici https://docs.python.org/3/using/editors.html un inventaire de
 Voici une sélection :
 
 . `vi` : l'éditeur incontournable, présent dans toutes les distributions linux. Il vous sauvera de situation délicate (intervention à distance sur un serveur)
-. `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion, vérification de cohérence de type, débogueur intégré...), également utilisé pour le dev frontend. 
+. `Visual Studio Code` et son https://code.visualstudio.com/docs/python/python-tutorial[plugin python] : léger mais suffisament complet pour démarrer avec python (complétion, vérification de cohérence de type, débogueur intégré...), également utilisé pour le dev frontend.
 . https://www.jetbrains.com/pycharm/[pyCharm], l'IDE à destination des professionnels (gain de productivité assuré)
 
 .Visual Studio Code avec le plugin Python, ouvert sur le dossier TPS
@@ -243,7 +243,7 @@ def exo2() -> None : <2>
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
 
-
+# le main (partie exécutée lors du lancement du programme)
 if __name__ == "__main__": <3>
   import sys <4>
   exo2() <5>
@@ -269,9 +269,9 @@ if __name__ == "__main__": <3>
 === EXERCICE 3
 
 On vous présente un programme exprimé en pseudo-langage
-et une traduction en Python. Après avoir pris connaissance
+ainsi qu'une traduction de ce programme en Python (`exo3()`). Après avoir pris connaissance
 de la version en pseudo-langage, recopier la traduction
-proposée en Python (code source ci-dessous) comme nouvelle fonction dans le script `tp1.py`.
+proposée en Python (code source ci-dessous), à insérer à la suite de `exo2()` et *avant la partie `main`*, comme nouvelle fonction dans le script `tp1.py`.
 
 .Version pseudo-langage
 [listing]
@@ -298,17 +298,17 @@ def exo3() -> None :
     print("Ce nombre est pair")
   else :
     print("Ce nombre est impair")
-  
+
 ----
 
 .*Travail à faire*
-. Intégrer la nouvelle fonction `exo3` dans le module `tp1.py`
-. Appeler cette fonction dans le `main` de `tp1.py`.
-. Tester différentes valeurs afin de vérifier la justesse du code. (Si l'utilisateur ne saisit pas un nombre, le programme s'arrête brutalement - c'est normal, la gestion des cas d'erreurs sera abordée utlérieurement)
+. Intégrer, comme indiqué (avant la partie `main`), la nouvelle fonction `exo3` dans le module `tp1.py`. Respecter l'indentation.
+. Appeler cette fonction dans la partie `main` de `tp1.py`.
+. Tester différentes valeurs afin de vérifier la justesse du code. (Si l'utilisateur ne saisit pas un nombre, le programme s'arrête brutalement - c'est normal, la gestion des cas d'erreurs sera abordée ultérieurement)
 
 === EXERCICE 4
 
-On souhaite proposer une variante de la fonction `exo2` de sorte que, si l'utilisateur ne fournit pas d'identité, le programme lui attribut d'office le nom "anonymous".
+On souhaite proposer une variante de la fonction `exo2`, sous la forme d'une nouvelle fonction nommée `exo4`, de sorte que, si l'utilisateur ne fournit pas d'identité, le programme lui attribut d'office le nom *"anonymous"*.
 
 Voici une version en pseudo-code founit par un de vos collègues.
 
@@ -321,7 +321,7 @@ nom <-- lire une chaîne de caractère au clavier
 Afficher("Entrez votre prenom svp :")
 prenom <-- lire une chaîne de caractère au clavier
 Si nom est vide Alors
-  Afficher("Bonjour anonymus !")
+  Afficher("Bonjour Anonymous !")
 Sinon
   Afficher("Bonjour " + prenom + " " + nom + " !")
 FinSi
@@ -330,7 +330,7 @@ FinSi
 
 
 .*Travail à faire*
-. Étudier la version en pseudo-langage ci-dessus puis proposer une traduction fidèle en Python. 
+. Étudier la version en pseudo-langage ci-dessus puis proposer une traduction fidèle en Python.
 . Travaillez à partir d'une copie de la fonction `exo2` que vous nommerez `*exo4*`, puis appelez cette fonction dans le main.
 . Tester votre code
 
@@ -378,14 +378,14 @@ Cet exercice introduit la notion de type. En effet, toute variable est associée
 ----
 >>> x = 42
 >>> type(x)
-<class 'int'>   # <== le type de x est int 
+<class 'int'>   # <== le type de x est int
 ----
 
 Commençons par définir une fonction qui réalise une somme de 2 entiers reçues en argument. Nous appellerons cette fonction `somme`.
 
 [source, python]
 ----
-def somme(arg1: int, arg2: int) -> Int :
+def somme(arg1: int, arg2: int) -> int :
   """
     Return la somme des arguments
   """
