@@ -1008,10 +1008,8 @@ FinSi</pre>
 <div class="paragraph">
 <p>Proposez une amélioration de la fonction <code>exo4</code>, que vous nommerez <code>exo5</code>, qui respecte cette nouvelle logique.</p>
 </div>
-<div class="paragraph">
-<p><strong>Ce que vous devez faire :</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
 <ol class="arabic">
 <li>
 <p>Fournir d&#8217;abord une version en pseudo-langage</p>
@@ -1031,10 +1029,10 @@ FinSi</pre>
 <div class="sect3">
 <h4 id="_exercice_6">EXERCICE 6</h4>
 <div class="paragraph">
-<p>Transcrire le programme suivant en une fonction Python (nommée <code>exo6</code>).</p>
+<p>Voici un programme écrit en pseudo-code :
+.Version pseudo-langage</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 7. Version pseudo-langage</div>
 <div class="content">
 <pre>n &lt;- 60
 m &lt;- 7
@@ -1046,8 +1044,16 @@ afficher("leur quotient est ", m/n)
 afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 </div>
 </div>
-<div class="paragraph">
+<div class="olist arabic">
+<div class="title"><strong>Travail à faire</strong></div>
+<ol class="arabic">
+<li>
+<p>Transcrire ce programme en une fonction Python (nommée <code>exo6</code>).</p>
+</li>
+<li>
 <p>Puis améliorer la fonction <code>exo6</code> de sorte que l&#8217;utilisateur puisse lui-même fournir des valeurs pour les zones mémoire référencées par les identificateurs <code>m</code> et <code>n</code>. Vérifier la justesse des sorties.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
@@ -1056,7 +1062,7 @@ afficher("le reste de la division entière m/n est ", m modulo n)</pre>
 <p>Cet exercice introduit la notion de type. En effet, toute variable est associée, à un instant <em>t</em>, à un et un seul type. Le type de la variable est déterminé par l&#8217;interpréteur au moment de l&#8217;affectation et peut être consulté à l&#8217;exécution par un appel à la fonction <code><strong>type</strong></code>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 8. Comment connaître le type d&#8217;une variable</div>
+<div class="title">Listing 7. Comment connaître le type d&#8217;une variable</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; x = 42
 &gt;&gt;&gt; type(x)
@@ -1215,7 +1221,7 @@ devrez créer, juste après la déclaration de <code>somme()</code>, une nouvell
 <br>
 Pour l&#8217;utilisateur, limite l&#8217;exploitation de la variable aux opérations définies sur ce type.</p>
 <div class="listingblock">
-<div class="title">Listing 9. La fonction 'type' retourne le type de son argument</div>
+<div class="title">Listing 8. La fonction 'type' retourne le type de son argument</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; type(42)
 &lt;class 'int'&gt;

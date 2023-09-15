@@ -343,8 +343,7 @@ Si l'utilisateur ne décline pas son identité à la demande de son nom, alors l
 
 Proposez une amélioration de la fonction `exo4`, que vous nommerez `exo5`, qui respecte cette nouvelle logique.
 
-*Ce que vous devez faire :*
-
+.*Travail à faire*
 . Fournir d'abord une version en pseudo-langage
 . Faire valider votre version par un professeur
 . Traduire votre version en Python (une nouvelle fonction nommée `exo5`)
@@ -352,8 +351,7 @@ Proposez une amélioration de la fonction `exo4`, que vous nommerez `exo5`, qui 
 
 === EXERCICE 6
 
-Transcrire le programme suivant en une fonction Python (nommée `exo6`).
-
+Voici un programme écrit en pseudo-code :
 .Version pseudo-langage
 [listing]
 ----
@@ -367,7 +365,9 @@ afficher("leur quotient est ", m/n)
 afficher("le reste de la division entière m/n est ", m modulo n)
 ----
 
-Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse lui-même fournir des valeurs pour les zones mémoire référencées par les identificateurs `m` et `n`. Vérifier la justesse des sorties.
+.*Travail à faire*
+. Transcrire ce programme en une fonction Python (nommée `exo6`).
+. Puis améliorer la fonction `exo6` de sorte que l'utilisateur puisse lui-même fournir des valeurs pour les zones mémoire référencées par les identificateurs `m` et `n`. Vérifier la justesse des sorties.
 
 === EXERCICE 7
 
