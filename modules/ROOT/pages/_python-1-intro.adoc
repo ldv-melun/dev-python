@@ -236,12 +236,15 @@ Voici un code source d'un programme python respectant les conventions d'usage :
 [source, python, number]
 ----
 #!/usr/bin/env python3 <1>
+
 def exo2() -> None : <2>
   """
    exercice 2 du TP1
   """
   nom = input("Entrez votre nom : ")
   print("Bienvenue " + nom + " !")
+
+# vos autres fonctions ici (exo3() exo4() etc.)
 
 # le main (partie exécutée lors du lancement du programme)
 if __name__ == "__main__": <3>
