@@ -57,7 +57,7 @@ def signe(x: int) -> str: <1>
 <1> On précise ici le type du premier argument (premier paramètre) ainsi que le type de retour de la fonction (string). Cette possibilité a été introduite à partir de la version 3.5 de python. Cette information n'est pour l'heure pas exploitée par l'interpréteur. (voir https://docs.python.org/3/library/typing.html)
 
 <2> C'est une chaîne de documentation ("docstring"). Son but est de présenter le rôle de la fonction. C'est à destination des développeurs (pas de l'interpréteur). N'hésitez pas à mettre des exemples dans cette partie.
-<3> *elif*, une contraction de `else if`, c'est un des https://docs.python.org/fr/3/reference/lexical_analysis.html#keywords[mots clés] de python. 
+<3> *elif*, une contraction de `else if`, c'est un des https://docs.python.org/fr/3/reference/lexical_analysis.html#keywords[mots clés] de python.
 
 On pourra appeler autant de fois notre fonction `signe` avec la même valeur de donnée d'entrée, elle nous retournera toujours le même résultat.
 
@@ -79,9 +79,9 @@ print(signe(0)) #
 
 [TIP]
 ====
-Une fonction qui ne dépend que des valeurs de ses arguments pour réaliser son travail, sans impacter le système, est qualifiée de *fonction pure*. 
+Une fonction qui ne dépend que des valeurs de ses arguments pour réaliser son travail, sans impacter le système, est qualifiée de *fonction pure*.
 
-Une fonction pure a de nombreux avantages, dont celui de permettre la programmation parallèle. 
+Une fonction pure a de nombreux avantages, dont celui de permettre la programmation parallèle.
 ====
 
 == Type et opérations
@@ -124,7 +124,7 @@ Les chaînes entre guillemets triples peuvent couvrir plusieurs lignes, *tous le
 
 En python
 
-• La fonction *`ord()`* permet de connaître le code (ou indice) d'un caractère UNICODE. Une valeur d'indice dans la table UNICODE allant de 0 à 1114111 (0x10FFFF en base 16) 
+• La fonction *`ord()`* permet de connaître le code (ou indice) d'un caractère UNICODE. Une valeur d'indice dans la table UNICODE allant de 0 à 1114111 (0x10FFFF en base 16)
 • Inversement, la fonction *`chr()`* permet de connaître le caractère UNICODE associé à une valeur d'indice - voir https://docs.python.org/fr/3/library/functions.html#chr[documentation de la fonction chr]
 
 Exemple d'utilisation (d'appels) de ces fonctions :
@@ -213,8 +213,8 @@ Le déclenchement d'une exception provoque un *arrêt brutal* de l'interprétati
 Concevoir une fonction nommée `exo22` qui respecte le scénario suivant :
 
 . L'utilisateur est invité à saisir un *code* de caractère
-. Le programme affiche, dans un tableau, le caractère correspondant encadré 
-** à droite des 5 caractères suivants 
+. Le programme affiche, dans un tableau, le caractère correspondant encadré
+** à droite des 5 caractères suivants
 ** à gauche des 5 caractères précédents, à condition que leur code soit supérieur ou égal à celui du caractère `espace`.
 
 === EXERCICE 23
@@ -232,7 +232,7 @@ Exemple de 'langue' : https://en.wikipedia.org/wiki/Hangul_Syllables[Hangul_Syll
 44032
 
 # saute les 2 premiers caractères de la chaine 'U+AC00'
->>> int('U+AC00'[2:], base=16) 
+>>> int('U+AC00'[2:], base=16)
 44032
 
 >>> chr(44032)
@@ -249,9 +249,9 @@ Appeler cette fonction dans une nouvelle fonction nommée `exo23bis` et tester c
 
 Le type `bool` est sous-type de `int`, et définit 2 valeurs particulières : `True` et `False`, pour 1 et zéro respectivement.
 
-Testons ces caractéristiques annoncées via une fonction native de Python nommée `isinstance` qui prend 2 arguments : le premier est l'objet à tester, le second et un type (une classe). Elle rend vrai si le premier argument est du type du second. 
+Testons ces caractéristiques annoncées via une fonction native de Python nommée `isinstance` qui prend 2 arguments : le premier est l'objet à tester, le second et un type (une classe). Elle rend vrai si le premier argument est du type du second.
 
-Exemple : `isinstance("42", int)` rendra `False` car "42" est du type `str` et non `int`.    
+Exemple : `isinstance("42", int)` rendra `False` car "42" est du type `str` et non `int`.
 
 .POC : type bool is int
 [source, python]
@@ -298,13 +298,17 @@ En pratique, toute valeure *différente de zéro ou 'vide'* sera considérée co
 
 ==== Valeurs considérées comme `False`
 
-Seules quelques constantes littérales sont considérées comme fausse :
+Seules quelques valeurs sont considérées comme fausse :
 
-* `None` et `False`
+* *Zéro* de toute représentation et type numérique : `0, 0_000, 0.0, 0j, Decimal(0), Fraction(0, 1)`
+
+* Les chaînes et collections *vides* : `'', (), [], {}, set(), range(0)`.
+
+* *`None`* et *`False`*
 
 TIP: Affecter *`None`* à une variable est une façon de dire que cette variable n'a pas de valeur significative ou "n'a pas encore de valeur".
 
-.Exemple de POC
+.Exemple de POCs
 [source, python]
 ----
 >>> bool(False)
@@ -317,9 +321,6 @@ False
 True
 ----
 
-* zéro de toute représentation et type numérique : `0, 0_000, 0.0, 0j, Decimal(0), Fraction(0, 1)`
-
-* les chaînes et collections vides : `'', (), [], {}, set(), range(0)`.
 
 Les opérations et fonctions natives dont le résultat est booléen renvoient toujours `0` ou `False` pour faux et `1` ou `True` pour vrai, sauf indication contraire (exception importante : les opérations booléennes or et and renvoient toujours l'une de leurs opérandes).
 
@@ -476,7 +477,7 @@ Voici une liste à compléter, non exhaustive, d'opérations usuelles sur le typ
 |Exemple
 
 | Extraire le "caractère" 'H' (chaîne de longueur 1) de `x`
-| Utilisation de la notation `[]` en spécifiant la position de l'élément souhaité 
+| Utilisation de la notation `[]` en spécifiant la position de l'élément souhaité
 | `c = x[1]` # _'H' est le 2ième élément de la chaîne référencée par x (le premier est un espace)_
 
 
@@ -622,7 +623,7 @@ def process_data() :
 
 === EXERCICE 27
 
-On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Le voici : 
+On se place dans le scénario A. Nous appellerons *A'* (A prime) ce scénario étendu. Le voici :
 
 
 [caption=""]
