@@ -167,6 +167,11 @@ L'opérateur système `'>>'` dirige le flux standard en fin du fichier cible (aj
 |
 |
 
+
+3+|Par la suite des questions suivantes
+on considère que la variable `s` est initialisée à "samedi"
+
+
 |`s * 4`
 |
 |
