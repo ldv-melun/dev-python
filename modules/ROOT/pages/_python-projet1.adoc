@@ -30,14 +30,14 @@ L'exploitation de données publiques ou privées est au coeur des systèmes déc
 
 [NOTE]
 ====
-Exemple de parcours https://www.univ-paris8.fr/-Master-Big-Data-et-fouille-de-donnees-BD- :
+Exemple de parcours : https://www.univ-paris8.fr/-Master-Big-Data-et-fouille-de-donnees-BD- :
 
-_ développement de solutions Big Data, à l’aide des techniques les plus récentes de l’intelligence artificielle, de l’apprentissage automatique et de la fouille de données, et à l’aide d’architectures distribuées. Ils seront capables de comprendre et maîtriser le traitement des données structurées ou non, numériques et textuelles, pour dialoguer avec les experts métier, ainsi que les mathématiques appliquées nécessaires au domaine. La place de l’alternance est importante dans ce parcours. Attention, pour pouvoir entrer dans ce parcours en M2 il faut avoir obtenu l’option BD en M1._
+_développement de solutions Big Data, à l’aide des techniques les plus récentes de l’intelligence artificielle, de l’apprentissage automatique et de la fouille de données, et à l’aide d’architectures distribuées. Ils seront capables de comprendre et maîtriser le traitement des données structurées ou non, numériques et textuelles, pour dialoguer avec les experts métier, ainsi que les mathématiques appliquées nécessaires au domaine. La place de l’alternance est importante dans ce parcours. Attention, pour pouvoir entrer dans ce parcours en M2 il faut avoir obtenu l’option BD en M1._
 ====
 
 == BeautifulSoup
 
-Beautiful Soup est un package Python pour parser (traiter) des documents `HTML` et `XML` (incluant des documents mal formés, i.e. balise on fermées par exemple, d'où le nom de _tag soup_). Une solution couramment utilisée pour du  _web scraping_.
+Beautiful Soup est un package Python pour parser (traiter) des documents `HTML` et `XML` (incluant des documents mal formés, i.e. balise non fermées par exemple, d'où le nom de _tag soup_). Une solution couramment utilisée pour du _web scraping_.
 
 Beautiful Soup a été crée par Leonard Richardson, qui continue à contribuer à ce project.
 
@@ -77,6 +77,7 @@ image:tp-web-scraping.png[web-scraping]
 
 *ATTENTION* : à l'image de cet exemple, le *texte des liens* sera tronqué au-delà d'une certaine longueur.
 
+.Exemple du document res.html généré par votre programme :
 [source, html]
 ----
 <!DOCTYPE html>
@@ -107,11 +108,12 @@ image:tp-web-scraping.png[web-scraping]
 ====
 Conseil méthodologique.
 
-Allez-y par étapes :
+Allez-y progressivement, par étapes (c'est la méthode clé pour programmer). 
 
+.Exemple de décomposition :
 . Extraire en premier tous les liens des balises `a`, en plaçant ces liens comme item d'un liste, exemple : `<ul> <li> lien1 </li> <li> lien 2 </li> etc. </ul>`. Prendre soin de placer cette liste dans le `<body>` d'une structure `html` bien formée.
 . Puis ne retenir que les liens commençant par `https`
-. Enfin tronquer le *texte des liens* en plaçant 3 points de suspension en fin de chaîne (voir l'exemple)
+. Enfin tronquer le *texte des liens* en plaçant 3 points de suspension en fin de chaîne (voir le code de l'exemple ci-dessus)
 
 ====
 
