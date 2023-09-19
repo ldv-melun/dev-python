@@ -121,7 +121,7 @@ Allez-y progressivement, par étapes (c'est la méthode clé pour programmer).
 
 À partir de l'expérience acquise au cours de ces moments passés à coder en Python, et en vous inspirant du travail réalisé à l'issu du dernier TP,  proposez (analyser, coder, tester) une application Python (sous la forme d'un script) qui extrait et met en forme des données d'un ou plusieurs sites web de *votre choix*.
 
-Vous placerez ce travail sous la forme d'un projet hébergé sur GitHub, en *mode public*,  et rédigerez votre *rapport* sous la forme d'un *README* de votre projet (markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et *servira de base à l'évaluation de votre projet*.
+Vous placerez ce travail sous la forme d'un projet hébergé sur GitHub, en *mode public*,  et rédigerez votre *rapport* sous la forme d'un *README* de votre projet (markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et *servira de base à l'évaluation de votre projet*, et enrichira votre *portfolio* !
 
 #Date de rendu du projet : à déterminer#
 
