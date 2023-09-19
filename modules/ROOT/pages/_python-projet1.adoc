@@ -17,7 +17,7 @@ v0.1a, 2023-07-16 - Version asciidoc
 endif::[]
 
 == Big Data et Web Scraping
- 
+
 Le web regorge de données exposées, le plus souvent, au format HTML.
 
 Ces données peuvent être extraites des sites web. On parle alors de *_web scraping_*
@@ -37,7 +37,7 @@ _ développement de solutions Big Data, à l’aide des techniques les plus réc
 
 == BeautifulSoup
 
-Beautiful Soup est un package Python pour parser (traiter) des documents `HTML` et `XML` (incluant des documents mal formés, i.e. balise on fermées par exemple, d'où le nom de _tag soup_). Une solution couramment utilisée pour du  web scraping.
+Beautiful Soup est un package Python pour parser (traiter) des documents `HTML` et `XML` (incluant des documents mal formés, i.e. balise on fermées par exemple, d'où le nom de _tag soup_). Une solution couramment utilisée pour du  _web scraping_.
 
 Beautiful Soup a été crée par Leonard Richardson, qui continue à contribuer à ce project.
 
@@ -68,17 +68,28 @@ Exemple de lancement du script :
 ----
 $ python3 tp-bs4-web-scraping.py > res.html
 ----
-Exemple de résultat attendu 
+Exemple de résultat attendu
 image:tp-web-scraping.png[web-scraping]
 
 *ATTENTION* : à l'image de cet exemple, le *texte des liens* sera tronqué au-delà d'une certaine longueur.
 
+[TIP]
+====
+Conseil méthodologique.
+
+Allez-y par étapes :
+
+. Extraire en premier tous les liens des balises `a`, en plaçant ces liens comme item d'un liste, exemple : `<ul> <li> lien1 </li> <li> lien 2 </li> etc. </ul>`. Prendre soin de placer cette liste dans le `<body>` d'une structure `html` bien formée.
+. Puis ne retenir que les liens commençant par `https`
+. Enfin tronquer le *texte des liens* en plaçant 3 points de suspension en fin de chaîne (voir l'exemple)
+
+====
 
 == Projet Web Scraping
 
-À partir de l'expérience acquise au cours de ces moments passés à coder en Python, et en vous inspirant du travail réalisé à l'issu du dernier TP,  proposez (analyser, coder, tester) une application Python (sous la forme d'un script) qui extrait et met en forme des données d'un ou plusieurs site de votre choix.
+À partir de l'expérience acquise au cours de ces moments passés à coder en Python, et en vous inspirant du travail réalisé à l'issu du dernier TP,  proposez (analyser, coder, tester) une application Python (sous la forme d'un script) qui extrait et met en forme des données d'un ou plusieurs sites web de *votre choix*.
 
-Vous placerez ce travail sous la forme d'un projet hébergé sur GitHub, en *mode public*,  et rédigerez votre *rapport* sous la forme d'un *README* de votre projet(markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et *servira de base à l'évaluation de votre projet*.
+Vous placerez ce travail sous la forme d'un projet hébergé sur GitHub, en *mode public*,  et rédigerez votre *rapport* sous la forme d'un *README* de votre projet (markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et *servira de base à l'évaluation de votre projet*.
 
 #Date de rendu du projet : à déterminer#
 
