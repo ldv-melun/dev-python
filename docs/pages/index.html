@@ -3451,7 +3451,13 @@ with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
 </div>
 </div>
 <div class="paragraph">
-<p>Concevoir un script qui extrait les liens en <code>https</code> de la ressource web suivante : <a href="https://python-guide-fr.readthedocs.io/fr/latest/" class="bare">https://python-guide-fr.readthedocs.io/fr/latest/</a>, sous la forme d&#8217;un document <code>HTML</code> bien formé.</p>
+<p>Concevoir un script qui extrait les liens en <code>https</code> de la ressource web suivante :</p>
+</div>
+<div class="paragraph">
+<p><a href="https://python-guide-fr.readthedocs.io/fr/latest/" class="bare">https://python-guide-fr.readthedocs.io/fr/latest/</a></p>
+</div>
+<div class="paragraph">
+<p>sous la forme d&#8217;un document <code>HTML</code> bien formé.</p>
 </div>
 <div class="paragraph">
 <p>Exemple de lancement du script :</p>
@@ -3467,6 +3473,31 @@ with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
 </div>
 <div class="paragraph">
 <p><strong>ATTENTION</strong> : à l&#8217;image de cet exemple, le <strong>texte des liens</strong> sera tronqué au-delà d&#8217;une certaine longueur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+ &lt;meta name="viewport" content="width=500, initial-scale=1" /&gt;
+ &lt;style&gt;&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Exemple de web scraping&lt;/h1&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide" target="_blank"&gt;https://github.com/kennethreitz/python-guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/python-guide-fr/python-guide/issues" target="_blank"&gt;https://github.com/python-guide-fr/python-guide/issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.transifex.com/python-guide-fr/python-guide-fr/" target="_blank"&gt;https://www.transifex.com/python-guide-fr/python-guide-fr/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://twitter.com/kennethreitz" target="_blank"&gt;https://twitter.com/kennethreitz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/1491933178/ref=as_li_ss_il?ie=UTF8&amp;linkCode=li2&amp;tag=bookforkind-20&amp;linkId=804806ebdacaf3b56567347f3afbdbca" target="_blank"&gt;https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/14...&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://djangogirls.org" target="_blank"&gt;https://djangogirls.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kennethreitz/records" target="_blank"&gt;https://github.com/kennethreitz/records&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide/graphs/contributors" target="_blank"&gt;https://github.com/kennethreitz/python-guide/graphs/contributors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pdf" target="_blank"&gt;https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pd...&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide" target="_blank"&gt;https://github.com/kennethreitz/python-guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>

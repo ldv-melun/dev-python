@@ -60,7 +60,11 @@ with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
 
 ----
 
-Concevoir un script qui extrait les liens en `https` de la ressource web suivante : https://python-guide-fr.readthedocs.io/fr/latest/, sous la forme d'un document `HTML` bien formé.
+Concevoir un script qui extrait les liens en `https` de la ressource web suivante :
+ 
+https://python-guide-fr.readthedocs.io/fr/latest/
+ 
+sous la forme d'un document `HTML` bien formé.
 
 Exemple de lancement du script :
 
@@ -72,6 +76,32 @@ Exemple de résultat attendu
 image:tp-web-scraping.png[web-scraping]
 
 *ATTENTION* : à l'image de cet exemple, le *texte des liens* sera tronqué au-delà d'une certaine longueur.
+
+[source, html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=500, initial-scale=1" />
+ <style></style>
+</head>
+<body>
+<h1>Exemple de web scraping</h1>
+<ul><li><a href="https://github.com/kennethreitz/python-guide" target="_blank">https://github.com/kennethreitz/python-guide</a></li>
+<li><a href="https://github.com/python-guide-fr/python-guide/issues" target="_blank">https://github.com/python-guide-fr/python-guide/issues</a></li>
+<li><a href="https://www.transifex.com/python-guide-fr/python-guide-fr/" target="_blank">https://www.transifex.com/python-guide-fr/python-guide-fr/</a></li>
+<li><a href="https://twitter.com/kennethreitz" target="_blank">https://twitter.com/kennethreitz</a></li>
+<li><a href="https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/1491933178/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=bookforkind-20&linkId=804806ebdacaf3b56567347f3afbdbca" target="_blank">https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/14...</a></li>
+<li><a href="https://djangogirls.org" target="_blank">https://djangogirls.org</a></li>
+<li><a href="https://github.com/kennethreitz/records" target="_blank">https://github.com/kennethreitz/records</a></li>
+<li><a href="https://github.com/kennethreitz/python-guide/graphs/contributors" target="_blank">https://github.com/kennethreitz/python-guide/graphs/contributors</a></li>
+<li><a href="https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pdf" target="_blank">https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pd...</a></li>
+<li><a href="https://github.com/kennethreitz/python-guide" target="_blank">https://github.com/kennethreitz/python-guide</a></li>
+</ul>
+</body>
+</html>
+----
+
 
 [TIP]
 ====
