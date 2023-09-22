@@ -12,7 +12,12 @@ v0.1a, 2023-07-16 - Version asciidoc
 :toc-title: Table des matières
 :toc: left
 :toclevels: 4
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+endif::[]
+ifndef::backend-pdf[]
 :source-highlighter: highlight.js
+endif::[]
 :imagesdir: ../assets/images
 endif::[]
 

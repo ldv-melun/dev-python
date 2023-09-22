@@ -1,5 +1,10 @@
 = Glossaire
-
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+endif::[]
+ifndef::backend-pdf[]
+:source-highlighter: highlight.js
+endif::[]
 [glossary]
 
 variable::
