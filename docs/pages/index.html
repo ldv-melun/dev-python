@@ -590,14 +590,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_contrôler_vos_connaissances_et_contribuer_aux_qcms_4">Contrôler vos connaissances et contribuer aux QCMs</a></li>
 </ul>
 </li>
-<li><a href="#_python_projet_1">Python-Projet 1</a>
-<ul class="sectlevel2">
-<li><a href="#_big_data_et_web_scraping">Big Data et Web Scraping</a></li>
-<li><a href="#_beautifulsoup">BeautifulSoup</a></li>
-<li><a href="#_tp_préparatoire">TP préparatoire</a></li>
-<li><a href="#_projet_web_scraping">Projet Web Scraping</a></li>
-</ul>
-</li>
 <li><a href="#_glossaire">Glossaire</a></li>
 </ul>
 </div>
@@ -3375,178 +3367,6 @@ note((100, 100)) # 100 (2 éléments)</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_python_projet_1">Python-Projet 1</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_big_data_et_web_scraping">Big Data et Web Scraping</h3>
-<div class="paragraph">
-<p>Le web regorge de données exposées, le plus souvent, au format HTML.</p>
-</div>
-<div class="paragraph">
-<p>Ces données peuvent être extraites des sites web. On parle alors de <strong><em>web scraping</em></strong></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<em>Le web scraping est une technique d&#8217;extraction des données de sites Web par l&#8217;utilisation d&#8217;un script ou d&#8217;un programme dans le but de les transformer et les réutiliser dans un autre contexte comme l&#8217;enrichissement de bases de données, le référencement ou l&#8217;exploration de données.</em> (source : <a href="https://fr.wikipedia.org/wiki/Web_scraping">Web_scraping Wikipedia</a>)
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Les IA sont très gourmandes de ces données, mais pas que.</p>
-</div>
-<div class="paragraph">
-<p>L&#8217;exploitation de données publiques ou privées est au coeur des systèmes décisionnels. C&#8217;est une branche à part entière de l&#8217;informatique.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Exemple de parcours : <a href="https://www.univ-paris8.fr/-Master-Big-Data-et-fouille-de-donnees-BD-" class="bare">https://www.univ-paris8.fr/-Master-Big-Data-et-fouille-de-donnees-BD-</a> :</p>
-</div>
-<div class="paragraph">
-<p><em>développement de solutions Big Data, à l’aide des techniques les plus récentes de l’intelligence artificielle, de l’apprentissage automatique et de la fouille de données, et à l’aide d’architectures distribuées. Ils seront capables de comprendre et maîtriser le traitement des données structurées ou non, numériques et textuelles, pour dialoguer avec les experts métier, ainsi que les mathématiques appliquées nécessaires au domaine. La place de l’alternance est importante dans ce parcours. Attention, pour pouvoir entrer dans ce parcours en M2 il faut avoir obtenu l’option BD en M1.</em></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_beautifulsoup">BeautifulSoup</h3>
-<div class="paragraph">
-<p>Beautiful Soup est un package Python pour parser (traiter) des documents <code>HTML</code> et <code>XML</code> (incluant des documents mal formés, i.e. balise non fermées par exemple, d&#8217;où le nom de <em>tag soup</em>). Une solution couramment utilisée pour du <em>web scraping</em>.</p>
-</div>
-<div class="paragraph">
-<p>Beautiful Soup a été crée par Leonard Richardson, qui continue à contribuer à ce project.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser" class="bare">https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser</a>)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tp_préparatoire">TP préparatoire</h3>
-<div class="paragraph">
-<p>À partir de l&#8217;exemple de code suivant, extrait de la document sur Wikipédia</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">#!/usr/bin/env python3
-# Anchor extraction from HTML document
-from bs4 import BeautifulSoup
-from urllib.request import urlopen
-with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
-    soup = BeautifulSoup(response, 'html.parser')
-    for anchor in soup.find_all('a'):
-        print(anchor.get('href', '/'))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Concevoir un script qui extrait les liens en <code>https</code> de la ressource web suivante :</p>
-</div>
-<div class="paragraph">
-<p><a href="https://python-guide-fr.readthedocs.io/fr/latest/" class="bare">https://python-guide-fr.readthedocs.io/fr/latest/</a></p>
-</div>
-<div class="paragraph">
-<p>sous la forme d&#8217;un document <code>HTML</code> bien formé.</p>
-</div>
-<div class="paragraph">
-<p>Exemple de lancement du script :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ python3 tp-bs4-web-scraping.py &gt; res.html</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Exemple de résultat attendu
-<span class="image"><img src="../assets/images/tp-web-scraping.png" alt="web-scraping"></span></p>
-</div>
-<div class="paragraph">
-<p><strong>ATTENTION</strong> : à l&#8217;image de cet exemple, le <strong>texte des liens</strong> sera tronqué au-delà d&#8217;une certaine longueur.</p>
-</div>
-<div class="listingblock">
-<div class="title">Listing 19. Exemple du document res.html généré par votre programme :</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
- &lt;meta name="viewport" content="width=500, initial-scale=1" /&gt;
- &lt;style&gt;&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;Exemple de web scraping&lt;/h1&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide" target="_blank"&gt;https://github.com/kennethreitz/python-guide&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/python-guide-fr/python-guide/issues" target="_blank"&gt;https://github.com/python-guide-fr/python-guide/issues&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.transifex.com/python-guide-fr/python-guide-fr/" target="_blank"&gt;https://www.transifex.com/python-guide-fr/python-guide-fr/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://twitter.com/kennethreitz" target="_blank"&gt;https://twitter.com/kennethreitz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/1491933178/ref=as_li_ss_il?ie=UTF8&amp;linkCode=li2&amp;tag=bookforkind-20&amp;linkId=804806ebdacaf3b56567347f3afbdbca" target="_blank"&gt;https://www.amazon.com/Hitchhikers-Guide-Python-Practices-Development/dp/14...&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://djangogirls.org" target="_blank"&gt;https://djangogirls.org&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/kennethreitz/records" target="_blank"&gt;https://github.com/kennethreitz/records&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide/graphs/contributors" target="_blank"&gt;https://github.com/kennethreitz/python-guide/graphs/contributors&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pdf" target="_blank"&gt;https://media.readthedocs.org/pdf/python-guide-fr/latest/python-guide-fr.pd...&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/kennethreitz/python-guide" target="_blank"&gt;https://github.com/kennethreitz/python-guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Conseil méthodologique.</p>
-</div>
-<div class="paragraph">
-<p>Allez-y progressivement, par étapes (c&#8217;est la méthode clé pour programmer).</p>
-</div>
-<div class="olist arabic">
-<div class="title">Exemple de décomposition :</div>
-<ol class="arabic">
-<li>
-<p>Extraire en premier tous les liens des balises <code>a</code>, en plaçant ces liens comme item d&#8217;un liste, exemple : <code>&lt;ul&gt; &lt;li&gt; lien1 &lt;/li&gt; &lt;li&gt; lien 2 &lt;/li&gt; etc. &lt;/ul&gt;</code>. Prendre soin de placer cette liste dans le <code>&lt;body&gt;</code> d&#8217;une structure <code>html</code> bien formée.</p>
-</li>
-<li>
-<p>Puis ne retenir que les liens commençant par <code>https</code></p>
-</li>
-<li>
-<p>Enfin tronquer le <strong>texte des liens</strong> en plaçant 3 points de suspension en fin de chaîne (voir le code de l&#8217;exemple ci-dessus)</p>
-</li>
-</ol>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_projet_web_scraping">Projet Web Scraping</h3>
-<div class="paragraph">
-<p>À partir de l&#8217;expérience acquise au cours de ces moments passés à coder en Python, et en vous inspirant du travail réalisé à l&#8217;issu du dernier TP,  proposez (analyser, coder, tester) une application Python (sous la forme d&#8217;un script) qui extrait et met en forme des données d&#8217;un ou plusieurs sites web de <strong>votre choix</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Vous placerez ce travail sous la forme d&#8217;un projet hébergé sur GitHub, en <strong>mode public</strong>,  et rédigerez votre <strong>rapport</strong> sous la forme d&#8217;un <strong>README</strong> de votre projet (markdown ou asciidoc). Par conséquent ce rapport sera librement consultable par vos professeurs, et <strong>servira de base à l&#8217;évaluation de votre projet</strong>, et enrichira votre <strong>portfolio</strong> !</p>
-</div>
-<div class="paragraph">
-<p><mark>Date de rendu du projet : à déterminer</mark></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_glossaire">Glossaire</h2>
 <div class="sectionbody">
 <div class="dlist glossary">
@@ -3561,7 +3381,7 @@ with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
 <br>
 Pour l&#8217;utilisateur, limite l&#8217;exploitation de la variable aux opérations définies sur ce type.</p>
 <div class="listingblock">
-<div class="title">Listing 20. La fonction 'type' retourne le type de son argument</div>
+<div class="title">Listing 19. La fonction 'type' retourne le type de son argument</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">&gt;&gt;&gt; type(42)
 &lt;class 'int'&gt;
@@ -3702,7 +3522,7 @@ Exemple : <code>x = len(y)</code>, <code>len</code> est la fonction <strong>appe
 <div id="footer">
 <div id="footer-text">
 Version 0.1a<br>
-Last updated 2023-09-22 19:38:50 +0200
+Last updated 2023-09-28 12:54:45 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
