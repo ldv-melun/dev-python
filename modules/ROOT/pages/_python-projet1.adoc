@@ -65,11 +65,14 @@ with urlopen('https://en.wikipedia.org/wiki/Main_Page') as response:
 
 ----
 
-Concevoir un script qui extrait les liens en `https` de la ressource web suivante :
- 
+.*Travail à faire*
+* Concevoir un script qui extrait les liens en `https` de la ressource web suivante :
++ 
 https://python-guide-fr.readthedocs.io/fr/latest/
- 
-sous la forme d'un document `HTML` bien formé.
++ 
+sous la forme d'un document `HTML` bien formé. 
++
+Attention : Pour faciliter la consultation du résultat de l'extraction des liens https, *Le texte des liens* devra être tronqué s'il dépasse une certaine longueur (75 caractères)
 
 Exemple de lancement du script :
 
@@ -80,7 +83,7 @@ $ python3 tp-bs4-web-scraping.py > res.html
 Exemple de résultat attendu
 image:tp-web-scraping.png[web-scraping]
 
-*ATTENTION* : à l'image de cet exemple, le *texte des liens* sera tronqué au-delà d'une certaine longueur.
+*REAMRQUE* : Dans cet exemple, 2 *textes de lien* sont tronqués (et donc terminés par 3 points de suspension, comme la coutume l'impose afin d'en informer l'utilisateur).
 
 .Exemple du document res.html généré par votre programme :
 [source, html]
